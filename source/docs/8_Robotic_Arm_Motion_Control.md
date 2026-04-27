@@ -126,7 +126,7 @@ This section introduces the interface and functions of the host computer softwar
 
 1. **Launch from the Desktop Icon**
 
-   (1) Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image7.png" style="width:70px"  /> to open the command-line terminal. Before adjusting the deviation and robotic arm position, stop the app auto-start service first:
+   (1) Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image7.png" /> to open the command-line terminal. Before adjusting the deviation and robotic arm position, stop the app auto-start service first:
 
    ```
    sudo systemctl stop start_app_node.service
@@ -458,7 +458,7 @@ Or click the drop-down button in the action group selection bar to choose the im
 
 ### 8.1.8 Position and Orientation of the Robotic Arm in 3D Space
 
-1. Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image91.png" style="width:70px"  /> to open the command-line terminal. Enter the command below to stop the app auto-start service first:
+1. Double-click the desktop icon <img class="common_img" src="../_static/media/chapter_25/section_1/media/image91.png" style="width:70px"  /> to open the command-line terminal. Enter the command below to stop the app auto-start service first:
 
    ```
    sudo systemctl stop start_app_node.service
