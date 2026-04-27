@@ -1392,7 +1392,7 @@ Finally, when the camera detects an AprilTag marker, the corresponding 3D model 
 
 1. Power on the robot and connect it to the remote control software NoMachine. For instructions on connecting to the remote desktop, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup).
 
-2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png" class="common_img" style="width:60px;"/> on the desktop to open a terminal.
+2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png" style="width:60px;"/> on the desktop to open a terminal.
 
 3. Run the following command to stop the auto-start service.
 

@@ -466,7 +466,7 @@ Or click the drop-down button in the action group selection bar to choose the im
 
 2. Click the **Arm** icon on the desktop to launch the PC software.
 
-<img class="common_img" src="../_static/media/chapter_25/section_1/media/image70.png" style="width:200px" />
+<img src="../_static/media/chapter_25/section_1/media/image70.png" style="width:200px" />
 
 3. The robotic arm can move to a specified position and orientation in 3D space.
 
