@@ -1,9 +1,5 @@
 # 9\. Gazebo Simulation
 
-[TOC]
-
-
-
 <p id ="anther9.1"></p>
 
 ## 9.1 Virtual Machine Installation and Import

@@ -1,9 +1,5 @@
 # 8. ROS2 Robotic Arm Control
 
-[TOC]
-
-
-
 ## 8.1 Basic Robotic Arm Control
 
 <p id ="p10-1"></p>
@@ -164,9 +160,9 @@ This section introduces the interface and functions of the host computer softwar
 
    <img class="common_img" src="../_static/media/chapter_25/section_1/media/image11.png" style="width:800px"  />
 
-   > [!NOTE]
-   >
-   > **When any servo-related node is running, such as mapping and navigation features, the PC software or servo tool cannot be opened again because the serial port is already occupied.**
+> [!NOTE]
+>
+> **When any servo-related node is running, such as mapping and navigation features, the PC software or servo tool cannot be opened again because the serial port is already occupied.**
 
 3. **PC Software Interface Layout**
 

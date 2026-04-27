@@ -1,9 +1,5 @@
 # 10. Voice Control Course
 
-[TOC]
-
-
-
 ## 10.1 WonderEcho Pro Overview
 
 ### 10.1.1 WonderEcho Pro Introduction

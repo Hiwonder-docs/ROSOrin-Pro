@@ -1,9 +1,5 @@
 ﻿# 5. Mapping & Navigation Course
 
-[TOC]
-
-
-
 <p id ="anther5.1"></p>
 
 ## 5.1 Mapping Tutorial

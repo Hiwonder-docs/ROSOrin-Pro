@@ -1,9 +1,5 @@
 # 11\. Group Control
 
-[TOC]
-
-
-
 ## 11.1 Leader-Follower Configuration
 
 ### 11.1.1 Preparation

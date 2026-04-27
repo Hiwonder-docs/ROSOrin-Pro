@@ -1,9 +1,5 @@
 # 13. OpenClaw Applications
 
-[TOC]
-
-
-
 <p id ="anther13.1"></p>
 
 > [!NOTE]
@@ -19,7 +15,7 @@ Before running the examples, move the OpenClaw resource files to the correspondi
 
 <img src="../_static/media/chapter_26/section_1/image31.png" class="common_img" style="width:900px;"/>
 
-3. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+3. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 4. Enter the following command to extract the file to the corresponding path.
 
 ```bash
@@ -97,7 +93,7 @@ OpenClaw supports multiple large AI models. If a different model is selected, ob
 
 ### 13.2.2 API Configuration
 
-1. Use NoMachine to connect to the robot, then click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the interface to open a terminal.
+1. Use NoMachine to connect to the robot, then click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png"  style="width:60px;"/> on the left side of the interface to open a terminal.
 
 <img src="../_static/media/chapter_26/section_1/image16.png" class="common_img" style="width:600px;"/>
 
@@ -163,7 +159,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -358,7 +354,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -516,7 +512,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -598,7 +594,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * Adjust the color threshold in advance according to **[1. Tutorials/6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html)**.
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -930,7 +926,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * Adjust the color threshold in advance according to **[1. Tutorials/6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html)**.
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png"  style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -1201,7 +1197,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -1257,7 +1253,7 @@ After the feature starts, text commands can be entered freely in the TUI window 
 
 #### 13.4.3.4 Navigation Point Modification
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to go to the corresponding path.
 
 ```bash
@@ -1302,7 +1298,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -1440,7 +1436,7 @@ After the feature starts, text commands can be entered freely in the TUI window 
 >
 > **The modified navigation point IDs must be consistent with the ID numbers of the path points in route planning.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png"  style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to go to the corresponding path.
 
 ```bash
@@ -1537,7 +1533,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **Complete the debugging steps in [13.4.1.4 Step-by-Step Debugging](#anther13.4.1.4) successfully in advance.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to disable the app auto-start service.
 
 ```bash
@@ -1601,7 +1597,7 @@ After the feature starts, text commands can be entered freely in the TUI window 
 >
 > **The modified navigation point IDs must be consistent with the ID numbers of the path points in route planning.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png"  style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to go to the corresponding path.
 
 ```bash

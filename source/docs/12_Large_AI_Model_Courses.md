@@ -1,9 +1,5 @@
 # 12. Large AI Model Courses
 
-[TOC]
-
-
-
 ## 12.1 Large Models Basic Courses
 
 ### 12.1.1 Large Language Model Courses

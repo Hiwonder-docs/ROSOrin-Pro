@@ -1,9 +1,5 @@
 # 7. ROS+Machine Learning Course
 
-[TOC]
-
-
-
 ## 7.1 MediaPipe Human-Robot Interaction
 
 ### 7.1.1 MediaPipe Introduction and Getting Started

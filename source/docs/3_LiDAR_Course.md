@@ -1,9 +1,5 @@
 # 3. LiDAR Course
 
-[TOC]
-
-
-
 ## 3.1 LiDAR Introduction
 
 ### 3.1.1 Overview
@@ -106,7 +102,7 @@ For the app method, refer to [1.5 App Installation and Connection](https://wiki.
 
 1. Start the robot and connect it through NoMachine. For remote connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
-2. Click the terminal icon <img src="../_static/media/chapter_4\section_1/media/image15.png"  class="common_img" /> on the system desktop to open the command-line terminal.
+2. Click the terminal icon <img src="../_static/media/chapter_4\section_1/media/image15.png" /> on the system desktop to open the command-line terminal.
 
 3. Enter the following command and press **Enter** to stop the app auto-start service.
 

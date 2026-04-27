@@ -1,9 +1,5 @@
 ﻿# 6\. ROS+OpenCV Course
 
-[TOC]
-
-
-
 ## 6.1 Color Threshold Adjustment
 
 Various light sources can affect colors differently, leading to discrepancies in recognition. To address this issue, LAB TOOL is used to adjust the color threshold so that color recognition remains accurate and consistent.
