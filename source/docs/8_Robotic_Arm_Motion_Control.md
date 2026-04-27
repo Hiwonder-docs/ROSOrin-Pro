@@ -104,7 +104,7 @@ Refer to the image below for servo horn installation. Align it with the red cros
 
 For the interface layout and description, refer to the figure and table below.
 
-<img class="common_img" src="../_static/media/chapter_25/section_2/media/image7.png" style="width:800px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_2/media/image7.png" style="width:600px"  />
 
 | Pin |                    Description                     |
 | :--: | :------------------------------------------------: |
