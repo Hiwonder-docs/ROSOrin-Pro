@@ -458,7 +458,7 @@ Or click the drop-down button in the action group selection bar to choose the im
 
 ### 8.1.8 Position and Orientation of the Robotic Arm in 3D Space
 
-1. Double-click the desktop icon <img class="common_img" src="../_static/media/chapter_25/section_1/media/image91.png" style="width:70px"  /> to open the command-line terminal. Enter the command below to stop the app auto-start service first:
+1. Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image91.png" /> to open the command-line terminal. Enter the command below to stop the app auto-start service first:
 
    ```
    sudo systemctl stop start_app_node.service
@@ -554,7 +554,7 @@ After the adjustment standards are understood, servo deviation adjustment can be
 
 The detailed steps are as follows:
 
-1. Connect the robot, then click the <img class="inline-icon" src="../_static/media/chapter_25/section_2/media/image12.png" style="width:70px"  /> icon on the left taskbar to open the terminal.
+1. Connect the robot, then click the <img class="inline-icon" src="../_static/media/chapter_25/section_2/media/image12.png" /> icon on the left taskbar to open the terminal.
 
 2. Enter the following command in the terminal to stop the auto-start service:
 
@@ -666,7 +666,7 @@ First, a hand-recognition model needs to be built. Then, image data is obtained 
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image2.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image2.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -976,7 +976,7 @@ Sorting is carried out from the robot's first-person view after the color block 
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image9.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image9.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -1362,7 +1362,7 @@ The source code for this program is located at: **/home/ubuntu/ros2_ws/src/examp
 > **Commands are case-sensitive. The Tab key can be used for auto-completion.**
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image18.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image18.png"  /> to open the command-line terminal.
 3. Enter the following command to stop the app auto-start service:
 
 ```
@@ -1670,7 +1670,7 @@ The program recognizes red by default. The target color can be changed to green 
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image25.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image25.png"  /> to open the command-line terminal.
 
 3. Enter the following command and press **Enter** to go to the program directory:
 
@@ -1724,7 +1724,7 @@ The source code for this program is located at: **/home/ubuntu/ros2_ws/src/examp
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image30.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image30.png"  /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -2139,7 +2139,7 @@ The default recognition and gripping area of the program is the center of the im
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image37.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image37.png" /> to open the command-line terminal.
 
 3. Enter the following command to start the test program:
 
@@ -2179,7 +2179,7 @@ The source code for this program is located at: **/home/ubuntu/ros2_ws/src/examp
 
 1. Power on the robot and connect it to NoMachine. For information on remote desktop connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image40.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image40.png"  /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -2551,7 +2551,7 @@ Finally, after the target color block is recognized at the destination, the serv
 
 2. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-3. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image50.png" style="width:70px"  /> to open the command-line terminal.
+3. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image50.png" /> to open the command-line terminal.
 
 4. Enter the following command to stop the app auto-start service:
 
@@ -2844,7 +2844,7 @@ The default recognition and gripping area of the program is the center of the im
 
 1. Power on the robot and connect it to NoMachine.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image60.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_3/media/image60.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -2894,7 +2894,7 @@ During movement, a mobile robot may encounter downward steps, floor recesses, an
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image1.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image1.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -3140,7 +3140,7 @@ Crossing a narrow bridge involves multiple technologies, including balance contr
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image6.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image6.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -3426,7 +3426,7 @@ Object tracking enables vision-based object tracking and robot motion control. I
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image11.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image11.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -3712,7 +3712,7 @@ This feature combines depth vision and robot control to recognize and track an o
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image16.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image16.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
@@ -4165,7 +4165,7 @@ This function simulates industrial object-classification applications, allowing 
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to section **[1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup)** in the user manual.
 
-2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image21.png" style="width:70px"  /> to open the command-line terminal.
+2. Click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_4/media/image21.png" /> to open the command-line terminal.
 
 3. Enter the following command to stop the app auto-start service:
 
