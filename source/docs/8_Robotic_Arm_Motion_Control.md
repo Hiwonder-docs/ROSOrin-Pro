@@ -554,7 +554,7 @@ After the adjustment standards are understood, servo deviation adjustment can be
 
 The detailed steps are as follows:
 
-1. Connect the robot, then click the <img class="inline-icon" src="../_static/media/chapter_25/section_2/media/image12.png" /> icon on the left taskbar to open the terminal.
+1. Connect the robot, then click the <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image91.png" /> icon on the left taskbar to open the terminal.
 
 2. Enter the following command in the terminal to stop the auto-start service:
 
