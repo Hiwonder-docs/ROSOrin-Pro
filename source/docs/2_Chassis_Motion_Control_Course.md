@@ -1,9 +1,5 @@
 # 2\. Chassis Motion Control Course
 
-[TOC]
-
-
-
 ## 2.1 Motion Control
 
 ### 2.1.1 IMU Calibration
@@ -52,7 +48,7 @@ ros2 run imu_calib do_calib --ros-args -r imu:=/ros_robot_controller/imu_raw --p
 
 <img src="../_static/media/chapter_2/section_1/media/image7.png" style="width:600px" class="common_img" />
 
-<img src="../_static/media/chapter_2/section_1/media/imageimage8_1.png" style="width:100px" class="common_img" />
+<img src="../_static/media/chapter_2/section_1/media/image8_1.png" style="width:100px" class="common_img" />
 
 After each orientation is successfully calibrated, the following prompts will appear:
 
@@ -100,9 +96,9 @@ ros2 launch peripherals imu_view.launch.py
 
 14. Gently tilt the robot to check whether the model’s tilt direction matches the actual movement. Refer to the example below. If both directions align, the IMU calibration results are considered accurate.
 
-<img src="../_static/media/chapter_2/section_1/media/image22.png" style="width:300px" />
+<img src="../_static/media/chapter_2/section_1/media/image22.png" style="width:300px"  class="common_img" />
 
-<img src="../_static/media/chapter_2/section_1/media/image23.png" style="width:300px"  />
+<img src="../_static/media/chapter_2/section_1/media/image23.png" style="width:300px"   class="common_img" />
 
 ### 2.1.2 Angular Velocity Calibration
 
@@ -204,7 +200,7 @@ Press the key **i** to enter edit mode and modify the value of `angular_correctq
 
 3. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> in the system desktop to open a command-line window.
 
-4. Enter the following command and press Enter to stop the app auto-start service.
+4. Enter the following command and press **Enter** to stop the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service

@@ -1291,7 +1291,7 @@ Reference tutorial: [10.2.1.2 Preparation](p10-2-1-2)
 >
 > **When recognizing color blocks, make sure the background does not contain objects with similar or identical colors, as this may interfere with detection.**
 >
-> **If color recognition is inaccurate, adjust the color threshold in [ROS2 Course\6 ROS + OpenCV Course](./6.ROS+OpenCV课程.md).**
+> **If color recognition is inaccurate, adjust the color threshold in [6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html).**
 
 1. Power on the robot and connect it to NoMachine. For remote desktop installation and connection, refer to Section **[1.7.1.2 NoMachine Installation](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#nomachine-installation)** in the user manual.
 
@@ -2450,7 +2450,7 @@ By default, the recognition and gripping area is located at the center of the im
 
 The system uses the English wake-up phrase **Hello Hiwonder** by default. To use a different wake-up phrase or command, follow the steps below.
 
-1. Make sure the corresponding firmware is flashed first. Refer to the tutorial [12.4 Comprehensive Application of Large AI Models/12.4.1 Preparation](https://drive.google.com/drive/folders/1wMgjhEPXvvhT8t413858ExsnUFQ5fNAf?usp=sharing) in the **12. Large AI Model Courses** for detailed instructions.
+1. Make sure the corresponding firmware is flashed first. Refer to the tutorial [12.4 Comprehensive Application of Large AI Models/12.4.1 Preparation](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/12_Large_AI_Model_Courses.html#id31) in the **12. Large AI Model Courses** for detailed instructions.
 
    <img class="common_img" src="../_static/media/chapter_13/section_2/media/image89.png" style="width: 800px; zoom: 50%;"  />
 

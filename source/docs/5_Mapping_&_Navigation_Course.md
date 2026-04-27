@@ -1304,7 +1304,7 @@ For an introduction to the RTAB-VSLAM algorithm and its principles, refer to the
 sudo systemctl stop start_app_node.service
 ```
 
-3. Entering the following command and press Enter to start the navigation service.
+3. Enter the following command and press **Enter** to start the navigation service.
 
 ```bash
 ros2 launch navigation rtabmap_navigation.launch.py

@@ -268,7 +268,7 @@ The following steps explain how to run the built-in action groups in the softwar
 
 2. Click the **Open action file** button.
 
-<img class="common_img" src="../_static/media/chapter_25/section_1/media/image50.png" style="width:800px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_1/media/image50.png" style="width:600px"  />
 
 3. Select the action group to run, then click **Open**.
 
@@ -280,7 +280,7 @@ The following steps explain how to run the built-in action groups in the softwar
 
 5. First select action number **1**, then click the **Run** button to execute all actions in the current action detail list. To repeat the current action group, check the **Loop** option.
 
-<img class="common_img" src="../_static/media/chapter_25/section_1/media/image53.png" style="width:800px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_1/media/image53.png" style="width:700px"  />
 
 After clicking **Run**, the robotic arm executes the actions in the action group in a loop.
 
@@ -302,7 +302,7 @@ This section creates an action group that enables the robotic arm to **grasp the
 
    (2) Click **Reset servo** to return all servos to the central position.
 
-   <img class="common_img" src="../_static/media/chapter_25/section_1/media/image56.png" style="width:800px"  />
+   <img class="common_img" src="../_static/media/chapter_25/section_1/media/image56.png" style="width:600px"  />
 
    (3) Move each servo slider so the robotic arm bends down toward the left side. Set the values as shown below.
 
@@ -332,7 +332,7 @@ This section creates an action group that enables the robotic arm to **grasp the
 
    (9) Then add another transition action. Set the time to **200 ms**, click **Add action**, and Action 5 is created.
 
-   <img class="common_img" src="../_static/media/chapter_25/section_1/media/image64.png" style="width:800px"  />
+   <img class="common_img" src="../_static/media/chapter_25/section_1/media/image64.png" style="width:700px"  />
 
    (10) Next, lift the block to the target height. Set the time to **2000 ms**, then click **Add action** to create Action 6.
 
@@ -354,7 +354,7 @@ This section creates an action group that enables the robotic arm to **grasp the
 
 To make later debugging and management easier, the edited action group can be saved. Click the **Save action file** button, then select the following path: **ubuntu/software/arm_pc/ActionGroups**.
 
-<img class="common_img" src="../_static/media/chapter_25/section_1/media/image68.png" style="width:800px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_1/media/image68.png" style="width:600px"  />
 
 Use **font_pick** as the example name here. Click **Save** to store the action group.
 
@@ -374,7 +374,7 @@ Integrating action files means linking two action group files end-to-end to crea
 
 2. Click the **Integrate file** button in the action group settings area, then select the following path.
 
-    <img class="common_img" src="../_static/media/chapter_25/section_1/media/image72.png" style="width:800px"  />
+    <img class="common_img" src="../_static/media/chapter_25/section_1/media/image72.png" style="width:600px"  />
 
 3. In the pop-up window, select **place_left.d6a** and double-click to open it.
 
@@ -396,7 +396,7 @@ Integrating action files means linking two action group files end-to-end to crea
 
 7. Click the **Save action file** button to save the newly integrated action group for later debugging.
 
-<img class="common_img" src="../_static/media/chapter_25/section_1/media/image78.png" style="width:400px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_1/media/image78.png" style="width:300px"  />
 
 8. Enter a name for the new integrated action. The example name here is **left_right**.
 
@@ -446,7 +446,7 @@ Importing actions is performed in the same way as exporting. Drag the action gro
 
 5. Click the **Open action file** button, then select the path outlined below. The imported action file can then be found in the window that opens.
 
-    <img class="common_img" src="../_static/media/chapter_25/section_1/media/image87.png" style="width:800px"  />
+    <img class="common_img" src="../_static/media/chapter_25/section_1/media/image87.png" style="width:600px"  />
 
 6. Select the action group to run, then click **Open**.
 
@@ -512,15 +512,15 @@ This vehicle is equipped with a 6DOF robotic arm built from intellect bus servos
 
 ROSOrin Pro is equipped with a 6DOF robotic arm built from intellect bus servos and metal sheet components.
 
-<img class="common_img" src="../_static/media/chapter_25/section_2/media/image4.png" style="width: 500px; zoom: 67%;"  />
+<img class="common_img" src="../_static/media/chapter_25/section_2/media/image4.png" style="width: 400px; zoom: 67%;"  />
 
-<img class="common_img" src="../_static/media/chapter_25/section_2/media/image6.png" style="width: 500px; zoom: 50%;"  />
+<img class="common_img" src="../_static/media/chapter_25/section_2/media/image6.png" style="width: 400px; zoom: 50%;"  />
 
 The 6DOF robotic arm on ROSOrin Pro is made up of six intellect bus servos: HTS-21H for the gripper and HX-12H bus servos for the arm body and pan-tilt.
 
 Bus servos use serial communication and connect multiple servos to the control system through a single bus. Multiple servos can be daisy-chained through one I/O port. Compared with digital servos, bus servos offer higher precision at a slightly higher cost. The interface layout and description are shown below, using the HX-12H servo as the example.
 
-<img class="common_img" src="../_static/media/chapter_25/section_2/media/image7.png" style="width:600px"  />
+<img class="common_img" src="../_static/media/chapter_25/section_2/media/image7.png" style="width:500px"  />
 
 | Pin  |                      Pin Description                       |
 | :--: | :--------------------------------------------------------: |
@@ -576,13 +576,13 @@ For the **arm** software interface and related content, refer to **[8.1 Basic Ro
 
 4. Click the **Reset servo** button and check the robotic arm. Servo 3 can be seen to have a deviation.
 
-   <img class="common_img" src="../_static/media/chapter_25/section_2/media/image15.png" style="width: 500px; zoom: 67%;"  />
+   <img class="common_img" src="../_static/media/chapter_25/section_2/media/image15.png" style="width: 400px; zoom: 67%;"  />
 
    <img class="common_img" src="../_static/media/chapter_25/section_2/media/image11.png" style="width: 800px; zoom: 67%;"  />
 
 5. Click the **Read deviation** button to obtain the current deviation values of the servos mounted on the robotic arm.
 
-   <img class="common_img" src="../_static/media/chapter_25/section_2/media/image17.png" style="width: 500px; zoom: 67%;"  />
+   <img class="common_img" src="../_static/media/chapter_25/section_2/media/image17.png" style="width: 400px; zoom: 67%;"  />
 
 6. After the **success!** pop-up appears, click **OK**.
 
@@ -618,7 +618,7 @@ For the **arm** software interface and related content, refer to **[8.1 Basic Ro
 
 13. Then click **Run action** to run the **init** action group.
 
-    <img class="common_img" src="../_static/media/chapter_25/section_2/media/image25.png" style="width: 800px; zoom: 50%;"  />
+    <img class="common_img" src="../_static/media/chapter_25/section_2/media/image25.png" style="width: 600px; zoom: 50%;"  />
 
     After clicking, the robot's state is shown below.
 
@@ -634,7 +634,7 @@ For the **arm** software interface and related content, refer to **[8.1 Basic Ro
 
 **A:** A mechanical limit has been set for the gripper on the robotic arm. This means the gripper driven by Servo 10 reaches its mechanical limit when the position set through the host computer exceeds **700**. At that point, the gripper can no longer close further, and the servo may be damaged. Adjustment only needs to be made in the opposite direction.
 
-<img class="common_img" src="../_static/media/chapter_25/section_2/media/image28.png" style="width: 500px; zoom: 67%;"  />
+<img class="common_img" src="../_static/media/chapter_25/section_2/media/image28.png" style="width: 300px; zoom: 67%;"  />
 
 The recommended adjustment range for Servo 10 is **200 to 700**.
 

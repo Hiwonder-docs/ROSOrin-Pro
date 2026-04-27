@@ -15,7 +15,7 @@
 Before running the examples, move the OpenClaw resource files to the corresponding folder first.
 
 1. Use NoMachine to connect to the robot remotely and enter the system desktop.
-2. Drag **openclaw_resource.zip** from the OpenClaw resource folder to the desktop.
+2. Drag **openclaw_resource.zip** from the [13. OpenClaw Applications](https://drive.google.com/drive/folders/1qifIfVWgClXfVTf3ef_MZhHRNiiKLGat?usp=sharing) folder to the desktop.
 
 <img src="../_static/media/chapter_26/section_1/image31.png" class="common_img" style="width:900px;"/>
 
@@ -1208,7 +1208,7 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 sudo systemctl stop start_app_node.service
 ```
 
-3. Enter the following command and press Enter to start the robot's hardware navigation. RViz will also launch.
+3. Enter the following command and press **Enter** to start the robot's hardware navigation. RViz will also launch.
 
 ```bash
 ros2 launch openclaw_controller navigation_manager.launch.py

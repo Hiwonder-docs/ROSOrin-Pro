@@ -42,7 +42,7 @@ The figure below shows how to use MediaPipe. The solid line represents the part 
 
 MediaPipe relies on OpenCV for video processing and FFMPEG for audio data processing. It also has other dependencies, such as OpenGL/Metal, TensorFlow, Eigen, and others.
 
-It is recommended to gain a basic understanding of OpenCV before starting with MediaPipe. Information about OpenCV can be found in the folder: [Basic Course / OpenCV Computer Vision Lesson](https://drive.google.com/drive/folders/1zOgQf4P6mgwSBGhkGRm5_NTCWLcTlooc?usp=sharing).
+It is recommended to gain a basic understanding of OpenCV before starting with MediaPipe. Information about OpenCV can be found in the folder: [Basic Course / 3. OpenCV Computer Vision Lesson](https://drive.google.com/drive/folders/1zOgQf4P6mgwSBGhkGRm5_NTCWLcTlooc?usp=sharing).
 
 * **MediaPipe Solutions**
 
@@ -1980,8 +1980,11 @@ Step 2: When the person who will control the robot appears in the camera feed an
 Step 3:
 
 **Left Turn**: Raising the left arm makes the robot turn left once.
+
 **Right Turn**: Raising the right arm makes the robot turn right once.
+
 **Move Forward**: Raising the left leg makes the robot move forward a short distance.
+
 **Move Backward**: Raising the right leg makes the robot move backward a short distance.
 
 <img src="../_static/media/chapter_8\section_1/media/image103.png"  style="width:600px"  class="common_img" />
@@ -2661,7 +2664,7 @@ Torch is an open-source machine learning framework under the BSD License, widely
 
 Unlike TensorFlow’s static computation graphs, PyTorch uses dynamic computation graphs, which can be modified in real-time according to the needs of the computation. PyTorch allows developers to accelerate tensor operations using GPUs, build dynamic graphs, and perform automatic differentiation.
 
-<img src="..\_static\media\chapter_9\section_1\media\image5.png"   style="width:600px"  class="common_img" />
+<img src="..\_static\media\chapter_9\section_1\media\image5.png"   style="width:400px"  class="common_img" />
 
 #### 7.2.2.3 Tensorflow
 
@@ -2669,7 +2672,7 @@ TensorFlow is an open-source machine learning framework designed to simplify the
 
 TensorFlow allows for efficient mathematical computations. It can run on a wide range of hardware—from supercomputers to embedded systems—making it highly versatile. TensorFlow supports CPU, GPU, or both simultaneously. Compared to other frameworks, TensorFlow is best suited for industrial deployment, making it highly appropriate for use in production environments.
 
-<img src="..\_static\media\chapter_9\section_1\media\image6.png"  style="width:600px"  class="common_img" />
+<img src="..\_static\media\chapter_9\section_1\media\image6.png"  style="width:400px"  class="common_img" />
 
 #### 7.2.2.4 PaddlePaddle
 
@@ -2677,13 +2680,13 @@ PaddlePaddle, developed by Baidu, is China’s first open-source, industrial-gra
 
 In recent years, deep learning has achieved outstanding performance across many fields such as image recognition, speech recognition, natural language processing, robotics, online advertising, medical diagnostics, and finance.
 
-<img src="..\_static\media\chapter_9\section_1\media\image7.png"  style="width:600px"  class="common_img" />
+<img src="..\_static\media\chapter_9\section_1\media\image7.png"  style="width:400px"  class="common_img" />
 
 #### 7.2.2.5 MXNet
 
 MXNet is another high-performance deep learning framework that supports multiple programming languages, including Python, C++, Scala, and R. It offers data flow graphs similar to those in Theano and TensorFlow and supports multi-GPU configuration. It also includes high-level components for model building, comparable to those in Lasagne and Blocks, and can run on nearly any hardware platform—including mobile devices.
 
-<img src="..\_static\media\chapter_9\section_1\media\image8.jpeg"   style="width:600px"  class="common_img" />
+<img src="..\_static\media\chapter_9\section_1\media\image8.jpeg"   style="width:400px"  class="common_img" />
 
 MXNet is designed to maximize efficiency and flexibility. As an accelerated library, it provides powerful tools for developers to take full advantage of GPUs and cloud computing. MXNet supports distributed deployment via a parameter server and can scale almost linearly across multiple CPUs and GPUs.
 

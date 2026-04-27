@@ -1,9 +1,5 @@
 # 1. ROSOrin Pro User Manual
 
-[TOC]
-
-
-
 ## 1.1 Introduction
 
 ROSOrin Pro is an integrated AI robot for education and research. It integrates a high-performance controller, a high-precision LiDAR, a 6DOF robotic arm, a 3D depth camera, and an AI voice interaction box. These components make it easy to build creative applications, such as robot motion control, mapping and navigation, path planning, tracking and obstacle avoidance, motion interaction, and voice interaction. ROSOrin Pro is deployed with multimodal large AI models, so it can understand the environment, plan actions, and execute tasks flexibly to support advanced embodied AI applications.
@@ -84,7 +80,7 @@ Connect the 3-pin servo cable to the robotic arm servo and the 3-pin servo port 
 
 #### 1.2.5.3 Raspberry Pi 5 Wiring
 
-<img src="../_static/media/chapter_1\section_1/media/image7.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image7.png" style="width:600px" class="common_img"/>
 
 In the figure above, labels **1** and **2** correspond to the **power cable** and the **display cable**.
 
@@ -122,7 +118,7 @@ During transportation, the robot remains powered off and the battery is not full
 
 **3\. Do not plug the charger directly into the DC power input on the Jetson controller, as shown in the diagram below, as it may damage the controller. The image is for reference only.**
 
-<img src="../_static/media/chapter_1\section_1/media/image42.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image42.png" style="width:600px"  class="common_img"/>
 
 **4\. Disconnect the charging cable promptly after charging to avoid overcharging and battery damage.**
 
@@ -150,13 +146,13 @@ During transportation, the robot remains powered off and the battery is not full
 
 1. The power input is located on the right side at the back of the robot. Plug in the charger to begin charging.
 
-<img src="../_static/media/chapter_1\section_1/media/image47.png"  style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image47.png"  style="width:600px" class="common_img"/>
 
-<img src="../_static/media/chapter_1\section_1/media/image48.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image48.png" style="width:600px" class="common_img"/>
 
 2. Check the indicator light on the charger to monitor the charging status. The indicator shows red while charging and turns green when charging is complete.
 
-<img src="../_static/media/chapter_1\section_1/media/image49.png" width="377" height="230" />
+<img src="../_static/media/chapter_1\section_1/media/image49.png" width="377" height="230" class="common_img"/>
 
 > [!NOTE]
 >
@@ -186,23 +182,23 @@ This section introduces the robot's startup sequence and verifies each module. A
 
 1. Make sure the robot's power button is not pressed.
    
-   <img src="../_static/media/chapter_1\section_1/media/image43.png"  width="505" height="325" />
+   <img src="../_static/media/chapter_1\section_1/media/image43.png"  width="505" height="325" class="common_img"/>
    
 2. Remove the hex screws from the bottom of the robot and open the metal cover.
    
-   <img src="../_static/media/chapter_1\section_1/media/image44.png" width="478" height="369" />
+   <img src="../_static/media/chapter_1\section_1/media/image44.png" width="478" height="369" class="common_img"/>
    
 3. Connect the red wire to the red terminal and the black wire to the black terminal as shown in the figure below. The connectors include reverse-polarity protection. If the connector does not match, do not force it. Rotate the connector and try again, then reassemble the metal cover.
    
-   <img src="../_static/media/chapter_1\section_1/media/image45.png"  width="491" height="354" />
+   <img src="../_static/media/chapter_1\section_1/media/image45.png"  width="491" height="354" class="common_img"/>
    
 
 
-<img src="../_static/media/chapter_1\section_1/media/image46.png"  width="491" height="354" />
+<img src="../_static/media/chapter_1\section_1/media/image46.png"  width="491" height="354" class="common_img"/>
 
 4. Place the robot on a flat, smooth surface and press the switch located on the rear left side of the robot.
 
-<img src="../_static/media/chapter_1\section_1/media/image43.png"  width="491" height="354" />
+<img src="../_static/media/chapter_1\section_1/media/image43.png"  width="491" height="354" class="common_img"/>
 
 5. The blue LED1 at the lower right of the expansion board will light up and start blinking. At this stage, only the network configuration service is running, while the ROS system and other services have not yet fully started. Wait until a short beep sounds, indicating that the system has finished booting.
 
@@ -587,7 +583,7 @@ Click the **Start** button <img src="../_static/media/chapter_1\section_1/media/
 
 2. **Pay attention to battery polarity when placing the batteries.**
 
-<img src="../_static/media/chapter_1\section_1/media/image110.png"  width="529" height="202" />
+<img src="../_static/media/chapter_1\section_1/media/image110.png"  width="529" height="202" class="common_img"/>
 
 (1) **Each time the robot is powered on, the app auto-start service launches automatically, including the wireless controller control service. If this service has not been disabled, no additional action is required. Simply connect and control.**
 
@@ -603,7 +599,7 @@ Click the **Start** button <img src="../_static/media/chapter_1\section_1/media/
 
 2. Wait a few seconds for the robot and wireless controller to pair automatically. Once pairing is successful, the green LED will remain solid while the red LED turns off.
 
-<img src="../_static/media/chapter_1\section_1/media/image111.png" width="493" height="198" />
+<img src="../_static/media/chapter_1\section_1/media/image111.png" width="493" height="198" class="common_img"/>
 
 ### 1.6.3 Button Functions
 
@@ -651,23 +647,23 @@ In a word, NoMachine and VNC are best for scenarios requiring intuitive, visual 
 
 2\. Click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image112.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image112.png" width="453" height="351" class="common_img"/>
 
 3\. Select **English** as the installation language. Accept the license agreement by checking the box, then click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image113.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image113.png" width="453" height="351" class="common_img"/>
 
 4\. Keep the default installation path and click **Next** again.
 
-<img src="../_static/media/chapter_1\section_1/media/image114.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image114.png" width="453" height="351" class="common_img"/>
 
 5\. Wait for a moment, and the setup completion screen will appear. Click **Finish** to exit the installer.
 
-<img src="../_static/media/chapter_1\section_1/media/image115.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image115.png" width="453" height="351" class="common_img"/>
 
 6\. Click **Yes** to restart the computer. This step must not be skipped!
 
-<img src="../_static/media/chapter_1\section_1/media/image116.png" width="453" height="210" />
+<img src="../_static/media/chapter_1\section_1/media/image116.png" width="453" height="210" class="common_img"/>
 
 #### 1.7.1.3 VNC Installation
 
@@ -677,23 +673,23 @@ In a word, NoMachine and VNC are best for scenarios requiring intuitive, visual 
 
 1. Locate the folder at: [2. Software \\ 2. Remote Desktop Software \\ 1. Graphical Remote Desktop Access Tool](https://drive.google.com/drive/folders/1Cj9wV58u7ZNiLwH4SFcu4bR9aJ9jn6Xs?usp=sharing) to install it. Double-click the file **VNC-Viewer-6.17.731-Windows** in this folder. In the pop-up dialog, select **English** as the installation language and click **OK**.
 
-<img src="../_static/media/chapter_1\section_1/media/image228.png" width="453" height="210" />
+<img src="../_static/media/chapter_1\section_1/media/image228.png" width="453" height="210" class="common_img" />
 
 2. On the next screen, click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image229.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image229.png" width="453" height="351" class="common_img"/>
 
 3. Agree to the license agreement, then click **Next**. Keep the default installation path, and click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image230.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image230.png" width="453" height="351" class="common_img"/>
 
 4. Click **Install** to begin installation.
 
-<img src="../_static/media/chapter_1\section_1/media/image231.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image231.png" width="453" height="351" class="common_img"/>
 
 5. Wait for the installation to complete, then click **Finish** to complete the setup.
 
-<img src="../_static/media/chapter_1\section_1/media/image232.png" width="453" height="351" />
+<img src="../_static/media/chapter_1\section_1/media/image232.png" width="453" height="351" class="common_img"/>
 
 6. After installation, launch VNC Viewer by clicking its desktop icon <img src="../_static/media/chapter_1\section_1/media/image233.png"  />.
 
@@ -709,23 +705,23 @@ In a word, NoMachine and VNC are best for scenarios requiring intuitive, visual 
 
 2. Click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image235.png" width="453" height="351"  />
+<img src="../_static/media/chapter_1\section_1/media/image235.png" width="453" height="351"  class="common_img"/>
 
 3. Accept the license agreement by checking the box, then click **Next**.
 
-<img src="../_static/media/chapter_1\section_1/media/image236.png" width="453" height="351"  />
+<img src="../_static/media/chapter_1\section_1/media/image236.png" width="453" height="351"  class="common_img"/>
 
 4. Keep the default installation path and click **Next** again.
 
-<img src="../_static/media/chapter_1\section_1/media/image237.png" width="453" height="351"  />
+<img src="../_static/media/chapter_1\section_1/media/image237.png" width="453" height="351"  class="common_img"/>
 
 5. Click **Install**.
 
-<img src="../_static/media/chapter_1\section_1/media/image238.png" width="453" height="351"  />
+<img src="../_static/media/chapter_1\section_1/media/image238.png" width="453" height="351"  class="common_img">
 
 6. Wait for a moment, the setup completion screen will appear. Click **Finish** to exit the installer.
 
-<img src="../_static/media/chapter_1\section_1/media/image239.png" width="453" height="351"  />
+<img src="../_static/media/chapter_1\section_1/media/image239.png" width="453" height="351"  class="common_img"/>
 
 <p id ="anther7.2"></p>
 
@@ -747,19 +743,19 @@ In a word, NoMachine and VNC are best for scenarios requiring intuitive, visual 
 
 1\. The robot is set to AP mode by default. After powering it on, it will generate a Wi-Fi hotspot starting with **HW**. On the computer, search for and connect to the hotspot shown in the figure using the password **hiwonder**.
 
-<img src="../_static/media/chapter_1\section_1/media/image240.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image240.png"  class="common_img"/>
 
 2\. Open NoMachine and enter the IP address **192.168.149.1** in the search bar. Click **Configure connection to new host 192.168.149.1**.
 
-<img src="../_static/media/chapter_1\section_1/media/image117.png" width="566" height="103" />
+<img src="../_static/media/chapter_1\section_1/media/image117.png" width="566" height="103" class="common_img"/>
 
 3\. Once opened, change the **Name** field to **ROSOrin Pro**, leaving the other options unchanged, and click **Add**.
 
-<img src="../_static/media/chapter_1\section_1/media/image241.png" style="width:600px"  />
+<img src="../_static/media/chapter_1\section_1/media/image241.png" style="width:600px" class="common_img"/>
 
 4. Then, double-click the entry named **ROSOrin Pro**.
 
-<img src="../_static/media/chapter_1\section_1/media/image242.png" style="width:600px"  />
+<img src="../_static/media/chapter_1\section_1/media/image242.png" style="width:600px"  class="common_img"/>
 
 5. In the **Username** and **Password** fields, enter the following according to the controller version: 
 
@@ -918,11 +914,11 @@ The robot can achieve smoother remote operation by enabling the remote NDIS-comp
 
 3. On the computer, right-click **This PC** on the desktop and select **Manage**.
 
-<img src="../_static/media/chapter_1\section_1/media/image133.png" width="302" height="240" />
+<img src="../_static/media/chapter_1\section_1/media/image133.png" width="302" height="240" class="common_img"/>
 
 4. Click **Device Manager** in the left panel, then find the NDIS driver under **Network Adapters**. Right-click the driver and select **Update Driver**.
 
-<img src="../_static/media/chapter_1\section_1/media/image134.png" width="529" height="429" />
+<img src="../_static/media/chapter_1\section_1/media/image134.png" width="529" height="429" class="common_img"/>
 
 5. Next, follow the steps in [1.7.2 AP Mode Connection Steps](#anther7.2), and change the IP address field to **192.168.55.1**.
 
@@ -950,15 +946,15 @@ Also confirm that the wireless controller receiver is inserted into the robot US
 1. Place the robot in the area where mapping will be performed.
 2. Tap the desktop on the touchscreen, then select and open the **SLAM** icon for manual mapping.
 
-<img src="../_static/media/chapter_1\section_1/media/image265.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image265.png"  class="common_img"/>
 
 3. After it opens, several terminals start at the same time. Wait for a moment.
 
-<img src="../_static/media/chapter_1\section_1/media/image266.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image266.png" style="width:600px" class="common_img"/>
 
 4. When the display interface appears, the feature has started successfully.
 
-<img src="../_static/media/chapter_1\section_1/media/image171.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image171.png" style="width:600px" class="common_img"/>
 
 5. Mapping can now be controlled with the wireless controller. The controller button functions are listed below:
 
@@ -975,7 +971,7 @@ Also confirm that the wireless controller receiver is inserted into the robot US
 
 If keyboard control is used, connect to the remote desktop and select the terminal that supports keyboard control.
 
-<img src="../_static/media/chapter_1\section_1/media/image267.png" style="width:600px"/>
+<img src="../_static/media/chapter_1\section_1/media/image267.png" style="width:600px" class="common_img"/>
 
 The keyboard controls are listed below:
 
@@ -990,11 +986,11 @@ When **W** or **S** is pressed, the robot continues moving forward or backward. 
 
 6. After movement is completed, click **Save Map** to save the map that has been built.
 
-<img src="../_static/media/chapter_1\section_1/media/image268.png" style="width:600px"/>
+<img src="../_static/media/chapter_1\section_1/media/image268.png" style="width:600px" class="common_img"/>
 
 7. After mapping is completed, click the close button in the command-line terminal to turn off the quick mapping feature.
 
-<img src="../_static/media/chapter_1\section_1/media/image269.png" style="width:600px"/>
+<img src="../_static/media/chapter_1\section_1/media/image269.png" style="width:600px" class="common_img"/>
 
 ## 1.9 Autonomous Navigation
 
@@ -1004,21 +1000,21 @@ When **W** or **S** is pressed, the robot continues moving forward or backward. 
 
 1. Start the robot, tap the touchscreen, and select the **Navigation** icon to open the quick navigation feature.
 
-<img src="../_static/media/chapter_1\section_1/media/image272.png" style="width:100px" />
+<img src="../_static/media/chapter_1\section_1/media/image272.png" style="width:100px" class="common_img"/>
 
 2. After it opens, the program starts running in the terminal. Wait for the interface shown below to appear, which indicates the feature has started successfully.
 
-<img src="../_static/media/chapter_1\section_1/media/image273.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image273.png" style="width:600px" class="common_img"/>
 
 3. In the software toolbar, **2D Pose Estimate** is used to set the robot initial position. **2D Goal Pose** is used to set a single target point for the robot and is suitable for basic navigation tasks that do not require complex obstacle avoidance or path planning. **Publish Point** is used to set multiple target points for the robot. **Nav2 Goal** is used to set more complex navigation goals, such as a target point, a target pose, or a target area.
 
-<img src="../_static/media/chapter_1\section_1/media/image274.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image274.png" style="width:600px" class="common_img"/>
 
 4. The icon <img src="../_static/media/chapter_1\section_1/media/image275.png" style="width:200px;display:inline;vertical-align:middle;"/> changes the robot initial position on the map and is used to align it with the robot actual location.
 
 5. Click the icon <img src="../_static/media/chapter_1\section_1/media/image276.png" style="width:150px;display:inline;vertical-align:middle;" />, then click a location on the map to set a target point. Clicking and dragging also sets the robot's orientation after it reaches the target point.
 
-<img src="../_static/media/chapter_1\section_1/media/image277.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image277.png" style="width:600px" class="common_img"/>
 
 6. Click the lower-left icon <img src="../_static/media/chapter_1\section_1/media/image278.png" style="width:300px;display:inline;vertical-align:middle;"/> to enable multi-point navigation. Then click the icon <img src="../_static/media/chapter_1\section_1/media/image279.png" style="width:100px;display:inline;vertical-align:middle;"/> once to set one target point. Drag to choose the target-point orientation. Repeat this procedure to set multiple target points.
 
@@ -1026,11 +1022,11 @@ When **W** or **S** is pressed, the robot continues moving forward or backward. 
 >
 > **Click "Nav2 Goal" before setting each target point.**
 
-<img src="../_static/media/chapter_1\section_1/media/image280.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image280.png" style="width:600px" class="common_img"/>
 
 7. After all target points are set, click **Start Waypoint Following** at the lower-left corner to start navigation. The robot automatically avoids obstacles during navigation.
 
-<img src="../_static/media/chapter_1\section_1/media/image281.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image281.png" style="width:600px" class="common_img"/>
 
 
 
@@ -1072,9 +1068,9 @@ The onboard resources and peripherals of the STM32F407VET6 processor are shown i
 
 A 6-axis IMU sensor, the MPU6050, features a 3-axis accelerometer and a 3-axis gyroscope. It connects to the controller via the I2C port. The six axes of the IMU accelerometer and gyroscope are defined as shown in the figure below.
 
-<img src="../_static/media/chapter_1\section_1/media/image16.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image16.png"  class="common_img"/>
 
-<img src="../_static/media/chapter_1\section_1/media/image17.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image17.png"  class="common_img"/>
 
 - **Reserved Ports**
 
@@ -1120,9 +1116,9 @@ The robot should be charged with the dedicated charger included in the kit. The 
 
 The Hall encoder is a speed-sensing module that uses a Hall-effect sensor, paired with a strong magnetic disk, and outputs pulse signals through AB-phase channels. The motor operates at 12V. The figure below shows the motor used in the robot and its pin configuration:
 
-<img src="../_static/media/chapter_1\section_1/media/image25.png" style="width:200px" />
+<img src="../_static/media/chapter_1\section_1/media/image25.png" style="width:200px" class="common_img" />
 
-<img src="../_static/media/chapter_1\section_1/media/image26.png" style="width:400px"  />
+<img src="../_static/media/chapter_1\section_1/media/image26.png" style="width:400px" class="common_img" />
 
 For more details:
 
@@ -1215,15 +1211,15 @@ Port Description:
 
 A USB receiver is connected to the chassis, enabling chassis movement control via a PS2 wireless controller.
 
-<img src="../_static/media/chapter_1\section_1/media/image29.png" width="552" height="343" />
+<img src="../_static/media/chapter_1\section_1/media/image29.png" width="552" height="343" class="common_img"/>
 
-<img src="../_static/media/chapter_1\section_1/media/image30.png" width="553" height="288" />
+<img src="../_static/media/chapter_1\section_1/media/image30.png" width="553" height="288" class="common_img"/>
 
 PS2 controller pinout and connection diagram to the controller:
 
-<img src="../_static/media/chapter_1\section_1/media/image31.png" width="330" height="282" />
+<img src="../_static/media/chapter_1\section_1/media/image31.png" width="330" height="282" class="common_img">
 
-<img src="../_static/media/chapter_1\section_1/media/image32.png"  width="553" height="441" />
+<img src="../_static/media/chapter_1\section_1/media/image32.png"  width="553" height="441" class="common_img"/>
 
 Concept:
 
@@ -1247,11 +1243,11 @@ The button mappings correspond to the table below.
 
 ROSOrin Pro provides full support for ROS controllers. The operation is similar across different controllers. Raspberry Pi 5 runs Debian 12, while the Jetson series runs Ubuntu. The table below compares the specifications of Raspberry Pi 5, Jetson Nano, Jetson Orin Nano, and Jetson Orin NX controllers.
 
-<img src="../_static/media/chapter_1\section_1/media/image282.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image282.png" style="width:600px" class="common_img"/>
 
 #### 1.10.3.1 Jetson Nano Version
 
-<img src="../_static/media/chapter_1\section_1/media/image33.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image33.png" style="width:600px" class="common_img"/>
 
 The robot uses a Jetson Nano as its ROS controller, consisting of a Jetson Nano core board and an expansion board. The core board is a compact yet powerful computer capable of running mainstream deep learning frameworks, providing sufficient computing power for most AI projects.
 
@@ -1261,7 +1257,7 @@ The expansion board exposes the LED indicators and control buttons, enabling net
 
 #### 1.10.3.2 Jetson Orin Nano/Orin NX Version
 
-<img src="../_static/media/chapter_1\section_1/media/image283.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image283.png" style="width:600px" class="common_img"/>
 
 The robot uses a Jetson Orin Nano as its ROS controller, consisting of a Jetson Orin Nano core board and an expansion board. The core board is a compact yet powerful computer capable of running mainstream deep learning frameworks, providing sufficient computing power for most AI projects.
 
@@ -1271,11 +1267,11 @@ The expansion board exposes the LED indicators and control buttons, enabling net
 
 #### 1.10.3.3 Raspberry Pi 5 Version
 
-<img src="../_static/media/chapter_1\section_1/media/image284.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image284.png" style="width:600px" class="common_img"/>
 
 ### 1.10.4 Aurora Depth Camera
 
-<img src="../_static/media/chapter_1\section_1/media/image285.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image285.png" style="width:600px" class="common_img"/>
 
 The robot is equipped with a Deptrum depth camera.
 
@@ -1327,7 +1323,7 @@ LiDAR is a sensor that uses laser beams to obtain precise positional information
 
 The robot is equipped with a COIN-D6 LiDAR.
 
-<img src="../_static/media/chapter_1\section_1/media/image37.png" style="width:400px" />
+<img src="../_static/media/chapter_1\section_1/media/image37.png" style="width:400px" class="common_img"/>
 
 |         Item          |          Specification          |         Item          |            Specification            |
 | :-: | :-: | :-: | :-: |
@@ -1345,7 +1341,7 @@ The robot is equipped with a COIN-D6 LiDAR.
 
 Wiring Instructions:
 
-<img src="../_static/media/chapter_1\section_1/media/image38.png" style="width:400px" />
+<img src="../_static/media/chapter_1\section_1/media/image38.png" style="width:400px" class="common_img"/>
 
 | Pin | Signal | Attribute | Description |
 | :-: | :-: | :-: | :-: |
@@ -1364,7 +1360,7 @@ The core system of the ROS robot consists of two main parts. The first is chassi
 
 The standard connection setup requires a power cable and a USB serial cable. Communication between the STM32 controller and the ROS controller is established via the onboard USB serial interface. The ROS controller can be powered directly through the STM32 power output port. The connection diagram is shown below:
 
-<img src="../_static/media/chapter_1\section_1/media/image10.png" style="width:600px" />
+<img src="../_static/media/chapter_1\section_1/media/image10.png" style="width:600px" class="common_img"/>
 
 ### 1.11.2 ROS Serial Communication Overview
 
@@ -1454,7 +1450,7 @@ The following uses **ros2_ws/src/app** as an example to explain the feature file
 cd ros2_ws/src/app
 ```
 
-<img src="../_static/media/chapter_1\section_1/media/image303.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image303.png"  class="common_img"/>
 
 2. The **launch** folder contains the launch files, and the **app** contains the feature source code.
 
@@ -1466,7 +1462,7 @@ cd launch
 ls
 ```
 
-<img src="../_static/media/chapter_1\section_1/media/image304.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image304.png"  class="common_img"/>
 
 ```bash
 cd app
@@ -1476,7 +1472,7 @@ cd app
 ls
 ```
 
-<img src="../_static/media/chapter_1\section_1/media/image305.png"  />
+<img src="../_static/media/chapter_1\section_1/media/image305.png"  class="common_img"/>
 
 
 ## 1.13 Image Flashing
