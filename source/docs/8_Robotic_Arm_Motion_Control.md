@@ -138,7 +138,7 @@ This section introduces the interface and functions of the host computer softwar
 
 2. **Launch from the Command Line**
 
-   (3) Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image9.png" style="width:70px"  /> to open the command-line terminal. Before adjusting the deviation and robotic arm position, stop the app auto-start service first:
+   (3) Double-click the desktop icon <img class="inline-icon" src="../_static/media/chapter_25/section_1/media/image9.png" /> to open the command-line terminal. Before adjusting the deviation and robotic arm position, stop the app auto-start service first:
 
    ```
    sudo systemctl stop start_app_node.service
