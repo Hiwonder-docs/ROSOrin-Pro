@@ -24,3 +24,4 @@ ROSOrin Pro
    docs/11_Group_Control.md
    docs/12_Large_AI_Model_Courses.md
    docs/13_OpenClaw_Practical_Tutorial.md
+   Download <https://drive.google.com/drive/folders/1bcFSDrzzCERFSCJZst-LSljqQ7n39bpj>
