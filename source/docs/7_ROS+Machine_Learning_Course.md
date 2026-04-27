@@ -1,5 +1,9 @@
 # 7. ROS+Machine Learning Course
 
+[TOC]
+
+
+
 ## 7.1 MediaPipe Human-Robot Interaction
 
 ### 7.1.1 MediaPipe Introduction and Getting Started
@@ -38,11 +42,11 @@ The figure below shows how to use MediaPipe. The solid line represents the part 
 
 MediaPipe relies on OpenCV for video processing and FFMPEG for audio data processing. It also has other dependencies, such as OpenGL/Metal, TensorFlow, Eigen, and others.
 
-It is recommended to gain a basic understanding of OpenCV before starting with MediaPipe. Information about OpenCV can be found in the folder: [Basic Course / OpenCV Computer Vision Lesson]().
+It is recommended to gain a basic understanding of OpenCV before starting with MediaPipe. Information about OpenCV can be found in the folder: [Basic Course / OpenCV Computer Vision Lesson](https://drive.google.com/drive/folders/1zOgQf4P6mgwSBGhkGRm5_NTCWLcTlooc?usp=sharing).
 
 * **MediaPipe Solutions**
 
-Solutions are based on the open-source pre-constructed sample of TensorFlow or TFLite. MediaPipe Solutions is built upon a framework, which provides 16 Solutions, including face detection, Face Mesh, iris, hand, posture, human body, and so on.
+Solutions are based on the open-source pre-constructed sample of TensorFlow or TFLite. MediaPipe Solutions is built upon a framework that provides 16 Solutions, including face detection, Face Mesh, iris, hand, posture, human body, and so on.
 
 #### 7.1.1.4 Websites for MediaPipe Learning
 
@@ -58,7 +62,7 @@ dlib github: *https://github.com/davisking/dlib*
 
 ### 7.1.2 Background Segmentation
 
-In this lesson, MediaPipe’s Selfie Segmentation model is used to segment trained models from the background and then apply a virtual background, such as a face or a hand.
+In this section, MediaPipe’s Selfie Segmentation model is used to segment trained models from the background and then apply a virtual background, such as a face or a hand.
 
 #### 7.1.2.1 Experiment Overview
 
@@ -70,7 +74,7 @@ Finally, the background is replaced with a virtual one.
 
 #### 7.1.2.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png"  /> in the system desktop to open a command-line window.
 
@@ -94,7 +98,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 self_segmentation.
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.2.3 Program Outcome
 
@@ -242,7 +246,7 @@ Finally, draw 3D bounding boxes on the detected objects in the image. In this se
 
 #### 7.1.3.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png"  /> in the system desktop to open a command-line window.
 
@@ -266,7 +270,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 objectron.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.3.3 Program Outcome
 
@@ -414,7 +418,7 @@ Finally, the face will be outlined with a bounding box, and the six key landmark
 
 #### 7.1.4.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png"  /> in the system desktop to open a command-line window.
 
@@ -438,7 +442,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 face_detect.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.4.3 Program Outcome
 
@@ -570,7 +574,7 @@ For the 3D face landmarks, transfer learning was applied, and a multi-task netwo
 
 The 3D landmark model takes cropped video frames as input, without requiring additional depth input. It outputs the positions of 3D points along with a probability score indicating whether a face is present and properly aligned in the input.
 
-After importing the face mesh model, you can subscribe to the topic messages to obtain the real-time camera feed.
+After importing the face mesh model, it subscribes to the topic messages to obtain the real-time camera feed.
 
 The image is processed through operations such as flipping and color space conversion. Then, by comparing the face detection confidence to a predefined threshold, it determines whether a face has been successfully detected.
 
@@ -578,7 +582,7 @@ Finally, a 3D mesh is rendered over the detected face in the video feed.
 
 #### 7.1.5.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -602,7 +606,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 face_mesh.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.5.3 Program Outcome
 
@@ -722,7 +726,7 @@ Loads the model from MediaPipe, feeds the image into it, and uses OpenCV to draw
 
 ### 7.1.6 Hand Keypoint Detection
 
-In this lesson, MediaPipe’s hand detection model is used to display hand keypoints and the connecting lines between them on the returned image.
+In this section, MediaPipe’s hand detection model is used to display hand keypoints and the connecting lines between them on the returned image.
 
 MediaPipe Hands is a high-fidelity hand and finger tracking model. It uses machine learning (ML) to infer 21 3D landmarks of a hand from a single frame.
 
@@ -740,7 +744,7 @@ Finally, it detects and draws the hand keypoints on the output image.
 
 #### 7.1.6.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -764,7 +768,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 hand.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.6.3 Program Outcome
 
@@ -890,7 +894,7 @@ Loads the model from MediaPipe, feeds the image into it, and uses OpenCV to draw
 
 ### 7.1.7 Body Keypoint Detection
 
-In this lesson, MediaPipe's pose detection model is used to detect body landmarks and display them on the video feed.
+In this section, MediaPipe's pose detection model is used to detect body landmarks and display them on the video feed.
 
 MediaPipe Pose is a high-fidelity body pose tracking model. Powered by BlazePose, it infers 33 3D landmarks across the full body from RGB input. This research also supports the ML Kit Pose Detection API.
 
@@ -912,7 +916,7 @@ Finally, it identifies and draws the body landmarks on the image.
 
 #### 7.1.7.2 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png"  /> in the system desktop to open a command-line window.
 
@@ -936,7 +940,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 pose.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.7.3 Program Outcome
 
@@ -1073,7 +1077,7 @@ Finally, once the designated gesture is recognized, the robot starts tracking an
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png"  /> in the system desktop to open a command-line window.
 
@@ -1099,7 +1103,7 @@ cd ~/ros2_ws/src/example/example/mediapipe_example && python3 hand_gesture.py
 
 6. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-7. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+7. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 <p id ="anther7.1.8.3"></p>
 
@@ -1140,7 +1144,7 @@ def main():
         print('shutdown finish')
 ```
 
-The main function is used to start the fingertip trajectory recognition node.
+The `main` function is used to start the fingertip trajectory recognition node.
 
 `get_hand_landmarks`:
 
@@ -1315,7 +1319,7 @@ class HandGestureNode(Node):
         threading.Thread(target=self.main, daemon=True).start()
 ```
 
-`HandGestureNode` is the fingertip trajectory recognition node. It contains three functions: an initialization function, a main function, and an image callback function.
+`HandGestureNode` is the fingertip trajectory recognition node. It contains three functions: an initialization function, a `main` function, and an image callback function.
 
 `Init`:
 
@@ -1371,7 +1375,7 @@ Finally, if the user performs a specific action, the robot responds accordingly.
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 1. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -1389,7 +1393,7 @@ ros2 launch example body_control.launch.py
 
 4. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-5. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+5. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.9.3 Program Outcome
 
@@ -1397,13 +1401,10 @@ After starting the feature, stand within the camera’s field of view. When a hu
 
 An intuitive body posture control logic has been designed for the robot, allowing control through simple body movements. The control instructions are as follows:
 
-Right movement: Raise the left arm, and the robot will move to the right.
-
-Left movement: Raise the right arm, and the robot will move to the left.
-
-Forward movement: Raise the left leg, and the robot will move forward.
-
-Backward movement: Raise the right leg, and the robot will move backward.
+**Left Turn**: Raising the left arm makes the robot turn left once.
+**Right Turn**: Raising the right arm makes the robot turn right once.
+**Move Forward**: Raising the left leg makes the robot move forward a short distance.
+**Move Backward**: Raising the right leg makes the robot move backward a short distance.
 
 <img src="../_static/media/chapter_8\section_1/media/image68.png"  style="width:600px"  class="common_img" />
 
@@ -1697,13 +1698,15 @@ Next, using the trained model, detect the keypoints of the human body in the fra
 
 Finally, update the PID controller based on the coordinates of the human's center point and the frame's center point, allowing the robot to move in response to the human's movement.
 
+<p id ="anther7.1.10.2"></p>
+
 #### 7.1.10.2 Operation Steps
 
 > [!NOTE]
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -1721,7 +1724,7 @@ ros2 launch example body_track.launch.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.10.3 Program Outcome
 
@@ -1787,7 +1790,7 @@ This class represents the body tracking node.
         self.go_speed, self.turn_speed = 0.007, 0.04
 ```
 
-Initializes the parameters required for body tracking, reads the camera feed, depth data, chassis control, and YOLO26 recognition nodes. It then synchronizes the data to align depth information with the image data, and finally, starts the main function within the class.
+Initializes the parameters required for body tracking, reads the camera feed, depth data, chassis control, and YOLO26 recognition nodes. It then synchronizes the data to align depth information with the image data, and finally, starts the `main` function within the class.
 
 `get_node_state`:
 
@@ -1910,7 +1913,7 @@ vim body_track.py
 
 The three PID parameters—proportional, integral, and derivative—serve different purposes: the proportional adjusts the response level, the integral smooths the response, and the derivative helps control overshoot.
 
-4. To adjust the tracking speed, press the i key to enter edit mode, then increase the values. For example, set the linear velocity PID to 0.05 to boost the tracking speed.
+4. To adjust the tracking speed, press the **i** key to enter edit mode, then increase the values. For example, set the linear velocity PID to 0.05 to boost the tracking speed.
 
 > [!NOTE]
 >
@@ -1922,11 +1925,11 @@ The three PID parameters—proportional, integral, and derivative—serve differ
 
 <img src="../_static/media/chapter_8\section_1/media/image100.png" style="width:600px"  class="common_img" />
 
-6. Follow the steps to activate the feature.
+6. Follow the steps in section [7.1.10.2 Operation Steps](#anther7.1.10.2) to activate the feature.
 
 ### 7.1.11 Body Pose Fusion RGB Control
 
-The depth camera is fused with RGB, allowing the system to perform both color recognition and body-gesture control. Based on the section [Body Gesture Control](#anther7.1.9) in this document, this session incorporates color recognition to determine the control target. Only when a person wearing a specified color is detected, which can be set through color calibration, can their body gestures be used to control the robot.
+The depth camera is fused with RGB, allowing the system to perform both color recognition and body-gesture control. Based on the section [7.1.9 Body Gesture Control](#anther7.1.9) in this document, this session incorporates color recognition to determine the control target. Only when a person wearing a specified color is detected, which can be set through color calibration, can their body gestures be used to control the robot.
 
 If a person wearing the specified color is not detected, the robot cannot be controlled. This allows precise targeting of the person who can control the robot.
 
@@ -1944,7 +1947,7 @@ Finally, if the detected posture is “hands on hips,” the system uses the clo
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -1962,7 +1965,7 @@ ros2 launch example body_and_rgb_control.launch.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.11.3 Program Outcome
 
@@ -1976,13 +1979,10 @@ Step 2: When the person who will control the robot appears in the camera feed an
 
 Step 3:
 
-Left movement: Raise the right arm, and the robot will move to the left.
-
-Right movement: Raise the left arm, and the robot will move to the right.
-
-Forward movement: Raise the left leg, and the robot will move forward.
-
-Backward movement: Raise the right leg, and the robot will move backward.
+**Left Turn**: Raising the left arm makes the robot turn left once.
+**Right Turn**: Raising the right arm makes the robot turn right once.
+**Move Forward**: Raising the left leg makes the robot move forward a short distance.
+**Move Backward**: Raising the right leg makes the robot move backward a short distance.
 
 <img src="../_static/media/chapter_8\section_1/media/image103.png"  style="width:600px"  class="common_img" />
 
@@ -2327,7 +2327,7 @@ The main function within the `BodyControlNode` class is responsible for feeding 
 
 ### 7.1.12 Human Pose Detection
 
-In this program, a human pose estimation model from the MediaPipe machine learning framework is used to detect human poses. When the robot detects that a person has fallen, it will trigger an alert and perform a left-right twisting motion.
+In this program, a human pose estimation model from the MediaPipe machine learning framework is used to detect human poses. When the robot detects that a person has fallen, it will trigger an alert and move forward and backward.
 
 #### 7.1.12.1 Experiment Overview
 
@@ -2343,7 +2343,7 @@ Finally, if a fall is detected, the robot will trigger an alert and move forward
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps]() in the user manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps) in the user manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_8\section_1/media/image4.png" /> in the system desktop to open a command-line window.
 
@@ -2361,13 +2361,13 @@ ros2 launch example fall_down_detect.launch.py
 
 5. To exit this feature, press the **Esc** key in the image window to close the camera feed.
 
-6. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. Then, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** multiple times.
 
 #### 7.1.12.3 Program Outcome
 
 After starting the feature, make sure the person is fully within the camera’s field of view. When a person is detected, the keypoints of the body will be marked on the live feed.
 
-When the person appears with a significantly low height in the camera feed, the robot will recognize it as a falling posture and initiate an emergency response. The robot will emit a continuous alarm sound and move rapidly back and forth.
+When the person appears with a significantly low height in the camera feed, the robot will recognize it as a falling posture and initiate an emergency response. The robot will emit a continuous alarm sound and move forward and backward.
 
 <img src="../_static/media/chapter_8\section_1/media/image116.png" style="width:600px"  class="common_img" />
 
@@ -2751,11 +2751,11 @@ Most deep learning frameworks use 32-bit floating-point (FP32) precision for net
 
 The following table shows the dynamic ranges for different precisions:
 
-| **Precision** | **Dynamic Range**     |
-| ------------- | --------------------- |
-| FP32          | −3.4×1038 ~ +3.4×1038 |
-| FP16          | −65504 ~- +65504      |
-| INT8          | −128 ~ +127           |
+| **Precision** |   **Dynamic Range**   |
+| :-----------: | :-------------------: |
+|     FP32      | −3.4×1038 ~ +3.4×1038 |
+|     FP16      |   −65504 ~- +65504    |
+|     INT8      |      −128 ~ +127      |
 
 INT8 has only 256 distinct values. Using INT8 to represent FP32 values may result in information loss and degraded performance. However, TensorRT provides a fully automated calibration process to optimally convert FP32 data to INT8 with minimal performance loss.
 
@@ -2781,6 +2781,8 @@ TensorRT assigns memory to each tensor only during its usage period to avoid red
 
 By utilizing CUDA streams, TensorRT enables parallel computation across multiple branches of the same input, maximizing parallel operation.
 
+<p id ="anther7.3.3"></p>
+
 ### 7.3.3 YOLO26 Model
 
 #### 7.3.3.1 Overview of the YOLO Models
@@ -2795,17 +2797,23 @@ To address this issue, the YOLO series was developed. The core idea behind YOLO 
 
 * **YOLO26**
 
-YOLO26 builds upon previous versions of the YOLO model, delivering significant improvements in both detection speed and accuracy.
+**YOLO26** is Ultralytics’ new-generation real-time object detection model. Built on earlier YOLO versions, it has been further optimized to deliver major improvements in both detection speed and accuracy.
 
-A typical object detection algorithm can be divided into four modules: the input module, the backbone network, the neck network, and the head output module. Analyzing YOLO26 according to these modules reveals the following enhancements:
+ **YOLO26 Highlights**
 
-1\) Input: Added adaptive grayscale filling and dynamic Mosaic enhancement, optimizing adaptability and training efficiency.
+**1. Architectural Simplification**: Removes Distribution Focal Loss (DFL), streamlines bounding box regression, and improves export compatibility.
 
-2\) Backbone Network: Utilizes the C3K2 module, which combines 1×1, 3×3, and 5×5 multi-scale convolution kernels to expand the receptive field while reducing computational load, along with the GSConv+GWGA combination.
+**2. End-to-End Inference**: Uses an NMS-free design to output detection results directly, reducing latency and deployment complexity.
 
-3\) Neck Network: Based on the FPN+PAN framework, the C2PSA module is inserted.
+**3. Training Improvements**: Introduces Progressive Loss Balancing (ProgLoss) and Small-Target-Aware Label Assignment (STAL) to improve the stability of small-object detection.
 
-Head Output Layer: Adopts a classification-regression decoupled head, with the classification head focusing on semantic features and the regression head focusing on location features, and introduces dynamic head weight adjustment where weights are dynamically allocated between the two heads based on the loss during training to improve overall performance.
+**4. Optimizer Innovation**: Uses the MuSGD optimizer, combining the strengths of SGD and Muon to accelerate model convergence.
+
+**5. Multi-Task Support**: Provides a unified framework for object detection, instance segmentation, pose estimation, oriented object detection, and classification.
+
+**6. Edge Optimization**: Supports FP16 and INT8 quantization for low-latency real-time inference on devices such as Jetson.
+
+**7. Performance**: Delivers high accuracy on benchmarks such as COCO, with CPU inference speed improved by up to 43% over the previous generation.
 
 #### 7.3.3.2 YOLO26 Model Structure
 
@@ -2874,8 +2882,6 @@ Features can be significant or insignificant. The ADD layer adds feature tensors
 7. Concat Layer: Tensor Concatenation
 
 The Concat layer concatenates feature tensors to combine features extracted by different methods, thereby preserving more features.
-
-<img src="../_static/media/chapter_10\section_1/media/image12.png"  style="width:600px"  class="common_img" />
 
 <img src="../_static/media/chapter_10\section_1/media/image12.png"  style="width:600px"  class="common_img" />
 
@@ -2987,7 +2993,7 @@ sudo systemctl stop start_app_node.service
 ros2 launch peripherals depth_camera.launch.py
 ```
 
-5. Open a new command-line terminal and enter the command to create a directory for storing your dataset.
+5. Open a new command-line terminal and enter the command to create a directory for storing the dataset.
 
 ```bash
 mkdir -p ~/my_data
@@ -3011,7 +3017,7 @@ The **save number** in the top-left corner of the tool interface shows the ID of
 
 <img src="../_static/media/chapter_10\section_1/media/image36.png"  style="width:600px"  class="common_img" />
 
-9. Click the `Save(Space)` button or press the `space` key to save the current camera frame. A `JPEGImages` folder will be automatically created under the directory **/home/ubuntu/my_data** to store the images.
+9. Click the **Save(Space)** button or press the **space** key to save the current camera frame. A **JPEGImages** folder will be automatically created under the directory **/home/ubuntu/my_data** to store the images.
 
 <img src="../_static/media/chapter_10\section_1/media/image37.png"  style="width:600px"  class="common_img" />
 
@@ -3019,7 +3025,7 @@ The **save number** in the top-left corner of the tool interface shows the ID of
 >
 > **To improve model reliability, capture the target object from various distances, angles, and tilts.**
 
-10. After collecting images, click the `Quit` button to close the tool.
+10. After collecting images, click the **Quit** button to close the tool.
 
 <img src="../_static/media/chapter_10\section_1/media/image38.png"  style="width:600px"  class="common_img" />
 
@@ -3027,7 +3033,7 @@ The **save number** in the top-left corner of the tool interface shows the ID of
 
 <img src="../_static/media/chapter_10\section_1/media/image40.png"  style="width:600px"  class="common_img" />
 
-12. Then press **Ctrl+C** in all open terminal windows to exit—this completes the image collection process.
+12. Then press **Ctrl + C** in all open terminal windows to exit—this completes the image collection process.
 
 #### 7.3.5.2 Image Annotation
 
@@ -3045,28 +3051,28 @@ python3 ~/software/labelImg/labelImg.py
 
 Below is a table of common shortcut keys:
 
-| **Button**                                                   | **Shortcut Key** | **Function**                               |
-| ------------------------------------------------------------ | ---------------- | ------------------------------------------ |
-| <img src="../_static/media/chapter_10\section_1/media/image42.png"  style="width:70px"  class="common_img" /> | Ctrl+U           | Choose the directory for images.           |
-| <img src="../_static/media/chapter_10\section_1/media/image43.png"  style="width:70px"  class="common_img" /> | Ctrl+R           | Choose the directory for calibration data. |
-| <img src="../_static/media/chapter_10\section_1/media/image44.png"  style="width:70px"  class="common_img" /> | W                | Create an annotation box.                  |
-| <img src="../_static/media/chapter_10\section_1/media/image45.png"  style="width:70px"  class="common_img" /> | Ctrl+S           | Save the annotation.                       |
-| <img src="../_static/media/chapter_10\section_1/media/image46.png"  style="width:70px"  class="common_img" /> | A                | Switch to the previous image.              |
-| <img src="../_static/media/chapter_10\section_1/media/image47.png"  style="width:70px"  class="common_img" /> | D                | Switch to the next image.                  |
+|                          **Button**                          | **Shortcut Key** |                **Function**                |
+| :----------------------------------------------------------: | :--------------: | :----------------------------------------: |
+| <img src="../_static/media/chapter_10\section_1/media/image42.png"  style="width:150px"  class="common_img" /> |     Ctrl + U     |      Choose the directory for images.      |
+| <img src="../_static/media/chapter_10\section_1/media/image43.png"  style="width:150px"  class="common_img" /> |     Ctrl + R     | Choose the directory for calibration data. |
+| <img src="../_static/media/chapter_10\section_1/media/image44.png"  style="width:150px"  class="common_img" /> |        W         |         Create an annotation box.          |
+| <img src="../_static/media/chapter_10\section_1/media/image45.png"  style="width:150px"  class="common_img" /> |     Ctrl + S     |            Save the annotation.            |
+| <img src="../_static/media/chapter_10\section_1/media/image46.png"  style="width:150px"  class="common_img" /> |        A         |       Switch to the previous image.        |
+| <img src="../_static/media/chapter_10\section_1/media/image47.png"  style="width:150px"  class="common_img" /> |        D         |         Switch to the next image.          |
 
-2. Click the button <img src="../_static/media/chapter_10\section_1/media/image48.png"  class="common_img" style="width:70px;display:inline;vertical-align:middle;"/> to open the folder where your images are stored. In this tutorial, select the directory used for image collection.
+2. Click the button <img src="../_static/media/chapter_10\section_1/media/image48.png"  class="common_img" style="width:120px;display:inline;vertical-align:middle;"/> to open the folder where your images are stored. In this section, select the directory used for image collection.
 
 <img src="../_static/media/chapter_10\section_1/media/image49.png"  style="width:600px"  class="common_img" />
 
-3. Click Open <img src="../_static/media/chapter_10\section_1/media/image50.png" class="common_img" style="width:70px;display:inline;vertical-align:middle;"/> to open the folder.
+3. Click **Open** button <img src="../_static/media/chapter_10\section_1/media/image50.png" class="common_img" style="width:120px;display:inline;vertical-align:middle;"/> to open the folder.
 
 <img src="../_static/media/chapter_10\section_1/media/image51.png"  style="width:600px"  class="common_img" />
 
-4. Then click the **Change Save Dir** button <img src="../_static/media/chapter_10\section_1/media/image52.png"  class="common_img" style="width:70px;display:inline;vertical-align:middle;"/> and select the annotation save folder, which is the **Annotations** directory located under the same path as the image collection.
+4. Then click the **Change Save Dir** button <img src="../_static/media/chapter_10\section_1/media/image52.png"  class="common_img" style="width:120px;display:inline;vertical-align:middle;"/> and select the annotation save folder, which is the **Annotations** directory located under the same path as the image collection.
 
 <img src="../_static/media/chapter_10\section_1/media/image53.png"  style="width:600px"  class="common_img" />
 
-5. Click **Open** <img src="../_static/media/chapter_10\section_1/media/image54.png"  style="width:70px;display:inline;vertical-align:middle"  class="common_img" /> to return to the annotation interface.
+5. Click **Open** button <img src="../_static/media/chapter_10\section_1/media/image54.png"  style="width:120px;display:inline;vertical-align:middle"  class="common_img" /> to return to the annotation interface.
 
 6. Press the **W** key to begin creating a bounding box.
 
@@ -3076,9 +3082,9 @@ Below is a table of common shortcut keys:
 
 8. In the pop-up window, name the category of the object, e.g., **left**. After naming, click **OK** or press **Enter** to save the label.
 
-<img src="../_static/media/chapter_10\section_1/media/image56.png"  style="width:600px"  class="common_img" />
+<img src="../_static/media/chapter_10\section_1/media/image56.png"  style="width:350px"  class="common_img" />
 
-9. Press **Ctrl+S** to save the annotation for the current image.
+9. Press **Ctrl + S** to save the annotation for the current image.
 
 10. Press the **D** key to move to the next image, then repeat steps 7 to 9 to complete all annotations. Click the close button <img src="../_static/media/chapter_10\section_1/media/image57.png"   /> at the top-right corner of the tool to exit.
 
@@ -3102,9 +3108,11 @@ Before starting the operations in this section, image collection and annotation 
 
 > [!NOTE]
 >
-> **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
+> * **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
+>
+> * **If the file is missing, the related file can be created by entering the following command.**
 
-1. Open a new terminal and enter the following command to open the file: **Note: If the file is missing, the related file can be created by entering the following command.**
+1. Open a new terminal and enter the following command to open the file: 
 
 ```bash
 gedit ~/my_data/classes.names
@@ -3118,7 +3126,7 @@ gedit ~/my_data/classes.names
 >
 > **The class names here must match the labels used in the labelImg annotation tool exactly.**
 
-3. After editing, press **Ctrl+S** to save and exit.
+3. After editing, press **Ctrl + S** to save and exit.
 
 4. Next, return to the terminal and run the following command to convert the annotation format:
 
@@ -3130,15 +3138,15 @@ python3 ~/software/xml2yolo.py --data ~/my_data --yaml ~/my_data/data.yaml
 
 > [!NOTE]
 >
-> **Make sure the paths to ~/software/xml2yolo.py and my_data match your actual file structure!**
+> **Make sure the paths to ~/software/xml2yolo.py and my_data match the actual file structure!**
 
 This command uses three main parameters:
 
-**xml2yolo.py:** A script that converts annotations from XML format to the YOLO26 format. Make sure the path is correct.
+`xml2yolo.py:` A script that converts annotations from XML format to the YOLO26 format. Make sure the path is correct.
 
-**my_data:** The directory containing your annotated dataset. Make sure the path is correct.
+`my_data:` The directory containing your annotated dataset. Make sure the path is correct.
 
-**data.yaml:** Indicates the format conversion for the entire folder after the model has been split. From the command, it is clear that the saved directory is within the **my_data** folder.
+`data.yaml:` Indicates the format conversion for the entire folder after the model has been split. From the command, it is clear that the saved directory is within the **my_data** folder.
 
 The following image shows the generated **data.yaml** file.
 
@@ -3164,7 +3172,7 @@ After converting the model format, the next step is to proceed with model traini
 
 2. Click the terminal icon <img src="../_static/media/chapter_10\section_1/media/image29.png" /> in the system desktop to open a command-line window.
 
-3. Enter the following command and press Enter to go to the specific directory.
+3. Enter the following command and press **Enter** to go to the specific directory.
 
 ```bash
 cd ~/third_party/yolo/yolov11/
@@ -3183,7 +3191,7 @@ In the command, the parameters stands for:
 **\--data**: path to the dataset.  
 **\--weights**: path to the pre-trained model.
 
-You can modify the parameters above based on your specific needs. To improve model accuracy, consider increasing the number of training epochs. Note that this will also increase training time.
+The parameters above can be modified based on the specific needs. To improve model accuracy, consider increasing the number of training epochs. Note that this will also increase training time.
 
 If the following content appears, it indicates that the training is in progress.
 
@@ -3203,7 +3211,7 @@ The following steps outline how to import the trained model into the robot's con
 
 **Steps:**
 
-1. Transfer the trained model file to the Jetson Orin Nano controller using NoMachine software. Simply drag the file from your local machine to the remote desktop, as shown below. The .pt model file, marked in red, should be dragged into the remote desktop.
+1. Transfer the trained model file to the Jetson Orin Nano controller using NoMachine software. Simply drag the file from your local machine to the remote desktop, as shown below. The **.pt** model file, marked in red, should be dragged into the remote desktop.
 
 > [!NOTE]
 >
@@ -3221,7 +3229,7 @@ Next, copy the trained model file, for example, **best.pt**, to the **/third_par
 
 <img src="../_static/media/chapter_10\section_1/media/image69.png"  style="width:600px"  class="common_img" />
 
-3. In the terminal, input the command to copy the model to the **yolov5** folder.
+3. In the terminal, input the command to copy the model to the **yolov11** folder.
 
 ```bash
 mv ~/Desktop/best.pt ~/third_party/yolo/yolov11
@@ -3277,13 +3285,13 @@ sudo chmod +x+w+r best.engine
 sudo systemctl stop start_app_node.service
 ```
 
-2. Enter the command to copy the trained `best.pt` file into the `~/third_party/yolo/yolov11` directory.
+2. Enter the command to copy the trained **best.pt** file into the **~/third_party/yolo/yolov11** directory.
 
 ```
 cp ~/third_party/yolo/yolov11/runs/detect/train/weights/best.pt ~/third_party/yolo/yolov11
 ```
 
-3. Open the `yolov11_detect_demo.py` file for object detection.
+3. Open the **yolov11_detect_demo.py** file for object detection.
 
 ```bash
 gedit ~/ros2_ws/src/example/example/yolov11_detect/yolov11_detect_demo.py
@@ -3321,7 +3329,7 @@ In the following instructions, screenshots may show different robot hostnames, a
 
 2. Follow the previous steps to install and launch the remote connection tool, NoMachine.
 
-#### 7.3.9.2 Operation Steps
+#### 7.3.9.2 Training Steps
 
 * **Image Collection**
 
@@ -3351,15 +3359,15 @@ cd ~/software/collect_picture && python3 main.py
 
 The **save number** in the top-left corner of the tool interface shows the ID of the saved image. The **existing** shows how many images have already been saved.
 
-6. Change the `Save path` to **/home/ubuntu/my_data**, which will also be used in later steps.
+6. Change the **Save path** to **/home/ubuntu/my_data**, which will also be used in later steps.
 
 <img src="../_static/media/chapter_10\section_1/media/image99.png"  style="width:600px"  class="common_img" />
 
-7. Place the target object within the camera's view. Press the `Save (space)` button or the `space` bar on the keyboard to save the current camera frame. After pressing it, both the **save number** and the **existing** counters will increase by 1. This helps track the current image ID and total image count in the folder.
+7. Place the target object within the camera's view. Press the **Save (space)** button or the **space** bar on the keyboard to save the current camera frame. After pressing it, both the **save number** and the **existing** counters will increase by 1. This helps track the current image ID and total image count in the folder.
 
 <img src="../_static/media/chapter_10\section_1/media/image100.png"  style="width:600px"  class="common_img" />
 
-8. After clicking `Save (space)`, a folder named **JPEGImages** will be automatically created under the path **/home/ubuntu/my_data** to store the images.
+8. After clicking **Save (space)**, a folder named **JPEGImages** will be automatically created under the path **/home/ubuntu/my_data** to store the images.
 
 <img src="../_static/media/chapter_10\section_1/media/image99.png"  style="width:600px"  class="common_img" />
 
@@ -3401,38 +3409,38 @@ python3 software/labelImg/labelImg.py
 
 5. After opening the image annotation tool. Below is a table of common shortcut keys:
 
-| **Function**                                                 | **Shortcut Key** | **Function**                               |
-| ------------------------------------------------------------ | ---------------- | ------------------------------------------ |
-| <img src="../_static/media/chapter_10\section_1/media/image42.png" class="common_img"  /> | Ctrl+U           | Choose the directory for images.           |
-| <img src="../_static/media/chapter_10\section_1/media/image43.png"  /> | Ctrl+R           | Choose the directory for calibration data. |
-| <img src="../_static/media/chapter_10\section_1/media/image44.png"    class="common_img" /> | W                | Create an annotation box.                  |
-| <img src="../_static/media/chapter_10\section_1/media/image45.png"    class="common_img" /> | Ctrl+S           | Save the annotation.                       |
-| <img src="../_static/media/chapter_10\section_1/media/image46.png"    class="common_img" /> | A                | Switch to the previous image.              |
-| <img src="../_static/media/chapter_10\section_1/media/image47.png"  class="common_img" /> | D                | Switch to the next image.                  |
+|                         **Function**                         | **Shortcut Key** |                **Function**                |
+| :----------------------------------------------------------: | :--------------: | :----------------------------------------: |
+| <img src="../_static/media/chapter_10\section_1/media/image42.png" class="common_img"  /> |     Ctrl + U     |      Choose the directory for images.      |
+| <img src="../_static/media/chapter_10\section_1/media/image43.png"  /> |     Ctrl + R     | Choose the directory for calibration data. |
+| <img src="../_static/media/chapter_10\section_1/media/image44.png"    class="common_img" /> |        W         |         Create an annotation box.          |
+| <img src="../_static/media/chapter_10\section_1/media/image45.png"    class="common_img" /> |     Ctrl + S     |            Save the annotation.            |
+| <img src="../_static/media/chapter_10\section_1/media/image46.png"    class="common_img" /> |        A         |       Switch to the previous image.        |
+| <img src="../_static/media/chapter_10\section_1/media/image47.png"  class="common_img" /> |        D         |         Switch to the next image.          |
 
-6. Use the shortcut **Ctrl+U** and set the image directory to `/home/ubuntu/my\_data/JPEGImages/`, then click the `Open` button.
+6. Use the shortcut **Ctrl + U** and set the image directory to **/home/ubuntu/my\_data/JPEGImages/**, then click the **Open** button.
 
 <img src="../_static/media/chapter_10\section_1/media/image106.png"  style="width:600px"  class="common_img" />
 
-7. Use the shortcut **Ctrl+R**, set the annotation data storage directory to `/home/ubuntu/my\_data/Annotations/`, and click `Open`. The **Annotations** folder will be automatically generated when collecting images.
+7. Use the shortcut **Ctrl + R**, set the annotation data storage directory to **/home/ubuntu/my\_data/Annotations/**, and click **Open**. The **Annotations** folder will be automatically generated when collecting images.
 
 <img src="../_static/media/chapter_10\section_1/media/image107.png"  style="width:600px"  class="common_img" />
 
-8. Press the `w` key to begin creating a bounding box.
+8. Press the **W** key to begin creating a bounding box.
 
 Move the mouse to the desired location and hold the left mouse button to draw a box that covers the entire object. Release the left mouse button to finish drawing the box.
 
 <img src="../_static/media/chapter_10\section_1/media/image108.png"  style="width:600px"  class="common_img" />
 
-9. In the pop-up window, name the category of the object, e.g., **right**. After naming, click **`OK`** or press `Enter` to save the label.
+9. In the pop-up window, name the category of the object, e.g., **right**. After naming, click **OK** or press **Enter** to save the label.
 
-<img src="../_static/media/chapter_10\section_1/media/image109.png"  style="width:600px"  class="common_img" />
+<img src="../_static/media/chapter_10\section_1/media/image109.png"  style="width:350px"  class="common_img" />
 
-10. Press **Ctrl+S** to save the annotation for the current image.
+10. Press **Ctrl + S** to save the annotation for the current image.
 
 11. Refer to Step 9 to complete the annotation of the remaining images.
 
-12. Click the icon <img src="../_static/media/chapter_10\section_1/media/image110.png" /> in the system status bar to open the file manager and navigate to the directory `/home/ubuntu/my\_data/Annotations/` to view the image annotation files. This is the same dataset path where the images were saved during data collection.
+12. Click the icon <img src="../_static/media/chapter_10\section_1/media/image110.png" /> in the system status bar to open the file manager and navigate to the directory **/home/ubuntu/my\_data/Annotations/** to view the image annotation files. This is the same dataset path where the images were saved during data collection.
 
 * **Generating Related Files**
 
@@ -3468,7 +3476,7 @@ If the prompt shown in the figure below appears, the conversion was successful.
 
 <img src="../_static/media/chapter_10\section_1/media/image115.png"  style="width:1000px"  class="common_img" />
 
-The output paths depend on the actual storage location of the folders in your robot’s file system. Paths may vary across devices, but the generated **data.yaml** file will correspond to your annotated dataset.
+The output paths depend on the actual storage location of the folders in the robot’s file system. Paths may vary across devices, but the generated **data.yaml** file will correspond to the annotated dataset.
 
 * **Model Training**
 
@@ -3490,7 +3498,7 @@ In the command, `--img` specifies the image size, `--batch` indicates the number
 
 The above parameters can be adjusted according to the specific setup. To improve model accuracy, consider increasing the number of training epochs. Note that this will also increase training time.
 
-If you see the following output, it means the training process is running successfully.
+If the following output appears, it means the training process is running successfully.
 
 <img src="../_static/media/chapter_10\section_1/media/image117.png"  style="width:600px"  class="common_img" />
 
@@ -3514,23 +3522,23 @@ Once training is complete, the terminal will display the path where the training
 cd ~/third_party/yolo/yolov11/
 ```
 
-4. Move the trained weight file to the `~/third_party/yolo/yolov11/` directory.
+4. Move the trained weight file to the **~/third_party/yolo/yolov11/** directory.
 
 ```bash
 cp ~/third_party/yolo/yolov11/runs/detect/train4/weights/best.pt ~/third_party/yolo/yolov11/best.pt
 ```
 
-5. Then, use the command to convert the `pt` file into an `engine` file.
+5. Then, use the command to convert the **pt** file into an **engine** file.
 
 ```bash
 python3 export.py --weights best.pt --include engine --device 0 --half --imgsz 480 640
 ```
 
-If the generated `best.engine` file is locked and not readable, as shown in the image below:
+If the generated **best.engine** file is locked and not readable, as shown in the image below:
 
 <img src="../_static/media/chapter_10\section_1/media/image84.jpeg"   style="width:200px"  class="common_img" />
 
-To add permissions to the `best.engine` file, open a terminal in the folder containing the best.engine file, then input the following command:
+To add permissions to the **best.engine** file, open a terminal in the folder containing the best.engine file, then input the following command:
 
 ```bash
 sudo chmod +x+w+r best.engine
@@ -3538,7 +3546,7 @@ sudo chmod +x+w+r best.engine
 
 #### 7.3.9.3 Using the Model
 
-1. Enter the command to copy the generated engine file `best.engine` to the `~/ros2_ws/src/example/example/yolov11_detect/models` directory.
+1. Enter the command to copy the generated engine file **best.engine** to the **~/ros2_ws/src/example/example/yolov11_detect/models** directory.
 
 ```bash
 cp ~/third_party/yolo/yolov11/best.engine ~/ros2_ws/src/example/example/yolov11_detect/models/best.engine
@@ -3596,7 +3604,7 @@ sudo swapon /swapfile
 
 ## 7.4 Autonomous Driving
 
-Before starting, it’s important to familiarize yourself with the map and the placement of relevant props.
+Before starting, it’s important to be familiar with the map and the placement of relevant props.
 
 The map should be laid on a flat surface, ensuring it is smooth without wrinkles, and that the road is clear of any obstacles. All road signs and traffic lights must be placed at the designated positions on the map, facing clockwise along the route. The positions of the road signs and the starting point are shown in the figure below.
 
@@ -3604,13 +3612,13 @@ The map should be laid on a flat surface, ensuring it is smooth without wrinkles
 
 ### 7.4.1 Lane Keeping
 
-This lesson focuses on controlling the car to move forward while keeping it within the lane.
+This section focuses on controlling the car to move forward while keeping it within the lane.
 
 #### 7.4.1.1 Preparation
 
 1. When performing this feature, make sure the environment is well-lit, but avoid direct light hitting the camera to prevent misrecognition.
 
-2. Adjust the color thresholds in advance to correctly detect the yellow lines, preventing misdetection during the lesson. For guidance on setting color thresholds, refer to the course [6. ROS+OpenCV Course]().
+2. Adjust the color thresholds in advance to correctly detect the yellow lines, preventing misdetection during the lesson. For guidance on setting color thresholds, refer to the course [6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html).
 
 3. It is recommended to position the robot in the center of the lane for easier detection.
 
@@ -3630,7 +3638,7 @@ The source code for this program is located at: **/home/ubuntu/ros2_ws/src/examp
 
 #### 7.4.1.3 Operation Steps
 
-Power on the robot and connect it via the **NoMachine** remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
+Power on the robot and connect it via the **NoMachine** remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 
 
@@ -3644,13 +3652,13 @@ Power on the robot and connect it via the **NoMachine** remote control software.
 sudo systemctl stop start_app_node.service
 ```
 
-3. In the terminal, enter the following command and press Enter:
+3. In the terminal, enter the following command and press **Enter**:
 
 ```bash
 ros2 launch example self_driving.launch.py
 ```
 
-4. To close the program, select the corresponding terminal window and press **Ctrl+C**.
+4. To close the program, select the corresponding terminal window and press **Ctrl + C**.
 
 <img src="..\_static\media\chapter_11\section_1\media\image6.png"  style="width:600px"  class="common_img" />
 
@@ -3662,11 +3670,11 @@ After starting the feature, place the robot on the road of the map. The robot wi
 
 ### 7.4.2 Traffic Sign Detection
 
-This lesson focuses on recognizing traffic signs through programmed commands.
+This section focuses on recognizing traffic signs through programmed commands.
 
 #### 7.4.2.1 Preparation
 
-1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous sections.
+1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous section [7.3.3 YOLO26 Model](#anther7.3.3) in this document.
 
 2. When performing this feature, make sure the environment is well-lit, but avoid direct light hitting the camera to prevent misrecognition.
 
@@ -3692,13 +3700,13 @@ The source code for this program is located at:
 >
 > * **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 1. Power on the robot and connect it via the NoMachine remote control software.
 
 2. Click the terminal icon <img src="..\_static\media\chapter_11\section_1\media\image3.png" /> in the system desktop to open a command-line window.
 
-3. Enter the following command and press Enter to stop the app auto-start service.
+3. Enter the following command and press **Enter** to stop the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -3716,7 +3724,7 @@ cd /home/ubuntu/ros2_ws/src/example/example/yolov11_detect
 vim yolov11_detect_demo.py
 ```
 
-6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the `MODEL_DEFAULT_NAME` weight file name to `best_traffic`, and update the `MODEL_PATH` to `/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/`. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
+6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the **MODEL_DEFAULT_NAME** weight file name to **best_traffic**, and update the **MODEL_PATH** to **/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/**. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
 
    <img src="..\_static\media\chapter_11\section_1\media\image21.png"  style="width:600px"  class="common_img" />
 
@@ -3738,7 +3746,7 @@ This feature allows the robot to recognize traffic lights through command execut
 
 #### 7.4.3.1 Preparation
 
-1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous sections.
+1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous section [7.3.3 YOLO26 Model](#anther7.3.3) in this document.
 
 2. When performing this feature, make sure the environment is well-lit, but avoid direct light hitting the camera to prevent misrecognition.
 
@@ -3762,7 +3770,7 @@ The source code for this program is located at:
 >
 > * **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 
 
@@ -3770,7 +3778,7 @@ Power on the robot and connect it via the NoMachine remote control software. For
 
 2. Click the terminal icon <img src="..\_static\media\chapter_11\section_1\media\image3.png" /> in the system desktop to open a command-line window.
 
-3. Enter the following command and press Enter to stop the app auto-start service.
+3. Enter the following command and press **Enter** to stop the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -3788,7 +3796,7 @@ cd /home/ubuntu/ros2_ws/src/example/example/yolov11_detect
 vim yolov11_detect_demo.py
 ```
 
-6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the `MODEL_DEFAULT_NAME` weight file name to `best_traffic`, and update the `MODEL_PATH` to `/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/`. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
+6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the **MODEL_DEFAULT_NAME** weight file name to **best_traffic**, and update the **MODEL_PATH** to **/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/**. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
 
    <img src="..\_static\media\chapter_11\section_1\media\image21.png"  style="width:600px"  class="common_img" />
 
@@ -3810,7 +3818,7 @@ This section demonstrates how to detect and recognize turn signs through command
 
 #### 7.4.4.1 Preparation
 
-1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous sections.
+1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous section [7.3.3 YOLO26 Model](#anther7.3.3) in this document.
 
 2. When performing this feature, make sure the environment is well-lit, but avoid direct light hitting the camera to prevent misrecognition.
 
@@ -3834,13 +3842,13 @@ The source code for this program is located at:
 >
 > * **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 1. Power on the robot and connect it via the NoMachine remote control software.
 
 2. Click the terminal icon <img src="..\_static\media\chapter_11\section_1\media\image3.png" /> in the system desktop to open a command-line window.
 
-3. Enter the following command and press Enter to stop the app auto-start service.
+3. Enter the following command and press **Enter** to stop the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -3858,7 +3866,7 @@ cd /home/ubuntu/ros2_ws/src/example/example/yolov11_detect
 vim yolov11_detect_demo.py
 ```
 
-6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the `MODEL_DEFAULT_NAME` weight file name to `best_traffic`, and update the `MODEL_PATH` to `/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/`. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
+6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the **MODEL_DEFAULT_NAME** weight file name to **best_traffic**, and update the **MODEL_PATH** to **/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/**. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
 
    <img src="..\_static\media\chapter_11\section_1\media\image21.png"  style="width:600px"  class="common_img" />
 
@@ -3880,7 +3888,7 @@ This section demonstrates how to detect and recognize parking signs through comm
 
 #### 7.4.5.1 Preparation
 
-1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous sections.
+1. The traffic sign model in this section is a YOLO26 trained model. For more details on YOLO26, please refer to the previous section [7.3.3 YOLO26 Model](#anther7.3.3) in this document.
 
 2. When performing this feature, make sure the environment is well-lit, but avoid direct light hitting the camera to prevent misrecognition.
 
@@ -3904,13 +3912,13 @@ The source code for this program is located at:
 >
 > * **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 1. Power on the robot and connect it via the NoMachine remote control software.
 
 2. Click the terminal icon <img src="..\_static\media\chapter_11\section_1\media\image3.png" /> in the system desktop to open a command-line window.
 
-3. Enter the following command and press Enter to stop the app auto-start service.
+3. Enter the following command and press **Enter** to stop the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -3928,7 +3936,7 @@ cd /home/ubuntu/ros2_ws/src/example/example/yolov11_detect
 vim yolov11_detect_demo.py
 ```
 
-6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the `MODEL_DEFAULT_NAME` weight file name to `best_traffic`, and update the `MODEL_PATH` to `/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/`. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
+6. Press the **i** key to enter edit mode, locate the code highlighted in red, change the **MODEL_DEFAULT_NAME** weight file name to **best_traffic**, and update the **MODEL_PATH** to **/home/ubuntu/ros2_ws/src/example/example/yolov11_detect/models/**. Press **Esc**, type `:wq`, and press **Enter** to save and exit.
 
    <img src="..\_static\media\chapter_11\section_1\media\image21.png"  style="width:600px"  class="common_img" />
 
@@ -3958,7 +3966,7 @@ The map should be laid on a flat surface, ensuring it is smooth without wrinkles
 
 * **Color Threshold Setting**
 
-Since lighting conditions affect color recognition, you need to adjust the thresholds for black, white, red, green, blue, and yellow before starting, following the instructions in [6. ROS + OpenCV Course]().
+Since lighting conditions affect color recognition, you need to adjust the thresholds for black, white, red, green, blue, and yellow before starting, following the instructions in [6. ROS + OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html).
 
 If the robot encounters inaccurate recognition during its movement, the color threshold should be adjusted in areas of the map where recognition fails.
 
@@ -3990,9 +3998,7 @@ The source code for this program is located at:
 
 #### 7.4.6.3 Operation Steps
 
-Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine]() in the user manual.
-
-
+Power on the robot and connect it via the NoMachine remote control software. For detailed information, please refer to the section [1.7.2.1 Connecting via NoMachine](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#connecting-via-nomachine) in the user manual.
 
 1. Click the terminal icon <img src="..\_static\media\chapter_11\section_1\media\image29.png" /> in the system desktop to open a command-line window.
 
@@ -4008,7 +4014,7 @@ sudo systemctl stop start_app_node.service
 ros2 launch example self_driving.launch.py
 ```
 
-4. To close the program, select the corresponding terminal window and press **Ctrl+C**.
+4. To close the program, select the corresponding terminal window and press **Ctrl + C**.
 
 <img src="..\_static\media\chapter_11\section_1\media\image36.png"  style="width:600px"  class="common_img" />
 
@@ -4029,8 +4035,6 @@ While moving forward, if the robot detects a traffic sign, it will take the corr
 Following these rules, the robot continuously navigates around the map in a loop.
 
 #### 7.4.6.5 Program Analysis
-
-* **launch**
 
 * **Launch File Analysis**
 
@@ -4105,7 +4109,7 @@ Retrieve paths for `peripherals` and `controller` packages.
         controller_package_path = get_package_share_directory('controller')
 ```
 
-Include launch.py files using `IncludeLaunchDescription`.
+Include **launch.py** files using `IncludeLaunchDescription`.
 
 `depth_camera_launch` for starting the depth camera.
 
@@ -4160,7 +4164,7 @@ def generate_launch_description():
 
 ```python
 if __name__ == '__main__':
-    # 创建一个LaunchDescription对象
+    # Create a LaunchDescription object
     ld = generate_launch_description()
 
     ls = LaunchService()
@@ -4176,7 +4180,7 @@ if __name__ == '__main__':
 
 `ls.run()` starts the Launch service and executes all defined Launch actions.
 
-* **python**
+* **Python File Analysis**
 
 The source code for this program is located at:
 
@@ -4241,22 +4245,22 @@ The source code for this program is located at:
         self.mecanum_pub = self.create_publisher(Twist, '%s' % self.cmd_vel_topic, 1)
         self.servo_state_pub = self.create_publisher(SetPWMServoState, 'ros_robot_controller/pwm_servo/set_state', 10)
         
-        # self.joints_pub = self.create_publisher(ServosPosition, '/servo_controller', 1) # 舵机控制(servo control)
+        # self.joints_pub = self.create_publisher(ServosPosition, '/servo_controller', 1) # Servo control
         self.result_publisher = self.create_publisher(Image, '~/image_result', 1)
 ```
 
 Create `~/enter` to start the feature service, `~/exit` to exit the feature service, and `~/set_running` for run state management.
 
 ```python
-        self.create_service(Trigger, '~/enter', self.enter_srv_callback) # 进入玩法(enter the game)
-        self.create_service(Trigger, '~/exit', self.exit_srv_callback) # 退出玩法(exit the game)
+        self.create_service(Trigger, '~/enter', self.enter_srv_callback) # Enter the feature
+        self.create_service(Trigger, '~/exit', self.exit_srv_callback) # Exit the feature
         self.create_service(SetBool, '~/set_running', self.set_running_srv_callback)
 ```
 
 Create heartbeat monitoring to check every 5 seconds and trigger the exit callback on timeout.
 
 ```python
-        Heart(self, self.name + '/heartbeat', 5, lambda _: self.exit_srv_callback(request=Trigger.Request(), response=Trigger.Response()))  # 心跳包(heartbeat package)
+        Heart(self, self.name + '/heartbeat', 5, lambda _: self.exit_srv_callback(request=Trigger.Request(), response=Trigger.Response()))  # Heartbeat package
 ```
 
 Create a reentrant callback group to allow concurrent execution of callbacks.
@@ -4272,7 +4276,7 @@ Create the controller manager client and wait for the service to become availabl
         self.controller_manager_client.wait_for_service()
 ```
 
-Read the **only_line_follow** parameter to determine if only line-following mode is enabled.
+Read the `only_line_follow` parameter to determine if only line-following mode is enabled.
 
 ```python
         self.only_line_follow = self.get_parameter('only_line_follow').value
@@ -4319,21 +4323,6 @@ If `start` is `true`, the robot automatically launches the activity, starts the 
             request = SetBool.Request()
             request.data = True
             self.set_running_srv_callback(request, SetBool.Response())
-```
-
-For Ackermann chassis, special handling applies:
-
-Create a PWM servo state message, set servo ID=1, position=1500 (central position), duration 0.02 seconds, and publish the servo control command.
-
-```python
-        if 'Acker' in self.machine_type:
-            servo_state = PWMServoState()
-            servo_state.id = [1]
-            servo_state.position = [1500]
-            data = SetPWMServoState()
-            data.state = [servo_state]
-            data.duration = 0.02
-            self.servo_state_pub.publish(data)
 ```
 
 Output a green log indicating waiting for YOLO to start.
@@ -4565,7 +4554,7 @@ Handle parking operations.
 
 Camera angle calibration tool. Detect the Y coordinate of the parking sign to determine proximity to the target position, 112 ± 20 pixels. Calibration is completed after meeting the condition for 50 consecutive frames. Display calibration status and reference lines in real time.
 
-Variable Initialization
+Variable Initialization:
 
 `debug_y_thre` specifies the target Y coordinate threshold.
 
@@ -4725,7 +4714,7 @@ If `self.crosswalk_distance` > 300 and deceleration has not started, deceleratio
 
 Speed control logic:
 
-Deceleration mode: Stop for red light when area > 700, slow down for green light. In other cases, decelerate and resume normal speed after timeout.
+Deceleration mode: Stop for a red light when area > 700, slow down but keep moving for a green light. In other cases, decelerate and resume normal speed after a timeout.
 
 Normal mode: maintain standard speed.
 
@@ -4933,7 +4922,7 @@ Retrieve object detection results.
         self.objects_info = msg.objects
 ```
 
-Handling empty detection results: set `traffic_signs_status` to None to clear traffic light status, set `crosswalk_distance` to 0 to reset crosswalk distance, and set `park_y` to -1 to reset the parking sign Y coordinate.
+Handling empty detection results: set `traffic_signs_status` to `None` to clear traffic light status, set `crosswalk_distance` to 0 to reset crosswalk distance, and set `park_y` to `-1` to reset the parking sign Y coordinate.
 
 ```python
         if self.objects_info == []:  # If it is not recognized, reset the variable

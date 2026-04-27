@@ -1,5 +1,9 @@
 # 2\. Chassis Motion Control Course
 
+[TOC]
+
+
+
 ## 2.1 Motion Control
 
 ### 2.1.1 IMU Calibration
@@ -8,7 +12,7 @@
 > 
 > * **The robot is factory-calibrated and generally does not require recalibration. This section is provided for reference only. If the robot deviates significantly during navigation—for example, drifting noticeably to one side while moving forward and unable to drive in a straight line, follow the tutorial below to perform calibration.**
 > 
-> * **Calibration is intended to reduce errors. Some hardware deviations are inevitable, so the goal is to adjust the settings to achieve a performance that is relatively accurate and meets your needs.**
+> * **Calibration is intended to reduce errors. Some hardware deviations are inevitable, so the goal is to adjust the settings to achieve a performance that is relatively accurate and meets the needs.**
 
 If deviations occur during use, the IMU, linear velocity, and angular velocity should be recalibrated. After calibration, the robot can perform all its functions correctly.
 
@@ -22,7 +26,7 @@ The figure above shows the positive directions of the IMU x, y, and z axes. This
 >
 > **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
-1. Power on the robot and connect it through NoMachine. For connection details, refer to [1.7 Development Environment Setup]().
+1. Power on the robot and connect it through NoMachine. For connection details, refer to [1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup).
 
 2. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window.
 
@@ -48,7 +52,7 @@ ros2 run imu_calib do_calib --ros-args -r imu:=/ros_robot_controller/imu_raw --p
 
 <img src="../_static/media/chapter_2/section_1/media/image7.png" style="width:600px" class="common_img" />
 
-<img src="../_static/media/chapter_2/section_1/media/image8.png" style="width:600px"  class="common_img" />
+<img src="../_static/media/chapter_2/section_1/media/imageimage8_1.png" style="width:100px" class="common_img" />
 
 After each orientation is successfully calibrated, the following prompts will appear:
 
@@ -84,7 +88,7 @@ After each orientation is successfully calibrated, the following prompts will ap
 
 <img src="../_static/media/chapter_2/section_1/media/image19.png" style="width:600px"  class="common_img" />
 
-12. When the following message appears, the calibration is complete. Press **Ctrl+C** to exit.
+12. When the following message appears, the calibration is complete. Press **Ctrl + C** to exit.
 
 <img src="../_static/media/chapter_2/section_1/media/image20.png"  class="common_img" />
 
@@ -94,9 +98,11 @@ After each orientation is successfully calibrated, the following prompts will ap
 ros2 launch peripherals imu_view.launch.py
 ```
 
-14. Gently tilt the platform to check whether the model’s tilt direction matches the actual movement. Refer to the example below. If both directions align, the IMU calibration results are considered accurate.
+14. Gently tilt the robot to check whether the model’s tilt direction matches the actual movement. Refer to the example below. If both directions align, the IMU calibration results are considered accurate.
 
-<img src="../_static/media/chapter_2/section_1/media/image22.png" style="width:300px" /><img src="../_static/media/chapter_2/section_1/media/image23.png" style="width:300px"  />
+<img src="../_static/media/chapter_2/section_1/media/image22.png" style="width:300px" />
+
+<img src="../_static/media/chapter_2/section_1/media/image23.png" style="width:300px"  />
 
 ### 2.1.2 Angular Velocity Calibration
 
@@ -110,7 +116,7 @@ When the robot shows noticeable deviation in turning points or turning angles du
 
 <img src="../_static/media/chapter_2/section_1/media/image24.png" style="width:600px"  class="common_img" />
 
-2. Power on the robot and connect it with the remote access tool by following [1.7.2 AP Mode Connection Steps]().
+2. Power on the robot and connect it with the remote access tool by following [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 3. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> on the system desktop.
 
@@ -160,17 +166,15 @@ The meanings of the parameters on the left side of the interface are as follows:
 
 (5) `start_test` – Button to start testing the odometry angle scaling.
 
-Make sure the robot is properly aligned, then check **start_test**. The robot will rotate in place. If it cannot complete a full rotation or shows deviation, adjust the **odom_angle_scale_correction** value, which scales the motor rotation during turning. It is recommended to adjust in increments of 0.01 and repeat the test until the robot can rotate exactly one full turn, then record this value.
+Make sure the robot is properly aligned, then check `start_test`. The robot will rotate in place. If it cannot complete a full rotation or shows deviation, adjust the `odom_angle_scale_correction` value, which scales the motor rotation during turning. It is recommended to adjust in increments of 0.01 and repeat the test until the robot can rotate exactly one full turn, then record this value.
 
 <img src="../_static/media/chapter_2/section_1/media/image29.png" style="width:600px" class="common_img" />
 
-If the rotation angle exceeds one full turn, it indicates a deviation in the robot’s angular velocity. To correct it, increase the **odom_angular_scale_correction** parameter in the input field next to the slider, adjusting by 0.01 each time. For example, changing 1.0 to 1.01. Conversely,
+If the rotation angle exceeds one full turn, it indicates a deviation in the robot’s angular velocity. To correct it, increase the `odom_angular_scale_correction` parameter in the input field next to the slider, adjusting by 0.01 each time. For example, changing 1.0 to 1.01. Conversely, if the rotation angle is less than one full turn, decrease the parameter `odom_angular_scale_correction`.
 
 <img src="../_static/media/chapter_2/section_1/media/image30.png" style="width:600px"  class="common_img" />
 
-If the rotation angle is less than one full turn, decrease the parameter `odom_angular_scale_correction`.
-
-When the robot completes exactly one full turn, the calibration is correct. Record the current value of **odom_angular_scale_correction**.
+When the robot completes exactly one full turn, the calibration is correct. Record the current value of `odom_angular_scale_correction`.
 
 <img src="../_static/media/chapter_2/section_1/media/image24.png" style="width:600px"  class="common_img" />
 
@@ -180,13 +184,9 @@ When the robot completes exactly one full turn, the calibration is correct. Reco
 cd ~/ros2_ws/src/driver/controller/config && vim calibrate_params.yaml
 ```
 
-Press the key **i** to enter edit mode and modify the value of **angular_correctqion_factor** to the calibrated value of **odom_angule_scale_correction**.
+Press the key **i** to enter edit mode and modify the value of `angular_correctqion_factor` to the calibrated value of `odom_angule_scale_correction`.
 
 <img src="../_static/media/chapter_2/section_1/media/image31.png"  class="common_img" />
-
-> [!NOTE]
->
-> **This section uses the Mecanum chassis as an example for calibration. The Ackermann chassis does not require angular velocity calibration.**
 
 12. After editing, press **ESC**, type `:wq`, and press **Enter** to save and exit.
 
@@ -200,7 +200,7 @@ Press the key **i** to enter edit mode and modify the value of **angular_correct
 
 <img src="../_static/media/chapter_2/section_1/media/image32.png" style="width:600px"  class="common_img" />
 
-2. Power on the robot and connect it with the remote access tool by following [1.7.2 AP Mode Connection Steps]().
+2. Power on the robot and connect it with the remote access tool by following [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 3. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> in the system desktop to open a command-line window.
 
@@ -216,7 +216,7 @@ sudo systemctl stop start_app_node.service
 cd ~/ros2_ws/src/driver/controller/config && vim calibrate_params.yaml
 ```
 
-6. Change the linear velocity parameter **linear_correction_factor** to 1.0 before proceeding with the calibration.
+6. Change the linear velocity parameter `linear_correction_factor` to 1.0 before proceeding with the calibration.
 
 <img src="../_static/media/chapter_2/section_1/media/image33.png"  class="common_img" />
 
@@ -302,7 +302,7 @@ Therefore, both the IMU and odometry are key components of the robot. They are u
 
 To correct for errors in odometry, the IMU is used in combination, and the data from both sources are fused to obtain more accurate information.
 
-The IMU data is published on the topic /imu, and the odometry data is published on /odom. Once both sets of data are obtained, they are fused using the ekf package in ROS, and the resulting fused localization information is then re-published.
+The IMU data is published on the topic `/imu`, and the odometry data is published on `/odom`. Once both sets of data are obtained, they are fused using the **ekf** package in ROS, and the resulting fused localization information is then re-published.
 
 #### 2.1.4.2 IMU Data Publishing
 
@@ -312,7 +312,7 @@ The IMU data is published on the topic /imu, and the odometry data is published 
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it through NoMachine. For connection details, refer to [1.7.2 AP Mode Connection Steps]().
+1. Power on the robot and connect it through NoMachine. For connection details, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> in the system desktop to open a command-line window.
 
@@ -370,7 +370,7 @@ The message content shows the data collected from the three axes of the IMU.
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it through NoMachine. For remote desktop connection details, refer to [1.7.2 AP Mode Connection Steps]().
+1. Power on the robot and connect it through NoMachine. For remote desktop connection details, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> in the system desktop to open a command-line window.
 
@@ -412,7 +412,7 @@ ros2 topic echo /odom_raw
 
 <img src="../_static/media/chapter_2/section_1/media/image48.png" style="width:600px" class="common_img" />
 
-The message contains the robot's pose and twist data.
+The message contains the robot's `pose` and `twist` data.
 
 ### 2.1.5 Robot Speed Control
 
@@ -424,6 +424,8 @@ Based on the robot’s motion characteristics, the forward, backward, and turnin
 
 The program subscribes to the `/controller/cmd_vel` topic to get the set linear and angular velocities, which are then used to calculate the robot’s movement speed.
 
+The program source code is located at: **/home/ubuntu/ros2_ws/src/driver/controller/controller/odom_publisher_node.py**
+
 <p id ="anther2.1.5.2"></p>
 
 #### 2.1.5.2 Disable the App Service and Enable Speed Control
@@ -432,7 +434,7 @@ The program subscribes to the `/controller/cmd_vel` topic to get the set linear 
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it through NoMachine. For remote desktop setup instructions, refer to [1.7.2 AP Mode Connection Steps]().
+1. Power on the robot and connect it through NoMachine. For remote desktop setup instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_2/section_1/media/image3.png"  class="common_img" style="display:inline;vertical-align:middle;"/> in the system desktop to open a command-line window.
 
@@ -471,23 +473,23 @@ The `angular` parameter sets the angular velocity. A positive Z value makes the 
 > 
 > * **Z represents the angular velocity for turning. It can be calculated using the formulas: V = ωR and tanΦ<sub>A</sub> = D / R, where z = ω, D = 0.213, and Φ<sub>A</sub> is the turn angle, ranging from 0° to 36°.**
 
-Use the keyboard arrow keys to modify the corresponding parameters. For example, to move forward, set linear **X** to 0.1 and press **Enter** to execute.
+Use the keyboard arrow keys to modify the corresponding parameters. For example, to move forward, set linear `X` to 0.1 and press **Enter** to execute.
 
 <img src="../_static/media/chapter_2/section_1/media/image74.png" style="width:600px" class="common_img" />
 
-6. To stop the robot, open a new terminal, set the previously modified linear **X** back to 0.0, and press **Enter**.
+6. To stop the robot, open a new terminal, set the previously modified linear `X` back to 0.0, and press **Enter**.
 
 <img src="../_static/media/chapter_2/section_1/media/image75.png" style="width:600px" class="common_img" />
 
-7. To exit this control mode, press **Ctrl+C** in each terminal.
+7. To exit this control mode, press **Ctrl + C** in each terminal.
 
 > [!NOTE]
 >
-> **Before closing control mode, first open a new terminal and stop the robot as described in Step 6. If the terminal is exited directly with Ctrl+C, the robot may fail to stop properly.**
+> **Before closing control mode, first open a new terminal and stop the robot as described in Step 6. If the terminal is exited directly with Ctrl + C, the robot may fail to stop properly.**
 
 #### 2.1.5.3 Modifying Forward Speed
 
-By adjusting the linear velocity X value, the robot can move forward at different speeds. For example, to make the robot move straight forward, set **X** to 0.3 as described in Step 5 of [2.1.5.2 Disable the App Service and Enable Speed Control](#anther2.1.5.2).
+By adjusting the linear velocity X value, the robot can move forward at different speeds. For example, to make the robot move straight forward, set `X` to 0.3 as described in Step 5 of [2.1.5.2 Disable the App Service and Enable Speed Control](#anther2.1.5.2).
 
 <img src="../_static/media/chapter_2/section_1/media/image76.png" style="width:600px"  class="common_img" />
 
@@ -499,7 +501,7 @@ After starting the feature, the robot will move forward at the previously set sp
 
 #### 2.1.5.5 Program Analysis
 
-There are three files: `controller.launch` as the launch file, `calibrate_params.yaml` as the configuration file, and `odom_publisher.py` as the program file.
+There are three files: **controller.launch** as the launch file, **calibrate_params.yaml** as the configuration file, and **odom_publisher.py** as the program file.
 
 When starting, the launch file is executed first. It loads the YAML configuration file and passes the parameters to the ROS nodes. The nodes then read these parameters, initialize themselves, and communicate with other nodes to coordinate the robot’s behavior.
 
@@ -544,7 +546,7 @@ def launch_setup(context):
 
 1. Setting Paths
 
-Obtain the paths for the three packages: `peripherals`, `controller`, and `servo_controller`.
+Obtain the paths for the three packages: **peripherals**, **controller**, and **servo_controller**.
 
 ```python
     if compiled == 'True':
@@ -574,9 +576,9 @@ Obtain the paths for the three packages: `peripherals`, `controller`, and `servo
     )
 ```
 
-`odom_publisher_launch`: Launch file for odometry
+`odom_publisher_launch`: Launch file for odometry.
 
-`imu_filter_launch IMU launch`
+`imu_filter_launch`: Launch file for IMU.
 
 3. Start Nodes
 
@@ -587,11 +589,12 @@ Starts the EKF fusion node.
         package='robot_localization',
         executable='ekf_node',
         name='ekf_filter_node',
+        namespace=namespace,
         output='screen',
         parameters=[ekf_param, {'use_sim_time': use_sim_time}],
         remappings=[
-            ('/tf', 'tf'),
-            ('/tf_static', 'tf_static'),
+            ('/tf', '/tf'),
+            ('/tf_static', '/tf_static'),
             ('odometry/filtered', 'odom'),
             ('cmd_vel', 'controller/cmd_vel')
         ],
@@ -676,14 +679,6 @@ ODOM_TWIST_COVARIANCE_STOP = list(map(float,
                               0, 0, 0, 0, 0, 1e-9]))
 ```
 
-`ODOM_POSE_COVARIANCE`: Odometry POSE covariance.
-
-`ODOM_POSE COVARIANCE STOP`: Odometry POSE covariance when velocity is zero.
-
-`ODOM_TWIST_COVARIANCE`: Odometry TWIST covariance.
-
-`ODOM_TWIST_COVARIANCE_STOP`: Odometry TWIST covariance when velocity is zero.
-
 4. Functions
 
 ```python
@@ -714,16 +709,15 @@ def qua2rpy(x, y, z, w):
 
 `qua2rpy`: Converts a quaternion to Euler angles.
 
-5. Controller Class
+5. Controller Class Analysis
 
 (1) Call Kinematics:
 
 ```python
-        self.ackermann = ackermann.AckermannChassis(wheelbase=0.17706, track_width=0.17165, wheel_diameter=0.085)  
-        self.mecanum = mecanum.MecanumChassis(wheelbase=0.17706, track_width=0.17165, wheel_diameter=0.08)
+         self.mecanum = mecanum.MecanumChassis(wheelbase=0.17706, track_width=0.17165, wheel_diameter=0.08)
 ```
 
-`self.ackermann` invokes the Ackermann kinematics by initializing an Ackermann kinematics object.
+`self.mecanum` invokes the Mecanum kinematics by initializing an Mecanum kinematics object.
 
 (2) Define ROS Parameters:
 
@@ -797,7 +791,7 @@ Relevant parameters are set, and the odometry is published using the `self.creat
         self.pose_pub = self.create_publisher(PoseWithCovarianceStamped, 'set_pose', 1)
         self.create_subscription(Pose2D, 'set_odom', self.set_odom, 1)
         self.create_subscription(Twist, 'controller/cmd_vel', self.cmd_vel_callback, 1)
-        self.create_subscription(Twist, '/app/cmd_vel', self.acker_cmd_vel_callback, 1)
+        self.create_subscription(Twist, 'app/cmd_vel', self.acker_cmd_vel_callback, 1)
         self.create_subscription(Twist, 'cmd_vel', self.app_cmd_vel_callback, 1)
         self.create_service(Trigger, 'controller/load_calibrate_param', self.load_calibrate_param)
         self.create_service(Trigger, '~/init_finish', self.get_node_state)
@@ -827,6 +821,8 @@ Relevant parameters are set, and the odometry is published using the `self.creat
 
 `get_node_state` retrieves the current state of the node, used as a callback function.
 
+`shutdown` shuts down the ROS node, used as a callback function.
+
 `load_calibrate_param` reads the current motion parameters, used as a callback function.
 
 `set_odom` sets the odometry values, used as a callback function.
@@ -843,7 +839,7 @@ Relevant parameters are set, and the odometry is published using the `self.creat
 
 ### 2.2.1 Overview
 
-ROSOrin Pro uses a Mecanum-wheel chassis. A Mecanum-wheeled robot uses multiple small freely rotating rollers to support the vehicle weight. These wheels are usually mounted at the bottom of the chassis and can rotate independently, allowing the robot to turn and maneuver more easily.
+ROSOrin Pro uses a Mecanum wheel chassis. A Mecanum-wheeled robot uses multiple small, freely rotating rollers to support the robot's weight. These wheels are usually mounted at the bottom of the chassis and can rotate independently, allowing the robot to turn and maneuver more easily.
 
 #### 2.2.1.1 Purpose
 
@@ -853,7 +849,7 @@ Mecanum-wheeled robots are commonly used in urban environments and on roads beca
 
 #### 2.2.2.1 Hardware Structure
 
-A Mecanum wheel consists of a main wheel hub and multiple rollers mounted around the hub. The rollers are angled at 45 degrees relative to the axis of the hub. Typically, Mecanum wheels are used in sets of four, two left-handed wheels (Type A) and two right-handed wheels (Type B), which are arranged symmetrically.
+A Mecanum wheel consists of a main wheel hub and multiple rollers mounted around the hub. The rollers are angled at 45 degrees relative to the axis of the hub. Typically, Mecanum wheels are used in sets of four, two left-handed wheels as Type A and two right-handed wheels as Type B, which are arranged symmetrically.
 
 There are several common configurations, such as AAAA, BBBB, AABB, ABAB, BABA, etc. However, not all configurations support full-range movement functions like forward/backward motion, rotation, and lateral movement. The Mecanum chassis uses the ABAB configuration, which enables true omnidirectional movement.
 
@@ -863,7 +859,7 @@ The motion of a Mecanum wheel robot is determined by the direction and speed of 
 
 Because of the angled rollers distributed around the edge of the wheel, lateral movement is also possible. The rollers follow a unique path. When the wheel rotates around its central axis, the roller surfaces form a cylindrical envelope, allowing the robot to roll continuously in a given direction.
 
-The Mecanum-wheel chassis has the following main features:
+The Mecanum wheel chassis has the following main features:
 
 1\. Wheel arrangement: The chassis usually consists of four specially arranged wheels. One at each corner of the chassis, forming a diagonal pattern within a plane. This arrangement allows the robot to generate both lateral and longitudinal thrust simultaneously.
 
@@ -871,7 +867,7 @@ The Mecanum-wheel chassis has the following main features:
 
 3\. Wheel motion control: By adjusting the speed and direction of each wheel, the robot’s movement and direction can be precisely controlled. Proper wheel control enables the vehicle to rotate, translate, or move diagonally, offering highly flexible maneuvering.
 
-Stability: Mecanum wheels provide good stability, as the robot can move or translate in place without rotating. This is especially useful for robots navigating narrow passages or performing complex tasks.
+4\. Stability: Mecanum wheels provide good stability, as the robot can move or translate in place without rotating. This is especially useful for robots navigating narrow passages or performing complex tasks.
 
 5\. Load capacity: The load capacity of Mecanum wheels depends on the design of the wheels and the drive system. They can accommodate a range of payloads, from small robots to industrial equipment.
 
@@ -885,7 +881,7 @@ In kinematic analysis, the motion of Mecanum wheels can be described using a kin
 2. <img src="../_static/media/chapter_3/section_1/media/image4.png" style="zoom:78%;" />: Linear velocity of the Mecanum chassis along the Y-axis, typically the left/right or lateral direction.
 3. <img src="../_static/media/chapter_3/section_1/media/image5.png" style="zoom:75%;" />: Angular velocity of the Mecanum chassis, which is the rotation speed around its own center.
 4. <img src="../_static/media/chapter_3/section_1/media/image6.png" style="zoom:70%;" />: The real-time speeds of the four Mecanum wheels.
-5. For example, the motion of the front-right wheel (Wheel B) on a 2D plane can be decomposed into:
+5. For example, the motion of the front-right wheel on a 2D plane can be decomposed into:
 6. VBx: Linear velocity of the chassis along the X-axis, typically the forward/backward direction.
 7. VBy: Linear velocity of the chassis along the Y-axis, typically the left/right or lateral direction.
 8. L: The distance between the centers of the left and right wheels.
@@ -901,7 +897,7 @@ To simplify the kinematic model, the following two idealized assumptions are mad
 
 (2) The four wheels are positioned at the corners of a rectangle or square, and all wheels are parallel to their corresponding axes.
 
-In this model, the robot rigid-body motion is decomposed into three components: translation along the X-axis, translation along the Y-axis, and rotation around the Z-axis. By calculating the wheel speeds required for these three basic motions, the combined wheel speeds for simultaneous translation and rotation can then be derived.
+In this model, the robot's rigid-body motion is decomposed into three components: translation along the X-axis, translation along the Y-axis, and rotation around the Z-axis. By calculating the wheel speeds required for these three basic motions, the combined wheel speeds for simultaneous translation and rotation can then be derived.
 
 <img src="../_static/media/chapter_3/section_1/media/image8.png" style="zoom: 67%;" /> represent the rotational speeds of wheels A, B, C, and D, respectively, corresponding to the motor speeds.<img src="../_static/media/chapter_3/section_1/media/image3.png" style="zoom:80%;" /> is the translational velocity of the robot along the X-axis, <img src="../_static/media/chapter_3/section_1/media/image4.png" style="zoom:78%;" /> is the translational velocity along the Y-axis, and <img src="../_static/media/chapter_3/section_1/media/image5.png" style="zoom:75%;" /> is the rotational velocity around the Z-axis.
 
@@ -940,9 +936,9 @@ import math
 from ros_robot_controller_msgs.msg import MotorState, MotorsState
 
 class MecanumChassis:
-    # wheelbase = 0.1368   # Distance between front and real axles
-    # track_width = 0.1446 # Distance between left and right axles
-    # wheel_diameter = 0.065  # Wheel diameter
+    # wheelbase = 0.1368 
+    # track_width = 0.1446
+    # wheel_diameter = 0.065 
     def __init__(self, wheelbase=0.206, track_width=0.194, wheel_diameter=0.0065):
         self.wheelbase = wheelbase
         self.track_width = track_width

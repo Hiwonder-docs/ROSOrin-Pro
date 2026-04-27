@@ -1,4 +1,8 @@
-﻿# 11\. Group Control
+# 11\. Group Control
+
+[TOC]
+
+
 
 ## 11.1 Leader-Follower Configuration
 
@@ -6,7 +10,7 @@
 
 1) Prepare at least two robots.
 
-2) Refer to the section [1.7 Development Environment Setup]() in the manual for instructions on downloading and installing the remote connection tool, NoMachine.
+2) Refer to the section [1.7 Development Environment Setup](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the user manual for instructions on downloading and installing the remote connection tool, NoMachine.
 
 ### 11.1.2 Working Principle
 
@@ -30,7 +34,7 @@ cd wifi_manager
 vim wifi_conf.py
 ```
 
-4) Press the **i** key to enter the edit mode. Locate the two lines of code highlighted in the image below and modify the leader hotspot password.
+4) Press the **i** key to enter edit mode. Locate the two lines of code highlighted in the image below and modify the leader hotspot password.
 
 <img class="common_img" src="../_static/media/chapter_20/section_1/media/image3.png"  />
 
@@ -84,9 +88,9 @@ sudo reboot
 
 > [!NOTE]
 > 
-> * **When ROSOrin Pro starts up in LAN mode, it automatically searches for the preconfigured network. During this process, LED2 on the expansion board blinks rapidly, indicating that the system is searching for the network. If the target network is not found after three consecutive search attempts, ROSOrin Pro automatically switches to direct connection mode, and LED2 blinks slowly.**
+> * **When ROSOrin Pro starts up in LAN mode, it will automatically search for the pre-configured network. During this process, LED2 on the expansion board will blink rapidly, indicating that the system is looking for the network. If no network is found after three consecutive search attempts, ROSOrin Pro will automatically switch to direct connection mode, with LED2 blinking slowly.**
 > 
-> * **If ROSOrin Pro cannot find the network in LAN mode and switches to direct connection mode, the `wifi_conf.py` file is not updated automatically. The file still retains the LAN configuration. If it is not modified manually, ROSOrin Pro will still attempt to start in LAN mode on the next boot.**
+> * **In the event that ROSOrin Pro cannot find the network in LAN mode and switches to direct connection mode, the wifi_conf.py file will not be updated automatically. It will still contain the LAN configuration, and if not manually adjusted, ROSOrin Pro will attempt to connect in LAN mode again on the next boot.**
 > 
 > * **Once the follower robot is set to LAN mode, ensure that the leader robot is powered on and its network is properly configured, so that its hotspot can be detected before the follower starts up. If the follower robot fails to detect the leader's hotspot within a certain time frame, it will automatically switch to direct connection mode, which may prevent the leader and follower robots from establishing a network connection.**
 
@@ -130,7 +134,7 @@ source ~/.zshrc
 
 * **For Follower Robot**
 
-1) Connect the app to the Wi-Fi network created by the leader robot, then run a search. When the vehicle icon appears, long-press the screen to display the follower robot IP address. Refer to the section [1.5.2.2 LAN Mode Connection (Optional)]() in the manual for the connection method that uses this IP address.
+1) First, connect to the Wi-Fi network created by the leader robot on the app. Once connected, search for the follower robot. The vehicle icon will appear in the app, and by long-pressing the screen, the follower robot’s IP address will be displayed. Refer to section [1.5.2.2 LAN Mode Connection (Optional)](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#lan-mode-connection-optional)  in the user manual for guidance on using this IP address.
 
 2) Click the terminal icon <img class="common_img" src="../_static/media/chapter_20/section_1/media/image7.png" style="display:inline;vertical-align:middle;" /> on the system desktop to open a command-line window.
 
@@ -239,5 +243,4 @@ ros2 launch multi multi_controller.launch.py
 | Left Joystick Right  | Strafe right for the Mecanum & differential chassis | Push        |
 | Right Joystick Left  | Turn left                                           | Push        |
 | Right Joystick Right | Turn right                                          | Push        |
-
 

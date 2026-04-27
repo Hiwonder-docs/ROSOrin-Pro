@@ -1,16 +1,22 @@
 ﻿# 6\. ROS+OpenCV Course
 
+[TOC]
+
+
+
 ## 6.1 Color Threshold Adjustment
 
 Various light sources can affect colors differently, leading to discrepancies in recognition. To address this issue, LAB TOOL is used to adjust the color threshold so that color recognition remains accurate and consistent.
 
 ### 6.1.1 Launching and Closing LAB TOOL
 
-The input command should be case sensitive, and the keywords can be complemented by the **Tab** key.
+> [!NOTE]
+>
+> **The input command should be case sensitive, and the keywords can be complemented by the Tab key.**
 
 1. Please strictly follow the steps below to open the LAB TOOL. Otherwise, the tool cannot be opened.
 
-2. Power on the robot and connect it to the remote control software NoMachine. For instructions on setting up the remote desktop connection, refer to the section [1.7.2 AP Mode Connection Steps]() in the manual.
+2. Power on the robot and connect it to the remote control software NoMachine. For instructions on setting up the remote desktop connection, refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the manual.
 
 3. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image2.png"  class="common_img" style="display:inline;vertical-align:middle;"  /> in the system desktop to open a command-line window.
 
@@ -32,11 +38,13 @@ ros2 launch peripherals depth_camera.launch.py
 python3 /home/ubuntu/software/lab_tool/main.py
 ```
 
-<img src="../_static/media/chapter_7/section_1/media/image6.png" style="width:800px"  class="common_img" />
+<img src="../_static/media/chapter_7/section_1/media/image6.png" style="width:600px"  class="common_img" />
 
 7. See the next section for an introduction to the interface and instructions for the buttons. Click the **Quit** button at the bottom right to close it.
 
-8. After closing the LAB Tool, enter the command to restart the app auto-start service.
+<img src="../_static/media/chapter_7/section_1/media/image7.png"  class="common_img" />
+
+8. After closing the LAB Tool, enter the command to restart the app auto-start service. Once startup is complete, the robotic arm returns to its initial position.
 
 ```bash
 sudo systemctl restart start_app_node.service
@@ -44,13 +52,13 @@ sudo systemctl restart start_app_node.service
 
 > [!NOTE]
 >
-> **If the app auto-start service is not running, some app functions may not work properly. If the auto-start command has not been executed, restarting the robot will also automatically restart the APP auto-start service.**
+> **If the app auto-start service is not running, some app functions may not work properly. If the auto-start command has not been executed, restarting the robot will also automatically restart the app auto-start service.**
 
 ### 6.1.2 LAB TOOL Interface Introduction
 
 LABTOOL is divided into two parts, including the image display area and the recognition adjustment area.
 
-<img src="../_static/media/chapter_7/section_1/media/image9.png" style="width:800px" class="common_img" />
+<img src="../_static/media/chapter_7/section_1/media/image9.png" style="width:600px" class="common_img" />
 
 1. Image display area: The processed camera feed is shown on the left, and the raw feed is shown on the right.
 
@@ -62,7 +70,7 @@ LABTOOL is divided into two parts, including the image display area and the reco
 
 | **Icon**| **Function**|
 |----------|----------|
-| <img src="../_static/media/chapter_7/section_1/media/image10.png"  class="common_img" />| Sliders L, A, and B are respectively used to adjust L, A, and B components of the camera returned image. The left sliders set the **minimum** values for each channel, and the right sliders set the **maximum** values.|
+| <img src="../_static/media/chapter_7/section_1/media/image10.png"  class="common_img" />| Sliders L, A, and B are respectively used to adjust L, A, and B components of the camera returned image. The left sliders set the **min** values for each channel, and the right sliders set the **max** values. |
 | <img src="../_static/media/chapter_7/section_1/media/image11.png"  class="common_img" />| Select the target color for threshold tuning.|
 | <img src="../_static/media/chapter_7/section_1/media/image12.png"  class="common_img" />| Delete the selected color.|
 | <img src="../_static/media/chapter_7/section_1/media/image13.png"  class="common_img" />| Add a new detectable color.|
@@ -76,7 +84,7 @@ LABTOOL is divided into two parts, including the image display area and the reco
 
 1. Open LABTOOL, and select the color in the drop-down menu. Take adjusting the red color, for example.
 
-<img src="../_static/media/chapter_7/section_1/media/image17.png"  class="common_img" />
+<img src="../_static/media/chapter_7/section_1/media/image17.png" style="width:200px" class="common_img" />
 
 2. Modify all **min** values of L, A, and B to **0**, and **max** values to **255**.
 
@@ -98,8 +106,8 @@ If the red area appears close to **+a**, increase the A component. Keep the A co
 
 LAB Threshold Adjustment Parameter
 
-| **Color Component**| **Range**| **Corresponding Color Zone**|
-|----------|----------|----------|
+| Color Component | Range | Corresponding Color Zone |
+|:--------:|:--------:|:--------:|
 | L| 0~255| Black-White（-L ~ +L）|
 | A| 0~255| Green-Red（-a ~ +a）|
 | B| 0~255| Blue-Yellow（-b ~ +b）|
@@ -138,11 +146,11 @@ In addition to the built-in detectable colors, additional colors can be added. Y
 
 <img src="../_static/media/chapter_7/section_1/media/image29.png"  class="common_img" />
 
-Once the adjustment is completed, press **Ctrl+C** to disable the camera service, then click **Quit** to exit the interface.
+Once the adjustment is completed, press **Ctrl + C** to disable the camera service, then click **Quit** to exit the interface.
 
 
 
-## 6.2 Color Recognition Experiment
+## 6.2 Color Recognition
 
 This section demonstrates the detection of red, green, and blue objects using OpenCV, with the results displayed on the video feed. Before starting the feature, please prepare three objects in these colors: red, green, and blue.
 
@@ -154,9 +162,7 @@ Based on this, color thresholds are used to identify the color of the object wit
 
 After masking, morphological operations, including opening and closing, are performed on the object image to refine the results.
 
-Opening operation: Involves erosion followed by dilation. Effect: Removes small objects, smooths object boundaries, and does not affect object area.
-
- It can remove small particle noise and separate objects that are stuck together.
+Opening operation: Involves erosion followed by dilation. Effect: Removes small objects, smooths object boundaries, and does not affect object area. It can remove small particle noise and separate objects that are stuck together.
 
 Erosion: Removes boundary pixels of an object, causing the edges to shrink inward. This operation can eliminate objects smaller than the structuring element.
 
@@ -164,13 +170,13 @@ Dilation: Expands the boundary pixels of an object by merging surrounding backgr
 
 Finally, the recognition results are overlaid on the return image.
 
-### 6.2.2 Operation
+### 6.2.2 Operation Steps
 
 > [!NOTE]
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps]() in the manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window.
 
@@ -186,15 +192,15 @@ sudo systemctl stop start_app_node.service
 ros2 launch peripherals depth_camera.launch.py
 ```
 
-5. Open a new terminal, navigate to the program directory, and start the color detection feature by entering the following command:
+5. Open a new terminal, navigate to the program directory, and start the color recognition feature by entering the following command:
 
 ```bash
 cd ~/ros2_ws/src/example/example/color_detect && python3 color_detect_demo.py
 ```
 
-6. The program will launch the camera image interface. For details on the detection steps, please refer to section [6.2.3 Project Outcome](#anther6.2.3) in this document.
+6. The program will launch the camera image interface.
 
-7. To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+7. To exit the feature, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** again.
 
 <p id ="anther6.2.3"></p>
 
@@ -263,7 +269,7 @@ def image_callback(ros_image):
     image_queue.put(bgr_image)
 ```
 
-2. Color Detection main Function
+2. `def main()`
 
 The images in the queue are read and passed into the `run` function to obtain the color-recognized frames, which are then displayed using `cv2`.
 
@@ -418,7 +424,7 @@ Only contours with an area greater than 200 are considered, smaller contours are
 
 ## 6.3 QR Code Creation and Recognition
 
-This lesson is divided into two parts. The first part explains how to create a QR code, and the second part focuses on recognizing the created QR code and decoding its information via the terminal.
+This section is divided into two parts. The first part explains how to create a QR code, and the second part focuses on recognizing the created QR code and decoding its information via the terminal.
 
 ### 6.3.1 QR Code Generation
 
@@ -436,7 +442,7 @@ Finally, generate a QR code image based on the data, display it in a window, and
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps]() in the manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to the section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window.
 
@@ -460,7 +466,7 @@ Press **Enter**, and a QR code containing the input data will be displayed.
 
 <img src="../_static/media/chapter_7/section_1/media/image47.png"  class="common_img" />
 
-5. To exit the QR code window, press the **ESC** key or the **q** key.
+5. To exit the QR code window, press the **ESC** key or the **Q** key.
 
 6. Returning to the command-line terminal, the message displayed below confirms that the QR code has been successfully generated and saved.
 
@@ -470,7 +476,7 @@ Press **Enter**, and a QR code containing the input data will be displayed.
 
 <img src="../_static/media/chapter_7/section_1/media/image50.png" style="width:600px" class="common_img" />
 
-8. Drag the image to the PC desktop using NoMachine by dragging with the mouse. The image can then be printed or transferred to a mobile photo album.
+8. Drag the image to the PC desktop using NoMachine by dragging with the mouse. The image can then be printed or transferred to a photo album.
 
 <img src="../_static/media/chapter_7/section_1/media/image51.png" style="width:600px" class="common_img" />
 
@@ -525,7 +531,7 @@ Use the `qrcode` module to create the required object and set the parameters for
 
 The parameters of the function shown above are as follows:
 
-The first parameter, `version`, is an integer from 1 to 40 that controls the size of the QR code. To let the program determine the size automatically, set this parameter to `None` and use the **fit** parameter.
+The first parameter, `version`, is an integer from 1 to 40 that controls the size of the QR code. To let the program determine the size automatically, set this parameter to `None` and use the `fit` parameter.
 
 The second parameter, `error_correction`, controls the error correction level of the QR code and can take the following values:
 
@@ -535,9 +541,9 @@ The second parameter, `error_correction`, controls the error correction level of
 
 3. `ROR_CORRECT_H` allows approximately 30% or less of errors to be corrected.
 
-`box_size` controls the number of pixels contained in each module of the QR code.
+The third parameter, `box_size`, controls the number of pixels contained in each module of the QR code.
 
-`border` controls the number of modules included in the border and defines the distance between the QR code and the image edge. The default value is 4, which is the minimum required by the relevant standard.
+The fourth parameter, `border`, controls the number of modules included in the border and defines the distance between the QR code and the image edge. The default value is 4, which is the minimum required by the relevant standard.
 
 - **Generating a QR Code**
 
@@ -582,7 +588,7 @@ Use the `imwrite` function to save the generated QR code image and print the rel
     print('save', data, file_name)
 ```
 
-The parameters of the imwrite function are:
+The parameters of the `imwrite` function are:
 
 `file_name` specifies the storage path of the image.
 
@@ -606,7 +612,7 @@ Finally, when a QR code is detected, it will be highlighted with a bounding box,
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to remote desktop, please refer to section [1.7.2 AP Mode Connection Steps]() in the manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to remote desktop, please refer to section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window.
 
@@ -628,7 +634,7 @@ ros2 launch peripherals depth_camera.launch.py
 cd ~/ros2_ws/src/example/example/qrcode && python3 qrcode_detecter.py
 ```
 
-To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+To exit the feature, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** again.
 
 * **Project Outcome**
 
@@ -757,9 +763,7 @@ Parameters:
 
 Functions:
 
-The camera callback function reads the camera video stream and places the frames into the queue `self.image_queue`, automatically updating
-
-and discarding outdated frames.
+The camera callback function reads the camera video stream and places the frames into the queue `self.image_queue`, automatically updating and discarding outdated frames.
 
 ```python
     def image_callback(self, ros_image):
@@ -774,7 +778,7 @@ and discarding outdated frames.
 
 The main function handles QR code detection. It checks the `self.running` parameter to determine whether to start detection.
 
-If True, it reads images from the `self.image_queue`, inputs them into the initialized detection model `self.qcd`, and finally prints the recognized content and draws the detection boxes based on the output.
+If `True`, it reads images from the `self.image_queue`, inputs them into the initialized detection model `self.qcd`, and finally prints the recognized content and draws the detection boxes based on the output.
 
 ```python
     def main(self):
@@ -827,7 +831,7 @@ Finally, the recognition results are overlaid on the return image.
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to section [1.7.2 AP Mode Connection Steps]() in the manual.
+1. Power on the robot and connect it via the NoMachine remote control software. For detailed information on connecting to a remote desktop, please refer to section [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup) in the manual.
 
 2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window.
 
@@ -843,13 +847,13 @@ sudo systemctl stop start_app_node.service
 ros2 launch app line_following_node.launch.py debug:=true
 ```
 
-5. Open a new terminal, navigate to the program directory, and start the autonomous patrolling feature by entering the following command:
+5. Open a new terminal, navigate to the program directory, and start the autonomous line following feature by entering the following command:
 
 ```bash
 ros2 service call /line_following/enter std_srvs/srv/Trigger {}
 ```
 
-6. Next, in the current terminal, switch to the program directory and start the autonomous patrolling feature by entering the following command:
+6. Next, in the current terminal, switch to the program directory and start the autonomous line following feature by entering the following command:
 
 ```bash
 ros2 service call /line_following/set_running std_srvs/srv/SetBool "{data: True}"
@@ -865,7 +869,7 @@ ros2 service call /line_following/set_running std_srvs/srv/SetBool "{data: True}
 ros2 service call /line_following/enter std_srvs/srv/Trigger {}
 ```
 
-To exit the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+To exit the feature, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** again.
 
 ### 6.4.3 Program Analysis
 
@@ -939,6 +943,10 @@ The source code for this demo is located at **/home/ubuntu/ros2_ws/src/app/app/l
 > [!NOTE]
 >
 > **Before modifying the program, backup the original factory code. Do not modify the source code file directly to avoid robot malfunction due to incorrect parameter changes.**
+
+Subscribe to the topic published by the camera node to obtain RGB images. Detect and select the line to be followed in the image, then sample its color to obtain the corresponding threshold range. Based on the line color information, extract the line features, calculate the offset of the robot relative to the line in the field of view, and drive the robot forward along the line while continuously correcting its position to keep the line centered in the image. LiDAR-based obstacle detection is also used to avoid obstacles.
+
+The initialization function first defines several preset parameters, such as the color threshold ratio, stop threshold, and angle swing parameters. These parameters can affect the final recognition result. A color picker object is then defined for the color sampling step in this application, followed by the configuration of the additional LiDAR obstacle avoidance function. Next is the implementation of the `LineFollower` class, which mainly includes the image preprocessing function and the line-following logic.
 
 Functions
 
@@ -1142,7 +1150,7 @@ Mouse color selection callback function to obtain the pixel coordinates of the c
             self.threshold = 0.5
             self.empty = 0
             if self.image_sub is None:
-                if 'ROSOrin' in self.machine_type:
+                if 'ROSOrin Pro' in self.machine_type:
                     self.camera_type = 'Stereo'
                     self.image_sub = self.create_subscription(Image, '/depth_cam/rgb0/image_raw', self.image_callback, 1)  # Subscribe to the camera
                 else:
@@ -1150,10 +1158,10 @@ Mouse color selection callback function to obtain the pixel coordinates of the c
                     self.image_sub = self.create_subscription(Image, '/usb_cam/image_raw', self.image_callback, 1)  # Subscribe to the camera
             if self.lidar_sub is None:
                 qos = QoSProfile(depth=1, reliability=QoSReliabilityPolicy.BEST_EFFORT)
-                self.lidar_sub = self.create_subscription(LaserScan, '/scan_raw', self.lidar_callback, qos)  # Subscribe to Lidar data
+                self.lidar_sub = self.create_subscription(LaserScan, '/scan_raw', self.lidar_callback, qos)  # Subscribe to LiDAR data
 ```
 
-Starts autonomous patrolling, initializes robot motion parameters, and subscribes to camera and LiDAR topics.
+Starts autonomous line following, initializes robot motion parameters, and subscribes to camera and LiDAR topics.
 
 `exit_srv_callback`:
 
@@ -1181,7 +1189,7 @@ Starts autonomous patrolling, initializes robot motion parameters, and subscribe
         return response
 ```
 
-Exits the autonomous patrolling service, shuts down all active subscriptions, resets the PID controller, and stops line following.
+Exits the autonomous line following service, shuts down all active subscriptions, resets the PID controller, and stops line following.
 
 `set_target_color_srv_callback`:
 
@@ -1239,7 +1247,7 @@ Service to get the target line-following color.
         return response
 ```
 
-Service to start the autonomous patrolling feature.
+Service to start the autonomous line following feature.
 
 `set_threshold_srv_callback`:
 
@@ -1295,7 +1303,7 @@ Service to set the color threshold.
                     self.stop = False
 ```
 
-The Lidar callback function processes the received data and determines whether to stop moving.
+The LiDAR callback function processes the received data and determines whether to stop moving.
 
 `image_callback`:
 
@@ -1386,7 +1394,7 @@ Finally, when the camera detects an AprilTag marker, the corresponding 3D model 
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-1. Power on the robot and connect it to the remote control software NoMachine. For instructions on connecting to the remote desktop, refer to [1.7.2 AP Mode Connection Steps]().
+1. Power on the robot and connect it to the remote control software NoMachine. For instructions on connecting to the remote desktop, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#development-environment-setup).
 
 2. Click the terminal icon <img src="../_static/media/chapter_7/section_1/media/image30.png" class="common_img" style="width:60px;"/> on the desktop to open a terminal.
 
@@ -1417,7 +1425,7 @@ Available models:
 - `wolf`: wolf
 - `rectangle`: simple cube frame
 
-6. To stop the feature, press **Ctrl+C** in the terminal. If the program does not close successfully, try pressing **Ctrl+C** again.
+6. To stop the feature, press **Ctrl + C** in the terminal. If the program does not close successfully, try pressing **Ctrl + C** again.
 
 ### 6.5.3 Project Outcome
 
@@ -1427,13 +1435,13 @@ After the feature starts, place the tag card within the camera field of view. Wh
 
 ### 6.5.4 Program Analysis
 
-* **Launch File Overview**
+* **Launch File Analysis**
 
 The source code is located at:
 
 **/home/ubuntu/ros2_ws/src/example/example/ar_detect/ar_detect.launch.py**
 
-1. It defines the content to be launched, gets the paths of the `peripherals` and `example` packages, starts the `depth_camera_launch` file, creates the ROS2 node `ar_detect`, defines the executable file, and finally returns the launch item list.
+1. It defines the content to be launched, gets the paths of the **peripherals** and **example** packages, stand arts the **depth_camera_launch** file. Creates the ROS2 node `ar_detect`, defines the executable file, and finally returns the launch item list.
 
 ```python
 def launch_setup(context):
@@ -1488,7 +1496,7 @@ if __name__ == '__main__':
     ls.run()
 ```
 
-* **Python Source Code Overview**
+* **Python Source Code Analysis**
 
 The source code is located at:
 
@@ -1500,21 +1508,21 @@ The source code is located at:
 MODEL_PATH = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.realpath(__file__))[0])), 'ar_models')
 ```
 
-2. The `draw_rectangle` function is used to draw a cube. The parameter **img** is the image used to draw the cube. The parameter **imgpts** is the corner point set of the cube. The function returns the image containing the cube.
+2. The `draw_rectangle` function is used to draw a cube. The parameter `img` is the image used to draw the cube. The parameter `imgpts` is the corner point set of the cube. The function returns the image containing the cube.
 
 ```python
 def draw_rectangle(img, imgpts):
     '''
-    Draw the cube(绘制立方体)
-    :param img: The image to draw the cube(要绘制立方体的图像)
-    :param imgpts: Angular point of the cube(立方体的角点)
-    :return: The image to draw the cube(要绘制立方体的图像)
+    Draw the cube
+    :param img: The image to draw the cube
+    :param imgpts: Angular point of the cube
+    :return: The image to draw the cube
     '''
     imgpts = np.int32(imgpts).reshape(-1, 2)
-    cv2.drawContours(img, [imgpts[:4]], -1, (0, 255, 0), -3)  # Draw contour points, filled.(绘制轮廓点，填充形式)
+    cv2.drawContours(img, [imgpts[:4]], -1, (0, 255, 0), -3)  # Draw contour points, filled.
     for i, j in zip(range(4), range(4, 8)):
-        cv2.line(img, tuple(imgpts[i]), tuple(imgpts[j]), (255), 3)  # Draw points connected by lines.(绘制线连接点)
-    cv2.drawContours(img, [imgpts[4:]], -1, (0, 0, 255), 3)  # Draw contour points, unfilled.(绘制轮廓点，不填充)
+        cv2.line(img, tuple(imgpts[i]), tuple(imgpts[j]), (255), 3)  # Draw points connected by lines.
+    cv2.drawContours(img, [imgpts[4:]], -1, (0, 0, 255), 3)  # Draw contour points, unfilled.
     
     return img
 ```
@@ -1532,7 +1540,7 @@ OBJP = np.array([[-1, -1,  0],
                  [ 1,  1,  0],
                  [ 0,  0,  0]], dtype=np.float32)
 
-# Draw the coordinate of the cube(绘制立方体的坐标)
+# Draw the coordinate of the cube
 AXIS = np.float32([[-1, -1, 0], 
                    [-1,  1, 0], 
                    [ 1,  1, 0], 
@@ -1542,7 +1550,7 @@ AXIS = np.float32([[-1, -1, 0],
                    [ 1,  1, 2],
                    [ 1, -1, 2]])
 
-# Model scaling(模型缩放比例)
+# Model scaling
 MODELS_SCALE = {
                 'bicycle': 50, 
                 'fox': 4, 
@@ -1552,7 +1560,7 @@ MODELS_SCALE = {
                 }
 ```
 
-4. Method `def __init__(self, name)`
+4. `def __init__(self, name)` Method
 
 It initializes the ROS2 node and allows undeclared parameters and automatically declared override parameters.
 
@@ -1570,7 +1578,7 @@ It initializes the camera intrinsic matrix, including focal length and principal
         self.dist_coeffs = np.array([0.103085, -0.175586, -0.001190, -0.007046, 0.000000])
 ```
 
-It initializes variables such as the model object, subscribers, and target model, creates `CvBridge` for ROS image and OpenCV format conversion, gets the machine type and camera type from environment variables, instantiates the `AprilTag` detector using the `tag36h11` family, and creates a thread lock to ensure thread safety.
+It initializes variables such as the model object, subscribers, and target model, creates `CvBridge` for ROS image and OpenCV format conversion, and gets the machine type and camera type from environment variables. Instantiates the `AprilTag` detector using the `tag36h11` family, and creates a thread lock to ensure thread safety.
 
 ```python
         self.obj = None
@@ -1580,18 +1588,18 @@ It initializes variables such as the model object, subscribers, and target model
         self.bridge = CvBridge()
         self.machine = os.environ['MACHINE_TYPE']
         self.camera = os.environ['DEPTH_CAMERA_TYPE']
-        self.tag_detector = apriltag("tag36h11")  # Instantiate apriltag(实例化apriltag)
-        self.lock = threading.RLock()  # Thread lock(线程锁)
+        self.tag_detector = apriltag("tag36h11")  # Instantiate apriltag
+        self.lock = threading.RLock()  # Thread lock
 ```
 
-It creates an image publisher to publish processed result images to the `~/image_result` topic. It also creates the services `~/enter`, `~/exit`, `~/set_model`, and `~/init_finish`, creates a heartbeat mechanism with a 5-second interval and automatic exit on timeout, and gets the value of the `debug` parameter.
+Create an image publisher to publish the processed result image to the `~/image_result` topic. Create the following services: `~/enter` to enter AR detection mode, `~/exit` to exit AR detection mode, `~/set_model` to set the 3D model to display, and `~/init_finish` to get the node status. Create a heartbeat mechanism with a 5-second interval for automatic exit on timeout. Read the value of the `debug` parameter.
 
 ```python
-        self.result_publisher = self.create_publisher(Image, '~/image_result', 1)  # Publish the final image(发布最终图像)
-        self.create_service(Trigger, '~/enter', self.enter_srv_callback)  # Enter the game service(进入发玩法服务)
-        self.create_service(Trigger, '~/exit', self.exit_srv_callback)  # Exit the game service(退出玩法服务)
-        Heart(self, self.name + '/heartbeat', 5, lambda _: self.exit_srv_callback(request=Trigger.Request(), response=Trigger.Response()))  # Heartbeat package(心跳包)
-        self.create_service(SetString, '~/set_model', self.set_model_srv_callback)  # Set the model service.(设置模型服务)
+        self.result_publisher = self.create_publisher(Image, '~/image_result', 1)  # Publish the final image
+        self.create_service(Trigger, '~/enter', self.enter_srv_callback)  # Enter the feature service
+        self.create_service(Trigger, '~/exit', self.exit_srv_callback)  # Exit the feature service
+        Heart(self, self.name + '/heartbeat', 5, lambda _: self.exit_srv_callback(request=Trigger.Request(), response=Trigger.Response()))  # Heartbeat package
+        self.create_service(SetString, '~/set_model', self.set_model_srv_callback)  # Set the model service
         self.debug = self.get_parameter('debug').value
         self.create_service(Trigger, '~/init_finish', self.get_node_state)
 ```
@@ -1619,18 +1627,18 @@ It responds to the `~/enter` service call, starts the AR vision feature, uses a 
 
 ```python
     def enter_srv_callback(self, request, response):
-        # Enter the service(进入服务)
+        # Enter the service
         self.get_logger().info('\033[1;32m%s\033[0m' % "ar enter")
-        # If there is a node when entering the service, cancel subscription and subscribe again.(进入服务时如果节点还在则注销订阅，重新订阅)
+        # If there is a node when entering the service, cancel subscription and subscribe again.
          
         with self.lock:
             self.obj = None
             self.target_model = None
             if self.image_sub is None:
-                self.image_sub = self.create_subscription(Image, '/depth_cam/rgb0/image_raw', self.image_callback, 1)  # Subscribe to the camera(摄像头订阅)
+                self.image_sub = self.create_subscription(Image, '/depth_cam/rgb0/image_raw', self.image_callback, 1)  # Subscribe to the camera
 
             if self.camera_info_sub is None:
-                self.camera_info_sub = self.create_subscription(CameraInfo, '/depth_cam/rgb0/camera_info', self.camera_info_callback, 1) # Subscribe to the camera information(订阅摄像头信息)
+                self.camera_info_sub = self.create_subscription(CameraInfo, '/depth_cam/rgb0/camera_info', self.camera_info_callback, 1) # Subscribe to the camera information
         
         response.success = True
         response.message = "enter"
@@ -1639,13 +1647,13 @@ It responds to the `~/enter` service call, starts the AR vision feature, uses a 
 
 7. `def exit_srv_callback(self, request, response)`
 
-It responds to the `~/exit` service call, stops the AR vision feature, unsubscribes to save resources, destroys the image subscription `self.image_sub` to stop receiving RGB images, destroys the camera information subscription `self.camera_info_sub` to stop receiving camera intrinsics, sets the subscription objects to `None`, uses exception handling to ensure safe unsubscription, logs an error if an exception occurs, and returns a successful response with the message `exit`.
+It responds to the `~/exit` service call, stops the AR vision feature, unsubscribes to save resources, and destroys the image subscription `self.image_sub` to stop receiving RGB images. Destroys the camera information subscription `self.camera_info_sub` to stop receiving camera intrinsics, sets the subscription objects to `None`, and uses exception handling to ensure safe unsubscription. Logs an error if an exception occurs, and returns a successful response with the message `exit`.
 
 ```python
 	def exit_srv_callback(self, request, response):
-        # Exit the service(退出服务)
+        # Exit the service
         self.get_logger().info('\033[1;32m%s\033[0m' % "ar exit")
-        # Cancel the subscribtion when exiting the service to save the expenditure.(退出服务时注销订阅，节省开销)
+        # Cancel the subscribtion when exiting the service to save the expenditure.
         try:
             if self.image_sub is not None:
                 self.destroy_subscription(self.image_sub)
@@ -1677,15 +1685,15 @@ With the thread lock enabled to ensure thread safety, if the request data is an 
 
 Model loading and preprocessing:
 
-If the model is not `rectangle`, the corresponding OBJ file is loaded from the `ar_models` directory, and the face order is reversed for correct rendering. The code then iterates through all faces of the model, extracts the vertex coordinates, the first three values, and color information, the last three values except for the cow and wolf models, scales the vertices according to the `MODELS_SCALE` dictionary, and adjusts position and rotation for different models. For `bicycle`, translation is applied and the model is rotated 180 degrees around the Z axis. For `fox` and `chair`, the model is rotated -90 degrees around the Z axis. Other models remain unchanged. Color values are converted to the 0-255 range. The cow and wolf models use `None` as the color and are assigned manually later. All processed face data is stored in `self.obj`.
+If the model is not `rectangle`, load the corresponding OBJ file from the `ar_models` directory and reverse the face order to ensure correct rendering. Traverse all faces of the model to extract the vertex coordinates of each face from the first three values and the color information from the last three values, except for the cow and wolf models. Scale the vertices according to the `MODELS_SCALE` dictionary. Apply position and rotation adjustments based on the model type. For `bicycle`, apply a translation and rotate 180 degrees around the Z-axis. For `fox` and `chair`, rotate -90 degrees around the Z-axis. All other models remain unchanged. Convert the color values to the 0 to 255 range. For the cow and wolf models, the color value is `None` and will be assigned manually later. Store all processed face data in `self.obj`.
 
 ```python
-                if self.target_model != 'rectangle':  # If the cube is not being drawn.(如果不是绘制立方体)
-                    # Load the model(加载模型)
+                if self.target_model != 'rectangle':  # If the cube is not being drawn.
+                    # Load the model
                     obj = obj_load(os.path.join(MODEL_PATH, self.target_model + '.obj'), swapyz=True)
                     obj.faces = obj.faces[::-1]
                     new_faces = []
-                    # Analyze the model and get the point coordinates.(对模型进行解析，获取点坐标)
+                    # Analyze the model and get the point coordinates.
                     for face in obj.faces:
                         face_vertices = face[0]
                         points = []
@@ -1695,7 +1703,7 @@ If the model is not `rectangle`, the corresponding OBJ file is loaded from the `
                             points.append(data[:3])
                             if self.target_model != 'cow' and self.target_model != 'wolf':
                                 colors.append(data[3:])
-                        scale_matrix = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]]) * MODELS_SCALE[self.target_model]  # Scale(缩放)
+                        scale_matrix = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]]) * MODELS_SCALE[self.target_model]  # Scale
                         points = np.dot(np.array(points), scale_matrix)
                         if self.target_model == 'bicycle':
                             points = np.array([[p[0] - 670, p[1] - 350, p[2]] for p in points])
@@ -1718,7 +1726,7 @@ If the model is not `rectangle`, the corresponding OBJ file is loaded from the `
 
 It returns a successful response with the message `set_model`.
 
-```
+```py
         response.success = True
         response.message = "set_model"
         return response
@@ -1727,11 +1735,11 @@ It returns a successful response with the message `set_model`.
 
 9. `def camera_info_callback(self, msg)`
 
-This is the callback method for the `/depth_cam/rgb0/camera_info` topic. It uses a thread lock to ensure thread safety, updates the camera intrinsic parameters, converts the intrinsic matrix `msg.k` into a 3×3 array and stores it in `self.camera_intrinsic`, and converts the distortion coefficient array `msg.d` and stores it in `self.dist_coeffs`.
+This is the callback method for the `/depth_cam/rgb0/camera_info` topic. It uses a thread lock to ensure thread safety, updates the camera intrinsic parameters, converts the intrinsic matrix `msg.k` into a 3×3 array, and stores it in `self.camera_intrinsic`. It  converts the distortion coefficient array `msg.d` and stores it in `self.dist_coeffs`.
 
 ```python
     def camera_info_callback(self, msg):
-        # Camera internal parameter callback(摄像头内参信息获取回调)
+        # Camera internal parameter callback
         with self.lock:
             self.camera_intrinsic = np.array(msg.k).reshape(3, -1)
             self.dist_coeffs = np.array(msg.d)
@@ -1754,7 +1762,7 @@ Image processing: A thread lock is used to ensure thread safety. The `image_proc
 ```python
         with self.lock:
             try:
-                # Process image(图像处理)
+                # Process image
                 result_image = self.image_proc(rgb_image, result_image)
             except Exception as e:
                 self.get_logger().info(str(e))
@@ -1766,18 +1774,18 @@ This function converts the RGB image to grayscale, uses AprilTag for detection a
 
 ```python
         if self.target_model is not None: 
-            gray = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2GRAY)  # Convert into gray image.(转为灰度图)
-            detections = self.tag_detector.detect(gray)  # aprilatg recognition(aprilatg识别)
+            gray = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2GRAY)  # Convert into gray image.
+            detections = self.tag_detector.detect(gray)  # Aprilatg recognition
             if detections != ():
-                for detection in detections:  # traverse(遍历)
-                    # Acquire four angular points and center point.(获取四个角点和中心)
+                for detection in detections:  # Traverse
+                    # Acquire four angular points and center point.
                     tag_center = detection['center']
                     tag_corners = detection['lb-rb-rt-lt']
                     lb = tag_corners[0]
                     rb = tag_corners[1]
                     rt = tag_corners[2]
                     lt = tag_corners[3]
-                    # 绘制四个角点(draw four angular points)
+                    # Draw four angular points
                     cv2.circle(result_image, (int(lb[0]), int(lb[1])), 2, (0, 255, 255), -1)
                     cv2.circle(result_image, (int(lt[0]), int(lt[1])), 2, (0, 255, 255), -1)
                     cv2.circle(result_image, (int(rb[0]), int(rb[1])), 2, (0, 255, 255), -1)
@@ -1790,22 +1798,21 @@ Pose estimation: `cv2.solvePnP` is used to solve the camera extrinsic parameters
 ```python
                      corners = np.array([lb, rb, lt, rt, tag_center]).reshape(5, -1)
                     # Use the world coordinate system k point coordinates (OBJP), the k point coordinates (corners) corresponding to the 2D image coordinate system, and the camera internal parameters camera_intrinsic and dist_coeffs to reverse the external parameters r, t of the picture.
-                    # (使用世界坐标系k个点坐标(OBJP)，对应图像坐标系2D的k个点坐标(corners)，以及相机内参camera_intrinsic和dist_coeffs进行反推图片的外参r, t)
                     ret, rvecs, tvecs = cv2.solvePnP(OBJP, corners, self.camera_intrinsic, self.dist_coeffs)
 ```
 
-Model rendering: If the model is `rectangle`, the cube vertices are projected to the image plane and `draw_rectangle` is called to draw the cube frame. For other models, the code iterates through all faces, projects the 3D points to the image plane, and fills the polygons with `cv2.fillConvexPoly`. The cow model is filled in cyan, the wolf model is filled in yellow, and other models use their built-in colors. Finally, the result image with the AR model overlay is returned.
+Model rendering: If the model is `rectangle`, the cube vertices are projected to the image plane, and `draw_rectangle` is called to draw the cube frame. For other models, the code iterates through all faces, projects the 3D points to the image plane, and fills the polygons with `cv2.fillConvexPoly`. The cow model is filled in cyan, the wolf model is filled in yellow, and other models use their built-in colors. Finally, the result image with the AR model overlay is returned.
 
 ```python
-                    if self.target_model == 'rectangle':  # If the cube needs to be displayed, process independently(如果要显示立方体则单独处理)
-                        # Backprojection converts world coordinate system points to image points(反向投影将世界坐标系点转换到图像点)
+                    if self.target_model == 'rectangle':  # If the cube needs to be displayed, process independently
+                        # Backprojection converts world coordinate system points to image points
                         imgpts, jac = cv2.projectPoints(AXIS, rvecs, tvecs, self.camera_intrinsic, self.dist_coeffs)
                         result_image = draw_rectangle(result_image, imgpts)
                     else:
                         for points, color in self.obj:
                              dst, jac = cv2.projectPoints(points.reshape(-1, 1, 3)/100.0, rvecs, tvecs, self.camera_intrinsic, self.dist_coeffs)
                              imgpts = dst.astype(int)
-                             # Manual coloring(手动上色)
+                             # Manual coloring
                              if self.target_model == 'cow':
                                  cv2.fillConvexPoly(result_image, imgpts, (0, 255, 255))
                              elif self.target_model == 'wolf':

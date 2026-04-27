@@ -1,5 +1,9 @@
 # 1. ROSOrin Pro User Manual
 
+[TOC]
+
+
+
 ## 1.1 Introduction
 
 ROSOrin Pro is an integrated AI robot for education and research. It integrates a high-performance controller, a high-precision LiDAR, a 6DOF robotic arm, a 3D depth camera, and an AI voice interaction box. These components make it easy to build creative applications, such as robot motion control, mapping and navigation, path planning, tracking and obstacle avoidance, motion interaction, and voice interaction. ROSOrin Pro is deployed with multimodal large AI models, so it can understand the environment, plan actions, and execute tasks flexibly to support advanced embodied AI applications.
@@ -591,7 +595,7 @@ Click the **Start** button <img src="../_static/media/chapter_1\section_1/media/
 
 (3) **After the wireless controller is turned on, if it does not connect to the robot within 30 seconds or remains unused for 5 minutes after connection, it will enter sleep mode automatically. To wake the wireless controller and exit sleep mode, press START.**
 
-(4) **If the robot does not respond while using the controller, try starting the relevant services. For detailed steps, refer to section [2.1 Motion Control Course]() in the 2. Chassis Motion Control Course.**
+(4) **If the robot does not respond while using the controller, try starting the relevant services. For detailed steps, refer to section [2.1 Motion Control Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/2_Chassis_Motion_Control_Course.html#motion-control) in the 2. Chassis Motion Control Course.**
 
 ### 1.6.2 Device Connection
 

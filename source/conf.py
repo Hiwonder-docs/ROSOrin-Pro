@@ -29,7 +29,7 @@ def setup(app):
     app.connect("source-read", replace_gfm_callouts)
 
 project = 'ROSOrin Pro'
-copyright = '2025, Hiwonder'
+copyright = '2026, Hiwonder'
 author = 'Hiwonder'
 release = 'v1.0'
 

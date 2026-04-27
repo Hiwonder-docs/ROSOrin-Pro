@@ -1,6 +1,12 @@
-﻿# 12.1 Large Models Basic Courses
+# 12. Large AI Model Courses
 
-## 12.1.1 Large Language Model Courses
+[TOC]
+
+
+
+## 12.1 Large Models Basic Courses
+
+### 12.1.1 Large Language Model Courses
 
 * **Overview of Large Language Model**
 
@@ -343,7 +349,7 @@ python3 openai_llm_er_demo.py
 
 <img  src="../_static/media/chapter_12/section_1.1/01/image7.png" style="width:500px" class="common_img"/>
 
-## 12.1.2 Large Speech Model Courses
+### 12.1.2 Large Speech Model Courses
 
 * **Overview of Large Speech Model**
 
@@ -819,7 +825,7 @@ vim openai_asr_demo.py
 i
 ```
 
-<img  src="../_static/media/chapter_12/section_1.2/04/image10.png" style="width:500px" class="common_img"/>
+<img  src="../_static/media/chapter_12/section_1.2/04/image12.png" style="width:500px" class="common_img"/>
 
 ③ Then, run the program with the command:
 
@@ -1101,7 +1107,7 @@ Voice Processing: Records and recognizes the user's speech, uses the language mo
 
 Error Handling: Catches exit signals and runtime errors to ensure the program exits safely and releases resources.
 
-## 12.1.3 Vision Language Model Courses
+### 12.1.3 Vision Language Model Courses
 
 * **Overview of Vision Language Model**
 
@@ -1412,7 +1418,7 @@ python3 ~/large_models/openai_vllm_ocr.py
 
 <img  src="../_static/media/chapter_12/section_1.3/05/image12.png" style="width:500px" class="common_img"/>
 
-## 12.1.4 Multimodal Model Basic Courses
+### 12.1.4 Multimodal Model Basic Courses
 
 * **Overview of Multimodal Model**
 
@@ -1546,17 +1552,19 @@ When the device responds with "**I'm here**", it indicates that the agent has be
 
 <img  src="../_static/media/chapter_12/section_1.4/image9.png" style="width:500px" class="common_img"/>
 
-# 12.2 Multimodal Large Model Applications
+
+
+## 12.2 Multimodal Large Model Applications
 
 <p id ="anther12.2.1"></p>
 
-## 12.2.1 Large Model API Key Setup
+### 12.2.1 Large Model API Key Setup
 
 > [!NOTE]
 >
 > **This section requires registering on the official OpenAI website and obtaining an API key for accessing large language models.**
 
-### 12.2.1.1 OpenAI Account Registration and Deployment
+#### 12.2.1.1 OpenAI Account Registration and Deployment
 
 1) Copy and open the following URL: https://platform.openai.com/docs/overview, then click the **Sign Up** button in the upper-right corner.
 
@@ -1582,7 +1590,7 @@ When the device responds with "**I'm here**", it indicates that the agent has be
 
 5) The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-### 12.2.1.2 OpenRouter Account Registration and Deployment
+#### 12.2.1.2 OpenRouter Account Registration and Deployment
 
 1) Copy the URL https://openrouter.ai/ into a browser and open the webpage. Click **Sign in** and register or sign in using a Google account or another available account.
 
@@ -1604,7 +1612,7 @@ When the device responds with "**I'm here**", it indicates that the agent has be
 
 The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-### 12.2.1.3 API Configuration
+#### 12.2.1.3 API Configuration
 
 1. Click <img class="common_img" src="../_static/media/chapter_22/section_1/media/image25.png"  style="display:inline;vertical-align:middle;"  /> to open a terminal and enter the following command to open the configuration file. Press the i key to enter input mode.
 
@@ -1624,9 +1632,9 @@ vim /home/ubuntu/ros2_ws/src/large_models/large_models/large_models/config.py
 
 <p id ="anther12.2.2"></p>
 
-## 12.2.2 Version Confirmation
+### 12.2.2 Version Confirmation
 
-Before starting this feature, confirm in the system that the microphone version configuration and **ASR Mode** are set correctly.
+Before starting features, verify that the correct microphone configuration and **ASR Mode** are set in the system.
 
 1. After remotely logging in via NoMachine, click the desktop icon <img style="display:inline;vertical-align:middle;"  class="common_img" src="../_static/media/chapter_22/section_1/media/image16.png"  /> to access the configuration interface.
 
@@ -1640,7 +1648,7 @@ Before starting this feature, confirm in the system that the microphone version 
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image19.png"  />
 
-4. Set **ASR Mode** to **online**.
+4. Set the **ASR Mode** to **online**.
 
    <img class="common_img" src="../_static/media/chapter_22/section_1/media/image43.png"  style="width:300px" />
 
@@ -1652,19 +1660,19 @@ Before starting this feature, confirm in the system that the microphone version 
 
    <img class="common_img" src="../_static/media/chapter_22/section_1/media/image23.png"  />
 
-7. Finally, click **Quit** to exit the software interface.
+7. Finally, click **Quit** to exit the software.
 
    <img class="common_img" src="../_static/media/chapter_22/section_1/media/image24.png"  />
 
 
 
-## 12.2.3 Voice Control
+### 12.2.3 Voice Control
 
-### 12.2.3.1 Program Overview
+#### 12.2.3.1 Program Overview
 
-Once the program starts, the voice device will announce “**I’m ready**”. Say the designated wake word **Hello Hiwonder** to activate the voice device, which will respond with “**I’m here**”. Then, the robot can be controlled via voice commands to perform corresponding actions, for example: “**Move forward, backward.**” The voice device will respond after processing the command and execute the corresponding action.
+Once the program starts, the voice device will announce **I’m ready**. Say the designated wake word **Hello Hiwonder** to activate the voice device, which will respond with **I’m here**. Then, the robot can be controlled via voice commands to perform corresponding actions, for example: **Move forward, backward.** The voice device will respond after processing the command and execute the corresponding action.
 
-### 12.2.3.2 Preparation
+#### 12.2.3.2 Preparation
 
 * **Version Confirmation**
 
@@ -1674,13 +1682,13 @@ Before starting this feature, ensure that the microphone version configuration i
 
 Refer to the section [12.2.1 Large Model API Key Setup](#anther12.2.1) to set up the large model key.
 
-### 12.2.3.3 Operation Steps
+#### 12.2.3.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
 1. Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_1/media/image25.png" style="display:inline;vertical-align:middle;"  /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -1694,11 +1702,11 @@ sudo systemctl stop start_app_node.service
 ros2 launch large_models_examples llm_control_move.launch.py
 ```
 
-3. When the command line displays the output shown below and announces “**I’m ready**”, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
+3. When the command line displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image26.png" style="width:700px" />
 
-4. When the command line shows the output below and the voice device announces “**I’m here**”, the voice device has been successfully activated. The system will begin recording your voice command.
+4. When the command line shows the output below and the voice device announces **I’m here**, the voice device has been successfully activated. The system will begin recording your voice command.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image27.png" style="width:700px" />
 
@@ -1722,11 +1730,11 @@ The response is automatically generated by the large model. Only the semantic ac
 ~/.stop_ros.sh
 ```
 
-### 12.2.3.4 Program Outcome
+#### 12.2.3.4 Program Outcome
 
 Once the feature is activated, commands can be freely issued, for example: “**Move forward, backward**.” The robot will then move forward and backward accordingly.
 
-### 12.2.3.5 Program Analysis
+#### 12.2.3.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -1773,7 +1781,7 @@ This function is used to configure and launch actions in a Launch file.
 
 `mode_arg = DeclareLaunchArgument('mode', default_value=mode)`: Declares the mode parameter and adds it to the Launch description.
 
-`controller_path` and `large_models_package_path`: Paths to the shared directories of the `controller` and `large_models` packages, which control the robot’s movement.
+`controller_path和large_models_package_path`: Paths to the shared directories of the `controller` and `large_models` packages, which control the robot’s movement.
 
 `controller_launch`: Uses `IncludeLaunchDescription` to include the `controller.launch.py ` file from the `controller` package.
 
@@ -1959,13 +1967,13 @@ The main loop handles instructions from the LLM, parses commands, executes the c
 
 
 
-## 12.2.4 Autonomous Line Following
+### 12.2.4 Autonomous Line Following
 
-### 12.2.4.1 Program Overview
+#### 12.2.4.1 Program Overview
 
-When the program starts, the voice device will announce “**I'm ready**.” To activate the voice device, say the designated wake word **Hello Hiwonder**. Upon successful activation, the voice device will respond with “**I’m here**.” Once activated, voice commands can be issued, for example, “**Follow the black line and stop when you encounter an obstacle.**” The terminal displays the recognized command, and the voice device provides a processed response. The robot then follows the black line detected by its camera and stops automatically when an obstacle is detected.
+When the program starts, the voice device will announce **I'm ready**. To activate the voice device, say the designated wake word **Hello Hiwonder**. Upon successful activation, the voice device will respond with **I’m here**. Once activated, voice commands can be issued, for example, **Follow the black line and stop when you encounter an obstacle.** The terminal displays the recognized command, and the voice device provides a processed response. The robot then follows the black line detected by its camera and stops automatically when an obstacle is detected.
 
-### 12.2.4.2 Preparation
+#### 12.2.4.2 Preparation
 
 * **Version Confirmation**
 
@@ -1975,13 +1983,13 @@ Before starting this feature, ensure that the microphone version configuration i
 
 Refer to the section [12.2.1 Large Model API Key Setup](#anther12.2.1) to set up the large model key.
 
-### 12.2.4.3 Operation Steps
+#### 12.2.4.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
 1) Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_1/media/image25.png"  style="display:inline;vertical-align:middle;" /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -1989,17 +1997,17 @@ Refer to the section [12.2.1 Large Model API Key Setup](#anther12.2.1) to set up
 sudo systemctl stop start_app_node.service
 ```
 
-2) Enter the following command and press **Enter** to launch the autonomous line-following feature.
+2) Enter the following command and press **Enter** to launch the autonomous line following feature.
 
 ```bash
 ros2 launch large_models_examples llm_visual_patrol.launch.py
 ```
 
-3) When the command line displays the output shown below and announces “**I’m ready**”, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
+3) When the command line displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image30.png" style="width:700px" />
 
-4) When the command line shows the output below and the voice device announces “**I’m here**”, the voice device has been successfully activated. The system will begin recording your voice command.
+4) When the command line shows the output below and the voice device announces **I’m here**, the voice device has been successfully activated. The system will begin recording your voice command.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image31.png" style="width:700px" />
 
@@ -2021,11 +2029,11 @@ ros2 launch large_models_examples llm_visual_patrol.launch.py
 
 8) To exit the feature, press **Ctrl+C** in the terminal. If the feature does not exit immediately, press **Ctrl+C** multiple times.
 
-### 12.2.4.4 Program Outcome
+#### 12.2.4.4 Program Outcome
 
 Once the feature is activated, feel free to give commands in your own words. For instance, “**Follow the black line and stop when you encounter an obstacle**.” The robot uses its camera to detect and follow the black line, and it will stop when an obstacle is detected in its path. The system is pre-configured to recognize four line colors: red, blue, green, and black.
 
-### 12.2.4.5 Program Analysis
+#### 12.2.4.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -2255,13 +2263,13 @@ By continuously monitoring the large model output, the system checks for any ins
 
 
 
-## 12.2.5 Color Tracking
+### 12.2.5 Color Tracking
 
-### 12.2.5.1 Program Overview
+#### 12.2.5.1 Program Overview
 
-When the program starts, the voice device will announce “**I'm ready**.” To activate the voice device, say the designated wake word **Hello Hiwonder**. Upon successful activation, the voice device will respond with “**I’m here**.” Once activated, voice commands can be issued, for example, “**Follow the red object**.” The terminal displays the recognized command, and the voice device provides a processed response. The robot then autonomously detects the red object using its camera and starts tracking it.
+When the program starts, the voice device will announce **I'm ready**. To activate the voice device, say the designated wake word **Hello Hiwonder**. Upon successful activation, the voice device will respond with **I’m here**. Once activated, voice commands can be issued, for example, “**Follow the red object**.” The terminal displays the recognized command, and the voice device provides a processed response. The robot then autonomously detects the red object using its camera and starts tracking it.
 
-### 12.2.5.2 Preparation
+#### 12.2.5.2 Preparation
 
 * **Version Confirmation**
 
@@ -2271,13 +2279,13 @@ Before starting this feature, ensure that the microphone version configuration i
 
 Refer to the section [12.2.1 Large Model API Key Setup](#anther12.2.1) to set up the large model key.
 
-### 12.2.5.3 Operation Steps
+#### 12.2.5.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
 1. Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_1/media/image25.png" style="display:inline;vertical-align:middle;"  /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -2291,7 +2299,7 @@ sudo systemctl stop start_app_node.service
 ros2 launch large_models_examples llm_color_track.launch.py
 ```
 
-3) When the command line displays the output shown below and announces “**I’m ready**”, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
+3) When the command line displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image36.png" style="width:700px" />
 
@@ -2299,7 +2307,7 @@ ros2 launch large_models_examples llm_color_track.launch.py
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image37.png" style="width:700px" />
 
-5) When the command line shows the output below and the voice device announces “**I’m here**”, the voice device has been successfully activated. The system will begin recording your voice command.
+5) When the command line shows the output below and the voice device announces **I’m here**, the voice device has been successfully activated. The system will begin recording your voice command.
 
 <img class="common_img" src="../_static/media/chapter_22/section_1/media/image38.png" style="width:700px" />
 
@@ -2331,11 +2339,11 @@ ros2 launch large_models_examples llm_color_track.launch.py
 ~/.stop_ros.sh
 ```
 
-### 12.2.5.4 Program Outcome
+#### 12.2.5.4 Program Outcome
 
 Once the feature is activated, commands can be freely issued, for example, “**Follow the red object**.” The robot uses its camera feed to detect and track the red object. Similarly, commands such as “Follow the blue object” or “Follow the green object” can be used to have the robot detect and track objects of the corresponding colors.
 
-### 12.2.5.5 Program Analysis
+#### 12.2.5.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -2555,17 +2563,17 @@ By continuously monitoring the large model output, the system checks for any ins
 
 
 
-# 12.3 Embodied AI Applications
+## 12.3 Embodied AI Applications
 
 <p id ="anther12.3.1"></p>
 
-## 12.3.1 Large Model API Key Setup
+### 12.3.1 Large Model API Key Setup
 
 > [!NOTE]
 >
 > **This section requires registering on the official OpenAI website and obtaining an API key for accessing large language models.**
 
-### 12.3.1.1 OpenAI Account Registration and Deployment
+#### 12.3.1.2 OpenRouter Account Registration and Deployment
 
 1) Copy and open the following URL: https://platform.openai.com/docs/overview, then click the **Sign Up** button in the upper-right corner.
 
@@ -2591,7 +2599,7 @@ By continuously monitoring the large model output, the system checks for any ins
 
 5) The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-### 12.3.1.2 OpenRouter Account Registration and Deployment
+#### 12.3.1.2 OpenRouter Account Registration and Deployment
 
 1) Copy the URL https://openrouter.ai/ into a browser and open the webpage. Click **Sign in** and register or sign in using a Google account or another available account.
 
@@ -2613,7 +2621,7 @@ By continuously monitoring the large model output, the system checks for any ins
 
 The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-### 12.3.1.3 API Configuration
+#### 12.3.1.3 API Configuration
 
 1. Click <img class="common_img" src="../_static/media/chapter_22/section_2/media/image25.png"  style="display:inline;vertical-align:middle;" /> to open a terminal and enter the following command to open the configuration file. Press the i key to enter input mode.
 
@@ -2633,9 +2641,9 @@ vim /home/ubuntu/ros2_ws/src/large_models/large_models/large_models/config.py
 
 <p id ="anther12.3.2"></p>
 
-## 12.3.2 Version Confirmation
+### 12.3.2 Version Confirmation
 
-Before starting features, verify that the correct microphone configuration is set in the system.
+Before starting features, verify that the correct microphone configuration and **ASR Mode** are set in the system.
 
 1. After remotely logging in via NoMachine, click the desktop icon <img class="common_img" src="../_static/media/chapter_22/section_2/media/image16.png"  style="display:inline;vertical-align:middle;"/> to access the configuration interface.
 
@@ -2653,23 +2661,23 @@ Before starting features, verify that the correct microphone configuration is se
 
    <img class="common_img" src="../_static/media/chapter_22/section_2/media/image22.png"  />
 
-5. After the **Save Success** notification appears, click **Apply**.
+6. After the **Save Success** notification appears, click **Apply**.
 
    <img class="common_img" src="../_static/media/chapter_22/section_2/media/image23.png"  />
 
-6. Finally, click **Quit** to exit the software interface.
+7. Finally, click **Quit** to exit the software interface.
 
    <img class="common_img" src="../_static/media/chapter_22/section_2/media/image24.png"  />
 
 
 
-## 12.3.3 Real-Time Detection
+### 12.3.3 Real-Time Detection
 
-### 12.3.3.1 Program Overview
+#### 12.3.3.1 Program Overview
 
-When the program starts, the voice device will announce “**I'm ready**.” To activate the voice device, speak the designated wake words: “**Hello Hiwonder**.” Upon successful activation, the voice device will respond with “**I’m here**.” Then, voice commands can be used to control the robot, for example, “**Tell me what you saw**.” The terminal will display the recognized speech, the voice device will respond with a generated reply after processing, and the robot will autonomously analyze the camera feed and describe the content of the scene.
+When the program starts, the voice device will announce **I'm ready**. To activate the voice device, speak the designated wake words: “**Hello Hiwonder**.” Upon successful activation, the voice device will respond with **I’m here**. Then, voice commands can be used to control the robot, for example, “**Tell me what you saw**.” The terminal will display the recognized speech, the voice device will respond with a generated reply after processing, and the robot will autonomously analyze the camera feed and describe the content of the scene.
 
-### 12.3.3.2 Preparation
+#### 12.3.3.2 Preparation
 
 * **Version Confirmation**
 
@@ -2679,7 +2687,7 @@ Before starting this feature, ensure that the microphone version configuration i
 
 Refer to the section [12.3.1 Large Model API Key Setup](#anther12.3.1) to set up the large model key.
 
-### 12.3.3.3 Operation Steps
+#### 12.3.3.3 Operation Steps
 
 1. Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_2/media/image25.png"  style="display:inline;vertical-align:middle;" /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -2693,11 +2701,11 @@ sudo systemctl stop start_app_node.service
 ros2 launch large_models_examples vllm_with_camera.launch.py
 ```
 
-3) When the command line displays the output shown below and announces “**I’m ready**”, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
+3) When the command line displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image26.png" style="width:700px" />
 
-4) When the command line shows the output below and the voice device announces “**I’m here**”, the voice device has been successfully activated. The system will begin recording your voice command.
+4) When the command line shows the output below and the voice device announces **I’m here**, the voice device has been successfully activated. The system will begin recording your voice command.
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image27.png" style="width:700px" />
 
@@ -2719,11 +2727,11 @@ The response is automatically generated by the large model. Only the semantic ac
 
 8) To exit the feature, press **Ctrl+C** in the terminal. If the feature does not exit immediately, press **Ctrl+C** multiple times.
 
-### 12.3.3.4 Program Outcome
+#### 12.3.3.4 Program Outcome
 
 Once the feature is activated, any command can be issued to the robot, for example: “**Tell me what you saw**.” The robot will automatically analyze the scene within its camera view, process the information, and describe the current environment in detail.
 
-### 12.3.3.5 Program Analysis
+#### 12.3.4.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -3007,15 +3015,15 @@ It converts the received ROS image messages to `NumPy` arrays and stores them in
 
 
 
-## 12.3.4 Vision Tracking
+### 12.3.4 Vision Tracking
 
 The large model used in this lesson operates online, requiring a stable network connection for the controller during the operation.
 
-### 12.3.4.1 Program Overview
+#### 12.3.4.1 Program Overview
 
-When the program starts, the voice device will announce “**I'm ready**.” To activate the voice device, speak the designated wake words: “**Hello Hiwonder**.” Upon successful activation, the voice device will respond with “**I’m here**.” Once activated, voice commands can be issued, for example, “**Follow the person in white in front**.” The terminal will display the recognized command, and the voice device will respond with a generated reply after processing and execute corresponding actions.
+When the program starts, the voice device will announce **I'm ready**. To activate the voice device, speak the designated wake words: “**Hello Hiwonder**.” Upon successful activation, the voice device will respond with **I’m here**. Once activated, voice commands can be issued, for example, “**Follow the person in white in front**.” The terminal will display the recognized command, and the voice device will respond with a generated reply after processing and execute corresponding actions.
 
-### 12.3.4.2 Preparation
+#### 12.3.4.2 Preparation
 
 * **Version Confirmation**
 
@@ -3025,13 +3033,13 @@ Before starting this feature, ensure that the microphone version configuration i
 
 Refer to the section [12.3.1 Large Model API Key Setup](#anther12.3.1) to set up the large model key.
 
-### 12.3.4.3 Operation Steps
+#### 12.3.4.3 Operation Steps
 
 > [!NOTE]
 >
 > **Command input is case-sensitive and space-sensitive.**
 >
-> **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
 1. Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_2/media/image25.png"  style="display:inline;vertical-align:middle;" /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -3049,7 +3057,7 @@ ros2 launch large_models_examples vllm_track.launch.py
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image32.png" style="width:700px" />
 
-4) When the command line shows the output below and the voice device announces “**I’m here**”, it has been successfully activated. The system will begin recording your voice command.
+4) When the command line shows the output below and the voice device announces **I’m here**, it has been successfully activated. The system will begin recording your voice command.
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image33.png" style="width:700px" />
 
@@ -3067,13 +3075,13 @@ ros2 launch large_models_examples vllm_track.launch.py
 
 8) To exit the feature, press **Ctrl+C** in the terminal. If the feature does not exit immediately, press **Ctrl+C** multiple times.
 
-### 12.3.4.4 Program Outcome
+#### 12.3.4.4 Program Outcome
 
 Once the feature is activated, any command can be issued to the robot, such as “**Follow the person in white in front**.” The robot will detect the person wearing white in its camera view and stop after reaching a preset distance.
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image36.png" style="width:700px" />
 
-### 12.3.4.5 Program Analysis
+#### 12.3.4.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -3132,7 +3140,7 @@ This function is used to configure and launch actions in a Launch file.
 
 `mode_arg = DeclareLaunchArgument('mode', default_value=mode)`: Declares the mode parameter and adds it to the Launch description.
 
-`slam_package_path` and `large_models_package_path`: Retrieve the shared directory paths of the `slam` package and the `large_models` package.
+`slam_package_path和large_models_package_path`: Retrieves the shared directory path of the `slam` package and the `large_models` package.
 
 `base_launch`: Includes the `robot.launch.py` file from the `slam` package and passes the parameters `sim`, `master_name`, and `robot_name`.
 
@@ -3374,15 +3382,15 @@ Convert the ROS depth image message into a depth frame in `NumPy` array format, 
 
 
 
-## 12.3.4 Smart Home Assistant
+### 12.3.4 Smart Home Assistant
 
 The large model used in this lesson operates online, requiring a stable network connection for the controller during the operation.
 
-### 12.3.4.1 Program Overview
+#### 12.3.4.1 Program Overview
 
-When the program starts, the voice device will announce “**I'm ready**.” Then, speak the wake word **Hello Hiwonder** to activate the voice device, which will respond with “**I'm here**.” After activation, voice commands can be used to control the robot. For example, issuing the instruction:  "**Go to the kitchen to see if the door is closed, then come back and tell me**." Upon receiving a command, the terminal displays the recognized speech content. The voice device then verbally responds with a generated answer, and the robot simultaneously executes the corresponding action.
+When the program starts, the voice device will announce **I'm ready**. Then, speak the wake word **Hello Hiwonder** to activate the voice device, which will respond with “**I'm here**.” After activation, voice commands can be used to control the robot. For example, issuing the instruction:  "**Go to the kitchen to see if the door is closed, then come back and tell me**." Upon receiving a command, the terminal displays the recognized speech content. The voice device then verbally responds with a generated answer, and the robot simultaneously executes the corresponding action.
 
-### 12.3.4.2 Preparation
+#### 12.3.4.2 Preparation
 
 * **Version Confirmation**
 
@@ -3396,13 +3404,13 @@ Refer to the section [12.3.1 Large Model API Key Setup](#anther12.3.1) to set up
 
 Before enabling this feature, a map must be created in advance. Please refer to [5.1 Mapping Tutorial](https://docs.hiwonder.com/projects/ROSOrin/en/latest/docs/5_Mapping_%26_Navigation_Course.html#mapping-tutorial) for detailed instructions on how to build the map.
 
-### 12.3.4.3 Operation Steps
+#### 12.3.4.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
 1. Click the terminal <img class="common_img" src="../_static/media/chapter_22/section_2/media/image25.png" style="display:inline;vertical-align:middle;"  /> on the left side of the system interface to open the command line. Enter the command and press **Enter** to disable the app auto-start service.
 
@@ -3452,13 +3460,13 @@ ros2 launch large_models_examples vllm_navigation.launch.py map:=map_01
 
 11) To exit the feature, press **Ctrl+C** in the terminal. If the feature does not exit immediately, press **Ctrl+C** multiple times.
 
-### 12.3.4.4 Program Outcome
+#### 12.3.4.4 Program Outcome
 
 Once the feature starts, any command can be issued to the robot, such as “**Go to the kitchen to see if the door is closed and let me know when you come back**.” The robot will navigate to the designated location, check if the door is closed, and then return to the starting point to inform of the result.
 
 <img class="common_img" src="../_static/media/chapter_22/section_2/media/image40.png" style="width:700px" />
 
-### 12.3.4.5 Modifying Navigation Locations
+#### 12.3.4.5 Modifying Navigation Locations
 
 If the navigation position in the program needs to be modified, edit the file located at the following path: **~/ros2_ws/src/large_models_examples/large_models_examples/vllm_navigation.py**
 
@@ -3495,7 +3503,7 @@ The robot's target position orientation is updated. The printed quaternion `Orie
 
 The final target position for **kitchen** is updated to [1.45, -0.29, 0.0, 0.0, −44.58].
 
-### 12.3.4.6 Program Analysis
+#### 12.3.4.6 Program Analysis
 
 * **Launch File Analysis**
 
@@ -3795,33 +3803,33 @@ By continuously monitoring the output of the large model, when action instructio
 
 
 
-# 12.4 Comprehensive Application of Large Models
+## 12.4 Comprehensive Application of Large AI Models
 
 <p id ="anther12.4.1"></p>
 
-## 12.4.1 Preparation
+### 12.4.1 Preparation
 
-Before starting this feature, firmware must first be flashed to the AI voice interaction box.
+Firmware must be flashed to the AI voice box before running the feature.
 
-1. Connect the WonderEcho Pro to the computer through a Type-C cable.
+1. First, connect WonderEcho Pro to the computer with a Type-C data cable.
 
 <img src="../_static/media/chapter_17/section_2/media/image1.png" style="width:600px" class="common_img"  />
 
-2. Open **10.1.5 Appendix\Firmware Flashing Tool\PACK_UPDATE_TOOL.exe**, select the **CI1302** chip, and then click **Firmware Upgrade**.
+2. Open **PACK_UPDATE_TOOL.exe** under **[2. Softwares\6. Firmware Flashing Tool](https://drive.google.com/drive/folders/1EJkwyTzH41VwMuQcJhn7kSNYjEHCFM4d?usp=sharing)**, select the **CI1302** chip, then click **Update**.
 
    <img src="../_static/media/chapter_17/section_2/media/image2.png" style="width:600px" class="common_img"  />
 
-   The firmware file **CI1302-English-Single-Mic_V00916_UART0_115200_2M.bin** is used here as an example. The same procedure also applies when flashing firmware for a Chinese wake word.
+   The following steps use **CI1302-English-SingleMic_V00916_UART0_115200_2M.bin** as an example. The same procedure also applies to flashing the Chinese wake word firmware.
 
-3. Click to select the firmware file, then locate **CI1302-English-Single-Mic_V00916_UART0_115200_2M.bin** in the **Appendix** path.
+3. Click to select the firmware, then locate **CI1302-English-SingleMic_V00916_UART0_115200_2M.bin** under the **[Voice Control Basic Lesson (2025)/WonderEcho Pro/05 Appendix](https://drive.google.com/drive/folders/1cac3Lk0PsyjmU1LoKvBltH8ixRmQJYwj?usp=sharing)** path.
 
 <img src="../_static/media/chapter_17/section_2/media/image3.png" style="width:600px" class="common_img"  />
 
-4. Locate and select the corresponding serial port.
+4. Find the corresponding serial port and select it.
 
 <img src="../_static/media/chapter_17/section_2/media/image4.png" style="width:600px" class="common_img"  />
 
-5. Then press the **RST** button on the voice interaction module to start flashing, and wait until flashing is completed successfully.
+5. Then press the **RST** button on the voice interaction module to enter flashing mode. Wait until the flashing process is completed successfully.
 
 <img src="../_static/media/chapter_17/section_2/media/image5.png" style="width:300px" class="common_img"  />
 
@@ -3829,234 +3837,133 @@ Before starting this feature, firmware must first be flashed to the AI voice int
 
 <p id ="anther12.4.2"></p>
 
-## 12.4.2 Large Model API-Key Acquisition and Configuration
+### 12.4.2 Large Model API Key Setup
 
-Before using large models on the robot, the API key must first be obtained and then filled into the corresponding local configuration file.
+> [!NOTE]
+>
+> **This section requires registering on the official OpenAI website and obtaining an API key for accessing large language models.**
 
-### 12.4.2.1 Alibaba Cloud Large Model API-Key Acquisition and Configuration
+#### 12.4.2.1 OpenAI Account Registration and Deployment
 
-* **Register an Account**
+1) Copy and open the following URL: https://platform.openai.com/docs/overview, then click the **Sign Up** button in the upper-right corner.
 
-1. Copy the URL [https://www.aliyun.com/product/tongyi](https://www.aliyun.com/product/tongyi), open the Tongyi large-model webpage, and click **Sign Up** in the upper-right corner.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image1.png"  />
 
-<img src="../_static/media/chapter_24\section_1/media/image99.png" class="common_img"  />
+2) Register and log in using a Google, Microsoft, or Apple account, as prompted.
 
-2. Follow the prompts to enter the **mobile phone number** and **verification code**, then check the agreement confirming acceptance of the user agreement, privacy policy, and product service agreement.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image2.png" style="width:500px" />
 
-<img src="../_static/media/chapter_24\section_1/media/image100.png" style="width:600px" class="common_img"  />
+3) After logging in, click the Settings button, then go to **Billing**, and click **Payment Methods** to add a payment method. The payment is used to purchase **tokens**.
 
-3. After the submission is complete, the account registration is successful. Then click **Quick Real-Name Verification**.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image3.png"  />
 
-<img src="../_static/media/chapter_24\section_1/media/image101.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image4.png" style="width:700px" />
 
-4. Real-name verification includes **Personal Verification** and **Enterprise Verification**. Select the appropriate option as needed.
+4) After completing the preparation steps, click **API Keys** and create a new key. Follow the prompts to fill in the required information, then save the key for later use.
 
-<img src="../_static/media/chapter_24\section_1/media/image102.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image5.png"  />
 
-5. This tutorial uses **Personal Alipay Verification** under **Personal Verification** as the example.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image6.png"  />
 
-<img src="../_static/media/chapter_24\section_1/media/image103.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image7.png"  />
 
-6. After clicking **Personal Alipay Verification**, check **Authorize Alibaba Cloud to obtain Alipay verification information** in the pop-up window on the right, then click **Log In to Alipay**.
+5) The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-<img src="../_static/media/chapter_24\section_1/media/image104.png" style="width:600px" class="common_img"  />
+#### 12.4.2.2 OpenRouter Account Registration and Deployment
 
-7. Select the preferred Alipay login method in the pop-up window.
+1) Copy the URL https://openrouter.ai/ into a browser and open the webpage. Click **Sign in** and register or sign in using a Google account or another available account.
 
-<img src="../_static/media/chapter_24\section_1/media/image105.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image8.png" style="width:700px" />
 
-8. Check the box confirming acceptance of the user authorization agreement, then click **Authorize** to complete real-name verification.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image9.png"  />
 
-### 12.4.2.2 Deploy and Test the Online Large Model
+2) After logging in, click the icon in the top-right corner, then select **Credits** to add a payment method.
 
-1. After registration is complete, click **Free Trial**.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image10.png" style="width:700px" />
 
-<img src="../_static/media/chapter_24\section_1/media/image106.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image11.png" style="width:700px" />
 
-2. After entering the large-model interface, click **Activate Service** at the top of the webpage.
+3) Create an API key. Go to **API Keys**, then click **Create Key**. Follow the prompts to generate a key. Save the API key securely for later use.
 
-<img src="../_static/media/chapter_24\section_1/media/image107.png" style="width:600px" class="common_img"  />
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image12.png" style="width:700px" />
 
-3. In the pop-up window, check the box confirming acceptance of the model management service agreement, then click **Confirm Activation and Claim Free Quota**.
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image13.png" style="width:700px" />
 
-<img src="../_static/media/chapter_24\section_1/media/image108.png" style="width:600px" class="common_img"  />
+The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-4. This tutorial uses the **Tongyi Qianwen-Plus** model. Enter **Hello** in the chat box, then click <img src="../_static/media/chapter_24\section_1/media/image109.png" class="common_img"  /> to send the message.
+#### 12.4.2.3 API Configuration
 
-<img src="../_static/media/chapter_24\section_1/media/image110.png" style="width:600px" class="common_img"  />
-
-5. When the model generates a response, the account and related configuration are complete and the test has passed.
-
-<img src="../_static/media/chapter_24\section_1/media/image111.png" style="width:600px" class="common_img"  />
-
-### 12.4.2.3 API-Key Acquisition
-
-1. Move the pointer over <img src="../_static/media/chapter_24\section_1/media/image112.png" class="common_img"  />, then click **API-Key**.
-
-<img src="../_static/media/chapter_24\section_1/media/image113.png" class="common_img"  />
-
-2. Then click **Create My API-Key** in the upper-right corner of the webpage.
-
-<img src="../_static/media/chapter_24\section_1/media/image114.png" style="width:600px" class="common_img"  />
-
-3. Select **Default Business Space** for the business space. The description field is optional. Then click **Confirm** to create the API key.
-
-<img src="../_static/media/chapter_24\section_1/media/image115.png" style="width:600px" class="common_img"  />
-
-4. On the redirected page, click **View** to display the API key provided by the platform.
-
-<img src="../_static/media/chapter_24\section_1/media/image116.png" style="width:600px" class="common_img"  />
-
-5. After clicking **View**, copy the API key and save it locally for later use.
-
-<img src="../_static/media/chapter_24\section_1/media/image117.png" style="width:600px" class="common_img"  />
-
-6. Connect to the robot through NoMachine, enter the system desktop, and click the terminal icon <img src="../_static/media/chapter_24\section_1/media/image118.png" class="common_img"  /> or <img src="../_static/media/chapter_24\section_1/media/image119.png" class="common_img"  /> on the left taskbar. Confirm that the current ROS version in the terminal is ROS2, as shown by the red arrow in the figure below.
-
-<img src="../_static/media/chapter_24\section_1/media/image120.png" style="width:600px" class="common_img"  />
-
-7. Enter the following command in the terminal to open the large-model configuration file path.
+1. Click <img class="common_img" src="../_static/media/chapter_22/section_1/media/image25.png"  style="display:inline;vertical-align:middle;"  /> to open a terminal and enter the following command to open the configuration file. Press the **i** key to enter input mode.
 
 ```bash
-cd ~/ros2_ws/src/large_models/large_models/large_models/
+vim /home/ubuntu/ros2_ws/src/large_models/large_models/large_models/config.py
 ```
 
-8. Then enter the following command to open the large-model configuration file.
+2. Fill in the obtained Large Model API Key in the corresponding parameter, as shown in the red box in the figure below.
+
+<img class="common_img" src="../_static/media/chapter_22/section_1/media/image15.png"  />
+
+3. Press **Esc**, then enter the command and press **Enter** to save and exit the configuration file.
 
 ```bash
-gedit config.py
+:wq
 ```
 
-9. Fill the obtained API key into the `aliyun_api_Key` variable, as shown in the red box below.
-
-<img src="../_static/media/chapter_24\section_1/media/image121.png" style="width:600px" class="common_img"  />
-
-10. Press **Ctrl+S** to save the current configuration file, then click the close button in the upper-right corner to exit.
-
-These steps complete the acquisition and configuration of the Alibaba Cloud large-model API key.
-
-<p id ="anther12.4.3"></p>
-
-## 12.4.3 StepFun API-Key Acquisition and Configuration
-
-StepFun provides a rich set of vision large models for learning and deployment. The following section describes how to obtain and configure the StepFun API key.
-
-### 12.4.3.1 Account Registration
-
-1. Open the StepFun official website and click **Step-1V**.
-
-URL: [https://www.stepfun.com/](https://www.stepfun.com/)
-
-<img src="../_static/media/chapter_24\section_1/media/image122.png" style="width:600px" class="common_img"  />
-
-2. Click **Open Platform**.
-
-<img src="../_static/media/chapter_24\section_1/media/image123.png" style="width:600px" class="common_img"  />
-
-3. Click **Not Logged In** in the upper-right corner.
-
-<img src="../_static/media/chapter_24\section_1/media/image124.png" style="width:600px" class="common_img"  />
-
-4. Use a personal mobile phone number and verification code for quick login.
-
-<img src="../_static/media/chapter_24\section_1/media/image125.png" style="width:400px" class="common_img"  />
-
-5. A **Developer Information Collection** window will appear. Fill in the information as needed, then click **Submit to Claim the Bonus Amount**.
-
-<img src="../_static/media/chapter_24\section_1/media/image126.png" style="width:400px" class="common_img"  />
-
-### 12.4.3.2 API-Key Acquisition
-
-1. Click **API Key**, then view the key displayed on the right side. A default key is generated by the platform during registration.
-
-<img src="../_static/media/chapter_24\section_1/media/image127.png" style="width:600px" class="common_img"  />
-
-2. Refer to the arrow in the figure below to copy the key. Saving the key locally is recommended, since it will be required for later large-model configuration.
-
-<img src="../_static/media/chapter_24\section_1/media/image128.png" style="width:600px" class="common_img"  />
-
-3. Click **View**, then copy the generated API key and save it locally.
-
-<img src="../_static/media/chapter_24\section_1/media/image129.png" style="width:600px" class="common_img"  />
-
-4. Connect to the robot through NoMachine, enter the system desktop, and click the terminal icon <img src="../_static/media/chapter_24\section_1/media/image118.png" class="common_img"  /> or <img src="../_static/media/chapter_24\section_1/media/image119.png" class="common_img"  /> on the left taskbar. Confirm that the current ROS version in the terminal is ROS2, as shown by the red arrow in the figure below.
-
-<img src="../_static/media/chapter_24\section_1/media/image120.png" style="width:600px" class="common_img"  />
-
-5. Enter the following command in the terminal to open the large-model configuration file path.
-
-```bash
-cd ~/ros2_ws/src/large_models/large_models/large_models/
-```
-
-6. Then enter the following command to open the large-model configuration file.
-
-```bash
-gedit config.py
-```
-
-7. Fill the obtained API key into the `stepfun_api_key` variable, as shown in the red box below.
-
-<img src="../_static/media/chapter_24\section_1/media/image130.png" style="width:600px" class="common_img"  />
-
-8. Press **Ctrl+S** to save the current configuration file, then click the close button in the upper-right corner to exit.
-
-These steps complete the acquisition and configuration of the StepFun model API key.
 
 
-## 12.4.4 Comprehensive Application of Large Models: Vision Application
+### 12.4.3 Vision Application with Large AI Models
 
-### 12.4.4.1 Overview
+#### 12.4.3.1 Overview
 
-When the program starts, the voice module announces that it is ready. After the wake word is spoken, the robot responds that it is present. Once activated, the robot can be controlled by voice commands, for example: **Follow the black line, stop when an obstacle is encountered, then turn left, and finally describe what is visible.** The speech is converted to text through the Alibaba Cloud ASR API, then sent to the large model for reasoning. After reasoning is complete, the generated response is spoken through the Alibaba Cloud API and the corresponding actions are executed.
+When the program starts, the voice module announces **I’m ready**. After saying the wake word, the robot replies **I’m here**.
 
-### 12.4.4.2 Preparation
+Once activated, the robot can be controlled by voice. For example, a command like **Follow the black line, stop when an obstacle appears, then turn left, and finally describe what is in front of you** can be spoken directly to the robot. The OpenAI ASR API converts the speech into text and passes it to the large model for processing. After the response is generated, the OpenAI API is called again to play it back and carry out the corresponding actions.
+
+#### 12.4.3.2 Preparation
 
 * **Firmware Flashing**
 
 Reference Tutorial: [12.4.1 Preparation](#anther12.4.1)
 
-* **Configure the Large Model API-Key**
+* **Configure Large Model API-KEY**
 
-Reference Tutorial: [12.4.2 Large Model API-Key Acquisition and Configuration](#anther12.4.2)
+Reference Tutorial: [12.4.2 Large Model API Key Setup](#anther12.4.2)
 
-* **Configure the StepFun API-Key**
-
-Reference Tutorial: [12.4.3 StepFun API-Key Acquisition and Configuration](#anther12.4.3)
-
-### 12.4.4.3 Operation Steps
+#### 12.4.3.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP (direct connection) mode via Ethernet.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
-1. Click the command-line terminal <img src="../_static/media/chapter_24\section_1/media/image35.png" class="common_img"  style="display:inline;vertical-align:middle;"/> on the left side of the system interface, enter the command below, and press **Enter** to stop the auto-start service.
+1. Open the command line terminal from the left side of the system interface. <img src="../_static/media/chapter_24\section_1/media/image35.png" class="common_img"  style="display:inline;vertical-align:middle;"/> In the terminal window, enter the following command and press **Enter** to stop the auto-start service
+
+2. Enter the command to disable the auto-start service of the app.
 
 ```bash
 sudo systemctl stop start_app_node.service
 ```
 
-2. Enter the following command and press **Enter** to start the vision-application feature.
+3. Then enter the command and press **Enter** to start the feature.
 
 ```bash
 ros2 launch large_models_examples llm_control_progress.launch.py
 ```
 
-3. When the terminal displays the output shown below and the voice module announces that it is ready, initialization is complete. At this point, say the wake word **Xiaohuan Xiaohuan**.
+4. When the terminal displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img src="../_static/media/chapter_24\section_1/media/image141.png" style="width:1200px" class="common_img"  />
 
-4. When the terminal displays the output shown below and the voice module responds that it is present, the voice module has been successfully awakened and activated. Voice recording then starts.
+5. When the terminal displays the corresponding output shown in the figure and the device responds with **I’m here**, it indicates successful activation. The system will begin recording voice commands.
 
 <img src="../_static/media/chapter_24\section_1/media/image142.png" style="width:800px" class="common_img"  />
 
-5. When the terminal displays the output shown below, the recognized speech has been printed by the voice module.
+6. When the command line displays the output shown in the image below, it indicates that the voice module is printing the recognized speech.
 
 <img src="../_static/media/chapter_24\section_1/media/image143.png" style="width:1200px" class="common_img"  />
 
-6. When the terminal displays the output shown below, the cloud speech-model speech-recognition service has been called successfully. The audio command has been parsed, and the parsing result is shown under **publish_asr_result**.
+7. Upon successful recognition by the speech recognition service of a cloud-based large speech model, the parsed command will be displayed under the `publish_asr_result` output in the terminal.
 
 <img src="../_static/media/chapter_24\section_1/media/image144.png" style="width:1200px" class="common_img"  />
 
@@ -4064,21 +3971,21 @@ ros2 launch large_models_examples llm_control_progress.launch.py
 >
 > **The response is automatically generated by the large model. Only the semantic accuracy of the reply is guaranteed, while the wording and formatting may vary.**
 
-7. When the terminal displays the output shown below, one round of dialogue interaction has finished.
+8. When the command line displays the output shown below, it means a round of conversation has finished.
 
 <img src="../_static/media/chapter_24\section_1/media/image145.png" style="width:1200px" class="common_img"  />
 
-8. To close this feature, press **Ctrl+C** in the terminal. If the shutdown fails, press **Ctrl+C** multiple times. If it still cannot exit, open a new terminal and run the following command to clear the ROS nodes.
+9. To exit the feature, press **Ctrl+C** in the terminal. If the feature does not shut down immediately, press **Ctrl+C** multiple times. If it still fails, open a new terminal window and run the following command to clear the ROS node.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-### 12.4.4.4 Program Outcome
+#### 12.4.3.4 Project Outcome
 
-After this feature starts, natural voice commands can be used to control robot movement, line following, and real-time detection.
+Once the feature is activated, voice commands can be issued to the robot, enabling it to move, follow lines, and perform real-time detection.
 
-### 12.4.4.5 Program Analysis
+#### 12.4.3.5 Program Analysis
 
 * **Launch File Analysis**
 
@@ -5010,139 +4917,132 @@ def main():
     executor.add_node(node)
 ```
 
-## 12.4.5 Comprehensive Application of Large Models: Navigation Transport
+### 12.4.4 Navigation and Transport with Large AI Models
 
-### 12.4.5.1 Overview
+#### 12.4.4.1 Overview
 
-When the program starts, the voice module announces that it is ready. After the wake word is spoken, the robot responds that it is present. Once activated, the robot can be controlled through voice commands, for example: **Pick up the red block and place it into the blue box.** The speech is converted to text through the Alibaba Cloud ASR API and then sent to the large model for reasoning. After reasoning is complete, the generated response is spoken through the Alibaba Cloud API and the corresponding actions are executed.
+When the program starts, the voice module announces **I’m ready**. After saying the wake word, the robot replies **I’m here**.
 
-### 12.4.5.2 Preparation
+After activation, the robot can be controlled by voice. For example, a command such as **Pick up the red block and place it in the blue box** can be spoken directly to the robot. The OpenAI ASR API converts the speech into text and sends it to the large model for processing. Once the reasoning is complete, the OpenAI API is called again to play back the generated response and execute the corresponding actions.
+
+#### 12.4.4.2 Preparation
 
 * **Firmware Flashing**
 
 Reference Tutorial: [12.4.1 Preparation](#anther12.4.1)
 
-* **Configure the Large Model API-Key**
+* **Configure Large Model API-KEY**
 
-Reference Tutorial: [12.4.2 Large Model API-Key Acquisition and Configuration](#anther12.4.2)
+Reference Tutorial: [12.4.2 Large Model API Key Setup](#anther12.4.2)
 
-* **Configure the StepFun API-Key**
+- **Build a Map**
 
-Reference Tutorial: [12.4.3 StepFun API-Key Acquisition and Configuration](#anther12.4.3)
+Reference Tutorial: [5.1 Mapping Tutorial](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/5_Mapping_%26_Navigation_Course.html#mapping-tutorial)
 
-* **Build a Map**
-
-Reference Tutorial: [Mapping Tutorial]()
-
-### 12.4.5.3 Operation Steps
+#### 12.4.4.3 Operation Steps
 
 > [!NOTE]
 >
 > * **Command input is case-sensitive and space-sensitive.**
 >
-> * **The robot must be connected to the Internet, either in STA mode or in AP mode with an Ethernet connection.**
+> * **The robot must be connected to the Internet, either in STA (LAN) mode or AP direct connection mode via Ethernet.**
 
-1. Click the command-line terminal <img class="inline-icon" src="../_static/media/chapter_13/section_6/media/image24.png" style="width:70px"  /> on the left side of the system interface, enter the following command, and press **Enter** to stop the auto-start service.
+1. Open the command line terminal from the left side of the system interface. <img class="inline-icon" src="../_static/media/chapter_13/section_6/media/image24.png" style="width:70px"  /> In the terminal window, enter the following command and press **Enter** to stop the auto-start service
 
    ```bash
    sudo systemctl stop start_app_node.service
    ```
 
-2. Enter the following command and press **Enter** to start the navigation-transport feature.
+3. Enter the following command and press **Enter** to launch the feature.
 
    ```bash
    ros2 launch large_models_examples llm_control_progress.launch.py function:=navigation
    ```
 
-3. When the terminal displays the output shown below and the voice module announces that it is ready, initialization is complete. At this point, say the wake word **Xiaohuan Xiaohuan**.
+4. When the terminal displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
    <img class="common_img" src="../_static/media/chapter_13/section_6/media/image25.png" style="width:800px"  />
 
-4. When the terminal displays the output shown below and the voice module responds that it is present, the voice module has been awakened and activated successfully. Voice recording then starts.
+5. When the terminal displays the corresponding output shown in the figure and the device responds with **I’m here**, it indicates successful activation. The system will begin recording voice commands.
 
    <img class="common_img" src="../_static/media/chapter_13/section_6/media/image26.png" style="width:800px"  />
 
-5. When the terminal displays the output shown below, the recognized speech has been printed by the voice module.
+6. When the command line displays the output shown in the image below, it indicates that the voice module is printing the recognized speech.
 
    <img class="common_img" src="../_static/media/chapter_13/section_6/media/image27.png" style="width:800px"  />
 
-6. When the terminal displays the output shown below, the cloud speech-model speech-recognition service has been called successfully. The audio command has been parsed, and the parsing result is shown under **publish_asr_result**.
+7. The robot successfully calls the speech recognition service of the cloud-based large speech model to process the command audio. The parsing result is stored in `publish_asr_result`.
 
-   <img class="common_img" src="../_static/media/chapter_13/section_6/media/image28.png" style="width:800px"  />
 
-   > [!NOTE]
-   >
-   > **The response is automatically generated by the large model. Only the semantic accuracy of the reply is guaranteed, while the wording and formatting may vary.**
+> [!NOTE]
+>
+> **The response is automatically generated by the large model. Only the semantic accuracy of the reply is guaranteed, while the wording and formatting may vary.**
 
-7. When the terminal displays the output shown below, one round of dialogue interaction has finished.
+7. When the command line displays the output shown below, it means a round of conversation has finished.
 
-   <img class="common_img" src="../_static/media/chapter_13/section_6/media/image29.png" style="width:800px"  />
+<img class="common_img" src="../_static/media/chapter_13/section_6/media/image29.png" style="width:800px"  />
 
-8. The robot first goes to the **Courier Station** and completes the task of picking up the **red parcel**.
+8. The robot first moves to the **Express Station** and completes the task of picking up the **red package**.
 
-   <img class="common_img" src="../_static/media/chapter_13/section_6/media/image30.png" style="width:800px"  />
+9. It then returns to the starting point and places it down.
 
-9. Then the robot returns to the starting point and places the parcel down.
+10. When the command-line output matches the figure below, one round of dialogue interaction has been completed. The **voice device** can then be awakened again with the wake word, following Step 3, to begin a new round of dialogue interaction.<img class="common_img" src="../_static/media/chapter_13/section_6/media/image31.png" style="width:800px"  />
 
-10. When the terminal displays the output shown below, one round of dialogue interaction has finished. Following Step 3, the wake word can be used again to start a new round of interaction.
+11. To exit the feature, press **Ctrl+C** in the terminal. If the feature does not shut down immediately, press **Ctrl+C** multiple times. If it still fails, open a new terminal window and run the following command to clear the ROS node.
 
-    <img class="common_img" src="../_static/media/chapter_13/section_6/media/image31.png" style="width:800px"  />
+```bash
+~/.stop_ros.sh
+```
 
-11. To close this feature, press **Ctrl+C** in the terminal. If shutdown fails, press **Ctrl+C** multiple times. If it still cannot exit, open a new terminal and run the following command to clear the ROS nodes.
+* **Modifying Navigation Positions**
 
-    ```bash
-    ~/.stop_ros.sh
-    ```
-
-### 12.4.5.4 Program Outcome
-
-After the feature starts, natural commands can be used, for example: **Bring back the red parcel from the courier station.** The robot first navigates to the waypoint for the red parcel, picks it up, and then goes to the waypoint for the blue box to place it there.
-
-### 12.4.5.5 Modifying Navigation Locations
-
-To modify the navigation locations in the program, edit the following file:
+If the navigation positions in the program need to be changed, modify the file at the following path:
 
 **~/ros2_ws/src/large_models_examples/large_models_examples/function_calling/llm_control.py**
 
-1. First, follow the program-start procedure and start the program so that the rviz map is displayed. Then set the navigation target by clicking **2D Goal Pose** on the map.
+1. First follow Step 3 in the feature startup section to launch the program and open the RViz map display. Then set the navigation target position by clicking **2D Goal Pose** on the map.
 
 <img class="common_img" src="../_static/media/chapter_13/section_6/media/image32.png" style="width:800px"  />
 
-2. Return to the terminal and view the published target-position parameters.
+2. Return to the command terminal and check the published target-position parameters:
 
 <img class="common_img" src="../_static/media/chapter_13/section_6/media/image33.png" style="width:800px"  />
 
-3. Locate the corresponding section in the program shown below, then fill in the desired target-location parameters after the matching location name.
+Find the corresponding section of the program shown below, then enter the desired target-position parameters after the matching location name.
 
 <img class="common_img" src="../_static/media/chapter_13/section_6/media/image34.png" style="width:800px"  />
 
-The different position expressions in the program represent target navigation points relative to the map origin, which is the robot starting point during map construction. The five parameters represent:
+The different positions in the program are expressed as coordinates relative to the map origin, which is the robot's starting point during mapping. The five parameters represent:
 
-`x`: X coordinate in meters
+X coordinate, in meters.
 
-`y`: Y coordinate in meters
+Y coordinate, in meters.
 
-`roll`: Rotation around the X-axis in degrees
+Roll angle, rotation about the x-axis, in degrees.
 
-`pitch`: Rotation around the Y-axis in degrees
+Pitch angle, rotation about the y-axis, in degrees.
 
-`yaw`: Rotation around the Z-axis in degrees
+Yaw angle, rotation about the z-axis, in degrees.
 
-For example, when the quaternion `Quaternion(x=0.0, y=0.0, z=-0.5677173914973032, w=0.8232235197025761)` is converted to Euler angles `(roll, pitch, yaw)`, the result is approximately `roll = 0°`, `pitch = 0°`, and `yaw = -69.3°`.
+For example, when the quaternion `Quaternion(x=0.0, y=0.0, z=-0.5677173914973032, w=0.8232235197025761)` is converted to Euler angles `roll, pitch, yaw`, the result is approximately `roll ≈ 0°`, `pitch ≈ 0°`, and `yaw ≈ -69.3°`.
 
-### 12.4.5.6 Program Analysis
+#### 12.4.5.4 Project Outcome
+
+After the feature is started, commands can be spoken freely, for example, **Go to the express station and bring back the red package**. The robot first moves to the navigation point for the red block and picks it up, then moves to the navigation point for the blue box and places the red block inside.
+
+#### 12.4.5.5 Program Analysis
 
 * **Brief Program Analysis**
 
-(1) Launch File Analysis
+1. **Launch File Analysis**
 
 Program path:
 
 **/home/ubuntu/ros2_ws/src/large_models_examples/large_models_examples/navigation_transport/vllm_navigation_transport.launch.py**
 
-① Import library files
+① **Importing Libraries**
 
-```python
+```py
 import os
 from ament_index_python.packages import get_package_share_directory
 
@@ -5154,29 +5054,29 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction, OpaqueFunction, TimerAction, ExecuteProcess
 ```
 
-`os`: Handles file paths and operating-system-related functions.
+1. `os`: Used to handle file paths and operating-system-related functions.
 
-`ament_index_python.packages.get_package_share_directory`: Retrieves the shared directory path of a ROS2 package.
+2. `ament_index_python.packages.get_package_share_directory`: Used to get the shared directory path of a ROS2 package.
 
-`launch_ros.actions.Node`: Defines ROS2 nodes.
+3. `launch_ros.actions.Node`: Used to define ROS2 nodes.
 
-`launch.substitutions.LaunchConfiguration`: Retrieves Launch-file parameter values.
+4. `launch.substitutions.LaunchConfiguration`: Used to get parameter configurations in the launch file.
 
-`LaunchDescription, LaunchService`: Define and start a Launch file.
+5. `LaunchDescription, LaunchService`: Used to define and start launch files.
 
-`launch.launch_description_sources.PythonLaunchDescriptionSource`: Includes other Launch files.
+6. `launch_description_sources PythonLaunchDescriptionSource`: Used to include other launch files.
 
-`launch.actions.DeclareLaunchArgument`, `IncludeLaunchDescription`, and `OpaqueFunction`: Define actions and parameters in the Launch file.
+7. `launch.actions.IncludeLaunchDescription`, `DeclareLaunchArgument`, `OpaqueFunction`: Used to define actions and parameters in the launch file.
 
-② Define the `launch_setup` function
+② **Defining the launch_setup Function**
 
-```python
+```py
 def launch_setup(context):
     jetauto_description_package_path = get_package_share_directory('jetauto_description')
     slam_package_path = get_package_share_directory('slam')
     navigation_package_path = get_package_share_directory('large_models_examples')
     large_models_package_path = get_package_share_directory('large_models')
-    
+
     mode = LaunchConfiguration('mode', default=1)
     mode_arg = DeclareLaunchArgument('mode', default_value=mode)
     map_name = LaunchConfiguration('map', default='map_01').perform(context)
@@ -5208,31 +5108,44 @@ def launch_setup(context):
         executable='vllm_navigation_transport',
         output='screen',
     )
+
+    return [
+            mode_arg,
+            map_name_arg, 
+            master_name_arg,
+            robot_name_arg,
+            navigation_controller_launch,
+            large_models_launch,
+            vllm_navigation_transport_node
+            ]
 ```
 
-This function includes the `navigation_transport.launch.py` file in the `large_models_examples` package to start the target-navigation process.
+1. Includes `navigation_transport.launch.py` in the `large_models_examples` package to start the file for reaching the target navigation point.
 
-The `large_models_launch` item includes the `start.launch.py` file from the `large_models` package and passes the `mode` parameter.
+2. `large_models_launch`: Uses `IncludeLaunchDescription` to include `start.launch.py` in the `large_models` package and passes the `mode` parameter.
 
-The `vllm_navigation_transport_node` item defines a ROS2 node from the `large_models_examples` package. It runs the `vllm_navigation_transport` executable and prints the output to the screen.
+3. `vllm_navigation_transport_node`: Defines a ROS2 node from the `large_models_examples` package, runs the `vllm_navigation_transport` executable, and prints the output to the screen.
 
-Finally, the function returns a list containing all Launch actions.
+4. Finally, returns a list containing all launch actions.
 
-③ Define the `generate_launch_description` function
+③ **Defining the generate_launch_description Function**
 
-```python
+```py
 def generate_launch_description():
     return LaunchDescription([
         OpaqueFunction(function = launch_setup)
     ])
 ```
 
-This function generates the Launch description and uses `OpaqueFunction` to add `launch_setup` to the Launch description.
+1. This function is used to generate the launch description.
 
-④ Main program entry
+2. Uses `OpaqueFunction` to add the `launch_setup` function to the launch description.
 
-```python
+④ **Main Program Entry**
+
+```py
 if __name__ == '__main__':
+    # Create a LaunchDescription object.
     ld = generate_launch_description()
 
     ls = LaunchService()
@@ -5240,67 +5153,599 @@ if __name__ == '__main__':
     ls.run()
 ```
 
-`ld = generate_launch_description()` generates the Launch description object.
+1. `ld = generate_launch_description()`: Generates the launch description object.
 
-`ls = LaunchService()` creates the Launch service object.
+2. `ls = LaunchService()`: Creates a launch service object.
 
-`ls.include_launch_description(ld)` adds the Launch description to the Launch service.
+3. `ls.include_launch_description(ld)`: Adds the launch description to the launch service.
 
-`ls.run()` starts the Launch service and executes all defined Launch actions.
+4. `ls.run()`: Starts the launch service and executes all defined launch actions.
+
+5. **Python File Analysis**
+
+Program path:
+
+**/home/ubuntu/ros2_ws/src/large_models_examples/large_models_examples/navigation_transport/vllm_navigation_transport.py**
+
+**Importing Packages**
+
+```py
+import os
+import re
+import cv2
+import time
+import json
+import rclpy
+import queue
+import threading
+import numpy as np
+from speech import speech
+from rclpy.node import Node
+from cv_bridge import CvBridge
+from sensor_msgs.msg import Image
+from std_msgs.msg import String, Bool
+from std_srvs.srv import Trigger, SetBool, Empty
+
+from large_models.config import *
+from large_models_msgs.srv import SetModel, SetContent, SetString, SetInt32
+
+from interfaces.srv import SetPose2D, SetPoint, SetBox
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.callback_groups import ReentrantCallbackGroup
+```
+
+1. `cv2`: Used for image processing and display with OpenCV.
+
+2. `json`: Used to handle data in JSON format.
+
+3. `time`: Used to control execution delays and time management.
+
+4. `queue`: Used to manage image queues between threads.
+
+5. `rclpy`: Used for ROS2 node creation and communication.
+
+6. `threading`: Used to implement multithreading for parallel task processing.
+
+7. `numpy (np)`: Used for matrix and vector operations.
+
+8. `std_srvs.srv`: ROS service types used to define standard services.
+
+9. `std_msgs.msg`: ROS message types.
+
+10. `rclpy`: Used for ROS2 node creation and communication.
+
+11. `rclpy.node.Node`: Base class for ROS2 nodes.
+
+12. `rclpy.callback_groups.ReentrantCallbackGroup`: Supports concurrent callback handling.
+
+13. `rclpy.executors.MultiThreadedExecutor`: ROS2 multithreaded executor used for handling multithreaded tasks.
+
+14. `rclpy.node`: Node class in ROS2.
+
+15. `speech`: Module related to large-model voice interaction.
+
+16. `large_models_msgs.srv`: Custom service types for the large model.
+
+17. `large_models.config`: Large-model configuration file.
+
+**PROMPT String**
+
+```py
+    LLM_PROMPT = '''
+## Role
+As a language expert, deeply understand the user's instructions.
+
+## Capabilities
+* Analyze the user's instruction and treat one pick action plus one place action as a single task
+* Strong logical reasoning and the ability to understand object modifiers
+* Accurately break down the objects to be picked and placed
+
+## Requirements
+1. Based on the input content, find the corresponding instruction from the function library and output the corresponding command.
+2. Multiple actions must be placed in a list.
+3. Generate a concise, witty, and highly varied response for the action sequence, within 10 to 30 words, to make the interaction more engaging.
+4. Transport consists of two stages: pick up and place down.
+5. Move to the target location before picking or placing. If no location is specified, use the transported object as the default location.
+6. Possible locations may include: blue block, blue box, red block, red box, green block, green box, origin.
+7. Output JSON data directly. Do not analyze. Do not output any extra content.
+8. Format: {"action": "xx", "response": "xx"}
+
+## Available Functions and Operations
+* Pick up an object: pick('blue block')
+* Place onto a specified object: place('blue box')
+* Move to a specified location: move('origin')
+
+## Examples
+Input: Pick up the block
+Output: {"action": ["move('block')", "pick('block')"], "response": "Got it, block secured"}
+Input: Put it in the box
+Output: {"action": ["move('box')", "place('box')"], "response": "Understood, heading there now"}
+Input: Go to the kitchen
+Output: {"action": ["move('kitchen')"], "response": "Alright, setting off now"}
+Input: Put it in the trash can in the kitchen
+Output: {"action": ["move('kitchen')", "place('trash can')"], "response": "Got it, on the way"}
+Input: Put the blue block into the blue box
+Output: {"action": ["move('blue block')", "pick('blue block')", "move('blue box')", "place('blue box')"], "response": "Easy work for me"}
+    '''
+```
+
+Defines three prompt strings used to specify how instructions and image data should be handled, including the recognition-task rules and the output format.
+
+**VLLMObjectTransport Class**
+
+```py
+class VLLMNavigation(Node):
+    def __init__(self, name):
+        rclpy.init()
+        super().__init__(name)
+
+        self.action = []
+        self.response_text = ''
+        self.llm_result = ''
+        self.action_finish = False
+        self.transport_action_finish = False
+        self.play_audio_finish = False
+        # self.llm_result = '{\'action\':[\'move(\"前台\")\', \'vision(\"大门有没有关\")\', \'move(\"原点\")\', \'play_audio()\'], \'response\':\'马上！\'}'
+        self.running = True
+        self.reach_goal = False
+        self.interrupt = False
+        self.bridge = CvBridge()
+        self.image_queue = queue.Queue(maxsize=2)
+        timer_cb_group = ReentrantCallbackGroup()
+        self.client = speech.OpenAIAPI(api_key, base_url)
+        self.tts_text_pub = self.create_publisher(String, 'tts_node/tts_text', 1)
+        self.create_subscription(Image, 'usb_cam/image_raw', self.image_callback, 1)
+        self.create_subscription(String, 'agent_process/result', self.llm_result_callback, 1)
+        self.create_subscription(Bool, 'vocal_detect/wakeup', self.wakeup_callback, 1)
+        self.create_subscription(Bool, 'tts_node/play_finish', self.play_audio_finish_callback, 1, callback_group=timer_cb_group)
+        self.create_subscription(Bool, 'navigation_controller/reach_goal', self.reach_goal_callback, 1)
+        self.create_subscription(Bool, 'automatic_pick/action_finish', self.action_finish_callback, 1)
+        self.awake_client = self.create_client(SetBool, 'vocal_detect/enable_wakeup')
+        self.awake_client.wait_for_service()
+        self.set_mode_client = self.create_client(SetInt32, 'vocal_detect/set_mode')
+        self.set_mode_client.wait_for_service()
+        self.set_model_client = self.create_client(SetModel, 'agent_process/set_model')
+        self.set_model_client.wait_for_service()
+        self.set_prompt_client = self.create_client(SetString, 'agent_process/set_prompt')
+        self.set_prompt_client.wait_for_service()
+        self.set_vllm_content_client = self.create_client(SetContent, 'agent_process/set_vllm_content')
+        self.set_vllm_content_client.wait_for_service()
+        self.set_pose_client = self.create_client(SetPose2D, 'navigation_controller/set_pose')
+        self.set_pose_client.wait_for_service()
+        # self.set_target_client = self.create_client(SetPoint, 'automatic_pick/set_target_color')
+        # self.set_target_client.wait_for_service()
+        self.set_box_client = self.create_client(SetBox, 'automatic_pick/set_box')
+        self.set_box_client.wait_for_service()
+        self.set_pick_client = self.create_client(Trigger, 'automatic_pick/pick')
+        self.set_pick_client.wait_for_service()
+        self.set_place_client = self.create_client(Trigger, 'automatic_pick/place')
+        self.set_place_client.wait_for_service()
+        self.timer = self.create_timer(0.0, self.init_process, callback_group=timer_cb_group)
+```
+
+1. `rclpy.init()`: Initializes the ROS2 system.
+
+2. `super().__init__(name)`: Calls the parent class initialization method to create a ROS2 node.
+
+3. `self.llm_result`: Stores the result returned by the LLM.
+
+4. `self.running`: Controls the program running state.
+
+5. `self.transport_finished`: Indicates whether the transport task is completed.
+
+6. `self.tts_text_pub`: Publishes the ROS topic for TTS text.
+
+7. `self.create_subscription`: Subscribes to the LLM result and transport completion status.
+
+8. `self.lock`: Thread lock used for multithread synchronization.
+
+9. `self.client`: Voice API client used to interact with the speech service.
+
+10. `self.tts_text_pub`: Publishes the ROS topic for TTS text.
+
+11. `self.asr_pub`: Publishes the ROS topic for speech-recognition results.
+
+12. `self.create_subscription`: Subscribes to the LLM result and transport completion status.
+
+13. `self.create_client`: Creates multiple service clients used to call different functions.
+
+14. `self.timer`: Creates a timer used to trigger the initialization process.
+
+**get_node_state Method**
+
+```py
+    def get_node_state(self, request, response):
+        return response
+```
+
+`return response`: Returns the response object.
+
+**init_process Method**
+
+```py
+    def init_process(self):
+        self.timer.cancel()
+
+        msg = SetModel.Request()
+        msg.model = llm_model
+        msg.model_type = 'llm'
+        msg.api_key = api_key 
+        msg.base_url = base_url
+        self.send_request(self.set_model_client, msg)
+
+        msg = SetString.Request()
+        msg.data = LLM_PROMPT
+        self.send_request(self.set_prompt_client, msg)
+
+        init_finish = self.create_client(Empty, 'navigation_controller/init_finish')
+        init_finish.wait_for_service()
+        speech.play_audio(start_audio_path)
+        threading.Thread(target=self.process, daemon=True).start()
+        self.create_service(Empty, '~/init_finish', self.get_node_state)
+        self.get_logger().info('\033[1;32m%s\033[0m' % 'start')
+        self.get_logger().info('\033[1;32m%s\033[0m' % LLM_PROMPT)
+```
+
+1. `self.timer.cancel()`: Cancels the timer.
+
+2. `SetModel.Request`: Request message used to set the LLM model.
+
+3. `SetModel.Request()`: Creates a `SetModel` service request.
+
+4. `msg.model_type = 'llm'`: Specifies the model type as `llm`.
+
+5. `self.send_request(self.set_model_client, msg)`: Sends the request through `set_model_client` to configure the model.
+
+6. `SetString.Request`: Request message used to set the prompt string.
+
+7. `self.send_request(self.set_prompt_client, msg)`: Sends the request through `set_prompt_client` to configure the prompt.
+
+8. `Empty.Request`: Request message used to clear the dialogue history.
+
+9. `self.send_request(self.clear_chat_client, msg)`: Sends the request through `clear_chat_client`.
+
+10. `self.create_client(Empty, 'object_transport/init_finish')`: Creates a client used to call the `object_transport/init_finish` service.
+
+11. `init_finish.wait_for_service()`: Waits until the service becomes available.
+
+12. `self.send_request(self.enter_client, Trigger.Request())`: Sends a `Trigger` request through `enter_client`.
+
+13. `speech.play_audio`: Plays the audio prompt.
+
+14. `threading.Thread`: Starts the main logic thread.
+
+15. `self.create_service`: Creates a service used to notify that initialization has been completed.
+
+16. `self.get_logger().info`: Prints log information.
+
+**send_request Method**
+
+```py
+    def send_request(self, client, msg):
+        future = client.call_async(msg)
+        while rclpy.ok():
+            if future.done() and future.result():
+                return future.result()
+```
+
+1. `client.call_async(msg)`: Calls the service asynchronously.
+
+2. `future.done()` and `future.result()`: Check whether the service call has finished and return the result.
+
+**vllm_result_callback Method**
+
+```py
+    def llm_result_callback(self, msg):
+        self.llm_result = msg.data
+```
+
+Receives the result from the `agent_process/result` topic and stores it in `self.vllm_result`.
+
+**get_object_position Method**
+
+```py
+    def get_object_position(self, query, image):
+        msg = SetContent.Request()
+        if language == 'Chinese':
+            msg.api_key = stepfun_api_key
+            msg.base_url = stepfun_base_url
+            msg.model = stepfun_vllm_model
+        else:
+            msg.api_key = vllm_api_key
+            msg.base_url = vllm_base_url
+            msg.model = vllm_model
+        msg.prompt = VLLM_PROMPT
+        msg.query = query
+        msg.image = self.bridge.cv2_to_imgmsg(image, "bgr8")
+
+        self.get_logger().info('vision: %s' % query)
+        self.get_logger().info('send image')
+        res = self.send_request(self.set_vllm_content_client, msg)
+        vllm_result = res.message
+        if 'object' in vllm_result: 
+            if vllm_result.startswith("```") and vllm_result.endswith("```"):
+                vllm_result = vllm_result.strip("```").replace("json\n", "").strip()
+            self.get_logger().info('vllm_result: %s' % vllm_result)
+            vllm_result = json.loads(vllm_result)
+            box = vllm_result['xyxy']
+            h, w = image.shape[:2]
+            box = self.client.data_process(box, w, h)
+            self.get_logger().info('box: %s' % str(box))
+            # box_center = [(box[0] + box[2]) / 2 / 640, (box[1] + box[3]) / 2 / 480]
+            # self.get_logger().info('box_center: %s' % str(box_center))
+            return box
+        else:
+            msg = String()
+            msg.data = vllm_result
+            self.tts_text_pub.publish(vllm_result)
+            return []
+```
+
+1. `query`: Query request.
+
+2. `image`: Input image data.
+
+3. `offset`: Offset of the placement position.
+
+4. `SetContent.Request`: Request message used to set the LLM content.
+
+5. `self.get_logger().info`: Prints log information.
+
+6. `self.send_request`: Sends the service request.
+
+7. `res.message`: Extracts the message content from the response.
+
+8. `if 'object' in vllm_result`: Checks whether the result contains object information.
+
+9. `if vllm_result.startswith("") and vllm_result.endswith("")`: Checks the message format.
+
+10. `vllm_result.strip("").replace("json\n", "").strip()`: Cleans the message content by removing code block markers, removing the `"json\n"` prefix, removing leading and trailing whitespace, and extracting the pure JSON content.
+
+11. `json.loads(message)`: Parses the extracted JSON string into a Python dictionary.
+
+12. `vllm_result.message`: Extracts the message content from the response.
+
+13. `box = self.client.data_process(box, w, h)`: Processes the bounding box of the placement position.
+
+14. `self.tts_text_pub.publish(msg)`: Publishes the message.
+
+- **pick Method**
+
+1. Trigger Grasp Preparation
+
+`self.send_request(self.set_pick_client, Trigger.Request())`: Sends the trigger request to the grasping service.
+
+This may place the robotic arm into the grasp-preparation state.
+
+2. Get the Image
+
+`image = self.image_queue.get(block=True)`: Gets the latest image from the image queue.
+
+`block=True` means that if the queue is empty, the process waits until an image becomes available.
+
+3. Recognize the Target Object
+
+`box = self.get_object_position(query, image)`: Calls `get_object_position` to recognize the object.
+
+Passes in the query string and image, then gets the bounding-box coordinates of the object.
+
+4. Process the Recognition Result
+
+`if box:`: Checks whether the object has been recognized successfully.
+
+If the recognition succeeds, the bounding-box information is recorded and processing continues.
+
+5. Create the Bounding-box Request
+
+`msg = SetBox.Request()`: Creates the request message used to set the bounding box.
+
+Set the bounding-box coordinates:
+
+`msg.x_min = box[0]`
+
+`msg.y_min = box[1]`
+
+`msg.x_max = box[2]`
+
+`msg.y_max = box[3]`
+
+6. Send the Bounding Box to the Grasping Node
+
+`self.log_info("Step 5: Send the bounding box to the automatic_pick node")`: Records the log for sending the bounding box.
+
+`self.send_request(self.set_box_client, msg)`: Sends the bounding-box request to the grasping node.
+
+This allows the grasping node to know the position of the object to be picked.
+
+**place Method**
+
+Same analysis as above.
+
+**transport_finished_callback Method**
+
+<img class="common_img" src="../_static/media/chapter_13/section_5/media/image60.png" style="width:800px"  />
+
+Receives updates on the transport-completion status.
+
+**process Method**
+
+```py
+    def process(self):
+        while self.running:
+            if self.llm_result:
+                self.interrupt = False
+                msg = String()
+                if 'action' in self.llm_result: # If there is a corresponding action returned, extract and process it
+                    result = eval(self.llm_result[self.llm_result.find('{'):self.llm_result.find('}')+1])
+                    if 'response' in result:
+                        msg.data = result['response']
+                        self.tts_text_pub.publish(msg)
+                    if 'action' in result:
+                        action = result['action']
+                        self.get_logger().info(f'vllm action: {action}')
+                        for a in action:
+                            if 'move' in a: 
+                                self.reach_goal = False
+                                eval(f'self.{a}')
+                                while not self.reach_goal:
+                                    # if self.interrupt:
+                                        # self.get_logger().info('interrupt')
+                                        # break
+                                    # self.get_logger().info('waiting for reach goal')
+                                    time.sleep(0.01)
+                            elif 'pick' in a or 'place' in a:
+                                time.sleep(3)
+                                eval(f'self.{a}')
+                                self.transport_action_finish = False
+                                while not self.transport_action_finish:
+                                    # if self.interrupt:
+                                        # self.get_logger().info('interrupt')
+                                        # break
+                                    time.sleep(0.01)
+                            # if self.interrupt:
+                                # self.get_logger().info('interrupt')
+                                # break
+                else: # If there is no corresponding action, just respond
+                    msg.data = self.llm_result
+                    self.tts_text_pub.publish(msg)
+                self.action_finish = True
+                self.llm_result = ''
+            else:
+                time.sleep(0.01)
+            if self.play_audio_finish and self.action_finish:
+                self.play_audio_finish = False
+                self.action_finish = False
+                # msg = SetInt32.Request()
+                # msg.data = 2
+                # self.send_request(self.set_mode_client, msg)
+                msg = SetBool.Request()
+                msg.data = True
+                self.send_request(self.awake_client, msg)
+        rclpy.shutdown()
+```
+
+1. `while self.running`: This is a loop. As long as `self.running` is `True`, it keeps running.
+
+2. `if self.vllm_result`: Checks whether `self.vllm_result` has a value. `self.vllm_result` is the result returned by the vllm model.
+
+3. `self.interrupt = False`: Resets the interrupt flag.
+
+4. `if 'action' in self.llm_result`: Checks whether the result contains action instructions.
+
+5. `result = eval(self.llm_result[...])`: Extracts and parses the JSON result.
+
+6. `if 'response' in result`: Checks whether the result contains response text.
+
+7. `msg.data = result['response']`: Sets the response text.
+
+8. `self.tts_text_pub.publish(msg)`: Publishes the response text.
+
+9. `if 'action' in result`: Checks whether the result contains an action list.
+
+10. `action = result['action']`: Gets the action list.
+
+11. `if 'move' in a`: Checks whether it is a move action.
+
+12. `self.reach_goal = False`: Resets the reach-goal flag.
+
+13. `eval(f'self.{a}')`: Executes the move command.
+
+14. `while not self.reach_goal`: Waits until the goal is reached.
+
+15. `elif 'pick' in a or 'place' in a`: Checks whether it is a pick or place action.
+
+16. `eval(f'self.{a}')`: Executes the pick or place command.
+
+17. `self.transport_action_finish = False`: Resets the action-completion flag.
+
+18. `while not self.transport_action_finish`: Waits for the action to complete.
+
+19. Interrupt handling `if self.interrupt`: Checks whether the process has been interrupted.
+
+20. No-action response handling `else: # If there is no corresponding action, just respond`: Handles the case where there is no matching action.
+
+21. Completion handling `self.action_finish = True`: Marks the action as completed.
+
+22. Waiting handling `else: time.sleep(0.01)`: Brief sleep.
+
+23. Mode switching `if self.play_audio_finish and self.action_finish`: Checks whether all tasks are complete. If both are complete, the system prepares to switch to the next mode.
+
+24. End handling `rclpy.shutdown()`: Shuts down the ROS2 system.
+
+25. `for a in action`: Iterates through the action list and executes it.
+
+**main Method**
+
+```py
+def main():
+    node = VLLMNavigation('vllm_navigation')
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
+    executor.spin()
+    node.destroy_node()
+```
+
+1. Creates an instance of the `VLLMNavigation` node.
+
+2. Uses a multithreaded executor to handle node tasks.
+
+3. Calls `executor.spin()` to start processing ROS events.
+
+4. When the node is destroyed, calls `node.destroy_node()`.
 
 
 
-## 12.5 Offline Large Model Applications
+## 12.5 Offline Large AI Model Applications
 
 <p id ="anther12.5.1"></p>
 
 ### 12.5.1 Preparation
 
-Before running this feature, firmware must first be flashed to the AI voice interaction box, and the speech mode must be configured correctly.
+Firmware must be flashed to the AI voice box before running the feature.
 
-1. Connect the WonderEcho Pro to the computer with a Type-C cable.
+1. First, connect WonderEcho Pro to the computer with a Type-C data cable.
 
 <img src="../_static/media/chapter_17/section_2/media/image1.png" style="width:600px" class="common_img"  />
 
-2. Open **10.1.5 Appendix\Firmware Flashing Tool\PACK_UPDATE_TOOL.exe**, select the **CI1302** chip, and then click **Firmware Upgrade**.
+2. Open **PACK_UPDATE_TOOL.exe** under **[2. Softwares\6. Firmware Flashing Tool](https://drive.google.com/drive/folders/1EJkwyTzH41VwMuQcJhn7kSNYjEHCFM4d?usp=sharing)**, select the **CI1302** chip, then click **Update**.
 
    <img src="../_static/media/chapter_17/section_2/media/image2.png" style="width:600px" class="common_img"  />
 
-   The firmware file **CI1302-English-Single-Mic_V00916_UART0_115200_2M.bin** is used here as an example. The same procedure also applies when flashing firmware for a Chinese wake word.
+   The following steps use **CI1302-English-SingleMic_V00916_UART0_115200_2M.bin** as an example. The same procedure also applies to flashing the Chinese wake word firmware.
 
-3. Click to select the firmware file, then locate **CI1302-English-Single-Mic_V00916_UART0_115200_2M.bin** in the **Appendix** path.
+3. Click to select the firmware, then locate **CI1302-English-SingleMic_V00916_UART0_115200_2M.bin** under the **[Voice Control Basic Lesson (2025)/WonderEcho Pro/05 Appendix](https://drive.google.com/drive/folders/1cac3Lk0PsyjmU1LoKvBltH8ixRmQJYwj?usp=sharing)** path.
 
 <img src="../_static/media/chapter_17/section_2/media/image3.png" style="width:600px" class="common_img"  />
 
-4. Locate and select the corresponding serial port.
+4. Find the corresponding serial port and select it.
 
 <img src="../_static/media/chapter_17/section_2/media/image4.png" style="width:600px" class="common_img"  />
 
-5. Press the **RST** button on the voice interaction module to start flashing, then wait until the process finishes successfully.
+5. Then press the **RST** button on the voice interaction module to enter flashing mode. Wait until the flashing process is completed successfully.
 
 <img src="../_static/media/chapter_17/section_2/media/image5.png" style="width:300px" class="common_img"  />
 
 <img src="../_static/media/chapter_17/section_2/media/image6.png" style="width:600px" class="common_img"  />
 
-6. After logging in to the robot through NoMachine, click the desktop icon <img src="../_static/media/chapter_23/section_1/media/image131.png" class="common_img" />.
-
-7. Change the speech mode to **offline mode**.
+6. Change the **ASR Mode** to **offline**.
 
 <img src="../_static/media/chapter_23/section_1/media/image140.png" class="common_img" />
 
-8. Then click **Save**.
+7. Then, click **Save**.
 
 <img src="../_static/media/chapter_23/section_1/media/image137.png" class="common_img" />
 
-9. When the **Save Success** notification appears, the configuration has been saved to the system environment.
+8. A **Save Success** message will confirm that the configuration has been stored in the system environment.
 
 <img src="../_static/media/chapter_23/section_1/media/image138.png" style="width:400px" class="common_img" />
+
+9. Then, click **Quit** to close the interface.
 
 <img src="../_static/media/chapter_23/section_1/media/image139.png" style="width:400px" class="common_img" />
 
 
 
-### 12.5.2 Offline Large Model Basic Course
+### 12.5.2 Offline Large AI Model Basic Course
 
 #### 12.5.2.1 Speech-to-Text Test
 
@@ -5641,7 +6086,7 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 sudo systemctl stop start_app_node.service
 ```
 
-2\) Enter the command to start the offline large model server.
+2\) Enter the command to start the offline large AI model server.
 
 ```bash
 ollama serve
@@ -5686,7 +6131,7 @@ Set the volume.
 speech.set_volume(80)
 ```
 
-Set the language to Chinese.
+Set the language to English.
 
 ```python
 language = 'Chinese'
@@ -5739,10 +6184,10 @@ else:
 5\) Example
 
 ```python
-tts.tts('你好，请问有什么可以帮到您', block=True)
+tts.tts('Hello, what can I help you', block=True)
 ```
 
-#### 12.5.2.3 Large Model Invocation
+#### 12.5.2.3 Large AI Model Invocation
 
 * **Working Principle**
 
@@ -5760,7 +6205,7 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 sudo systemctl stop start_app_node.service
 ```
 
-2\) Enter the command to start the offline large model server.
+2\) Enter the command to start the offline large AI model server.
 
 ```bash
 ollama serve
@@ -5791,34 +6236,34 @@ File Path: **/home/ubuntu/large_models/offline_llm_demo.py**.
 
 ```python
 PROMPT = '''
-##角色任务
-你是一辆智能小车，可以通过 x 方向和 y 方向控制线速度,单位m/s，并通过 z 方向控制角速度,单位rad/s，t控制时间单位s。需要根据输入的内容，生成对应的指令。
+##Role Task
+You are an intelligent robot car that can control the linear velocity in the x and y directions (in m/s), the angular velocity in the z direction (in rad/s), and time (t) in seconds. Based on the input, generate the corresponding commands.
 
-##要求
-1.确保速度范围正确：
-	线速度：x, y ∈ [-1.0, 1.0]（负值表示反方向）
-	角速度：z ∈ [-1.0, 1.0]（逆时针为正, 顺时针为负）
-2.顺序执行多个动作，输出一个 包含多个移动指令的 action 列表，仅在最后一个动作后添加 [0.0, 0.0, 0.0, 0.0] 以确保小车停止。
-3.x和y默认为0.2, z默认为1, t默认为2。 
-	4.为每个动作序列编织一句精炼（5至10字）、风趣且变化无穷的反馈信息，让交流过程妙趣横生。
-5.直接输出json结果，不要分析，不要输出多余内容。
-6.格式：
+##Requirements
+1. Ensure the speed range is correct:
+    Linear velocity: x, y ∈ [-1.0, 1.0] (negative values represent reverse direction)
+    Angular velocity: z ∈ [-1.0, 1.0] (counterclockwise is positive, clockwise is negative)
+2. Execute multiple actions sequentially and output an action list containing multiple movement commands. Add [0.0, 0.0, 0.0, 0.0] only after the last action to ensure the robot stops.
+3. x and y default to 0.2, z defaults to 1, t defaults to 2.
+4. For each action sequence, craft a concise (5 to 10 words), witty, and endlessly varied feedback message to make the interaction fun.
+5. Output the json result directly without analysis or additional content.
+6. Format:
 {  
   "action": [[x1, y1, z1, t1], [x2, y2, z2, t2], ..., [0.0, 0.0, 0.0, 0.0]],  
   "response": "xx"  
 }  
-7.很强的数学计算能力
-8.注意漂移是移动和旋转和组合，需要精确的计算, 例如[0.0, -0.2, 1.0, 2.0]
+7. Strong mathematical computation ability.
+8. Note that drifting involves movement, rotation, and combination, requiring precise calculation, for example [0.0, -0.2, 1.0, 2.0].
 
-##特别注意
-- "action"键下承载一个按执行顺序排列的函数名称字符串数组，当找不到对应动作函数时action输出[]。 
-- "response"键则配以精心构思的简短回复，完美贴合上述字数与风格要求。 
+##Notes
+- The "action" key contains an array of function name strings ordered by execution sequence. If the corresponding action function is not found, the action will output [].
+- The "response" key contains a carefully crafted short reply that perfectly fits the above word count and style requirements.
 
-##任务示例
-输入：向前移动 2 秒，然后顺时针旋转 1 秒
-输出：{"action": [[0.2, 0.0, 0.0, 2.0], [0.0, 0.0, -1.0, 1.0], [0,0, 0.0, 0.0, 0.0]], "response": "前进 2 秒，然后顺时针旋转 1 秒，出发！"}
-	输入：向前走1米
-输出：{"action": [[0.2, 0.0, 0.0, 5.0], [0.0, 0.0, 0.0, 0.0]], "response": "好嘞"}
+##Example Task
+Input: Move forward for 2 seconds, then rotate clockwise for 1 second.
+Output: {"action": [[0.2, 0.0, 0.0, 2.0], [0.0, 0.0, -1.0, 1.0], [0, 0, 0.0, 0.0]], "response": "Move forward for 2 seconds, then rotate clockwise for 1 second, go!"}
+Input: Move forward 1 meter.
+Output: {"action": [[0.2, 0.0, 0.0, 5.0], [0.0, 0.0, 0.0, 0.0]], "response": "OK."}
 '''
 
 ```
@@ -5863,7 +6308,7 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 sudo systemctl stop start_app_node.service
 ```
 
-2\) Enter the command to start the offline large model server.
+2\) Enter the command to start the offline large AI model server.
 
 ```bash
 ollama serve
@@ -5904,7 +6349,7 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 sudo systemctl stop start_app_node.service
 ```
 
-2\) Enter the command to start the offline large model server.
+2\) Enter the command to start the offline large AI model server.
 
 ```bash
 ollama serve
@@ -5940,7 +6385,7 @@ client = speech.OllamaAPI(ollama_host)
 2\) Send the emotion-related prompt to the **ollama server**.
 
 ```python
-messages = [{"role": "user", "content": '好烦'}]
+messages = [{"role": "user", "content": 'Annoying'}]
 assistant_output = client.llm_multi_turn(messages, model='qwen3:1.7b')
 ```
 
@@ -5955,7 +6400,7 @@ messages.append({"role": "assistant", "content": assistant_output})
 Call `llm_multi_turn` again with the full conversation history included.
 
 ```python
-messages.append({"role": "user", "content": '哈哈'})
+messages.append({"role": "user", "content": 'Laughing'})
 assistant_output = client.llm_multi_turn(messages, model='qwen3:1.7b')
 ```
 
@@ -5963,7 +6408,7 @@ assistant_output = client.llm_multi_turn(messages, model='qwen3:1.7b')
 
 * **Working Principle**
 
-This is a **streaming speech recognition service**. Audio is captured through the microphone, transmitted in real time over **WebSocket**, intermediate recognition results are returned in real time, and the audio is saved.
+The system uses a client–server setup to communicate with the local **ollama service**. The model receives short emotion-related descriptions and generates its interpretation, allowing an evaluation of its ability to recognize emotional cues.
 
 * **Preparation**
 
@@ -6715,11 +7160,11 @@ print(asr.asr('./resources/audio/test_recording.wav'))
 
 
 
-### 12.5.3 Offline Large Model Voice Control
+### 12.5.3 Offline Large AI Model for Voice Control
 
 #### 12.5.3.1 Overview
 
-When the program starts, the voice device announces that it is ready. Say the wake word **Xiaohuan Xiaohuan** to activate the voice device. The voice device then responds and starts recording the command. After activation, the robot can be controlled through voice commands, for example: **Move forward for one second, then turn left for one second, and finally move backward for one second**. The generated reply is then announced, and the corresponding action is executed.
+When the program starts, the voice device announces **I’m ready**. Say the wake word **Hello Hiwonder** to activate the voice device, which responds with **I’m here**. After activation, the robot can be controlled via voice commands to perform corresponding actions, such as **Move forward for one second, then turn left for one second, and finally move backward for one second**. The device will then announce the AI-generated response and execute the requested actions.
 
 #### 12.5.3.2 Preparation
 
@@ -6747,11 +7192,11 @@ sudo systemctl stop start_app_node.service
 ros2 launch large_models_examples llm_control_move.launch.py
 ```
 
-4. When the terminal displays the output shown below and the voice device indicates that it is ready, initialization is complete. At this point, say the wake word **Xiaohuan Xiaohuan**.
+4. When the terminal displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
 <img src="../_static/media/chapter_23/section_1/media/image154.png" style="width:800px" class="common_img" />
 
-5. When the terminal displays the output shown below and the voice device responds, the voice device has been awakened successfully. The system then starts recording the command.
+5. When the terminal displays the corresponding output shown in the figure and the device responds with **I’m here**, it indicates successful activation. The system will begin recording voice commands.
 
 <img src="../_static/media/chapter_23/section_1/media/image156.png" style="width:900px" class="common_img" />
 
@@ -6759,7 +7204,7 @@ ros2 launch large_models_examples llm_control_move.launch.py
 
 <img src="../_static/media/chapter_23/section_1/media/image155.png" style="width:800px" class="common_img" />
 
-7. When the terminal displays the output shown below, the speech recognition service of the cloud speech large model has successfully parsed the command audio, and the parsing result is shown in `publish_asr_result`.
+7. Upon successful recognition by the speech recognition service of a cloud-based large speech model, the parsed command will be displayed under the `publish_asr_result` output in the terminal.
 
 <img src="../_static/media/chapter_23/section_1/media/image157.png" style="width:1200px" class="common_img" />
 
@@ -6769,7 +7214,7 @@ ros2 launch large_models_examples llm_control_move.launch.py
 > **The response is automatically generated by the large model. Only the semantic accuracy of the reply is guaranteed, while the wording and formatting may vary.**
 
 
-8. When the terminal displays the output shown below, one round of dialogue interaction has finished. Refer to Step 4 and use the wake word again to start a new round of dialogue interaction.
+8. When the terminal shows the output shown in the figure indicating the end of one interaction cycle, the system is ready for the next round. To initiate another interaction, repeat step 4 by speaking the wake words again.
 
 <img src="../_static/media/chapter_23/section_1/media/image158.png" style="width:1200px" class="common_img" />
 
@@ -6779,9 +7224,9 @@ ros2 launch large_models_examples llm_control_move.launch.py
 ~/.stop_ros.sh
 ```
 
-#### 12.5.3.4 Program Outcome
+#### 12.5.3.4 Project Outcome
 
-After the feature starts, natural commands can be used, for example: **Move forward for one second, then turn left for one second, and finally move backward for one second**. The robot then moves forward for one second, turns left for one second, and finally moves backward for one second.
+Once the feature is started, voice commands can be issued to the robot, for example: **Move forward for one second, then turn left for one second, and finally move backward for one second**. The robot will then move forward for one second, turn left for one second, and finally move backward for one second.
 
 #### 12.5.3.5 Program Analysis
 
@@ -6975,29 +7420,28 @@ File Path:
 
 ```python
 PROMPT = '''
-    ##角色任务
-    你是一个智能小车，负责解析用户的移动指令，提取动作和参数。
+##Role Task
+You are an intelligent robot car responsible for parsing user movement instructions and extracting actions and parameters.
 
-    ##动作函数库
-    - "move(direction, distance, duration)"
-    - direction (方向): 'forward', 'backward',  'turn_left', 'turn_right', 'shift_left', 'shift_right','stop'
-    - distance (距离, 单位米): 一个数字, 如果用户没说距离则为0
-    - duration (时间, 单位秒): 一个数字, 如果用户没说时间则为0
+##Action Function Library
+- "move(direction, distance, duration)"
+- direction (Direction): 'forward', 'backward', 'turn_left', 'turn_right', 'shift_left', 'shift_right', 'stop'
+- distance (Distance, in meters): A number. If the user does not specify distance, it is set to 0.
+- duration (Time, in seconds): A number. If the user does not specify time, it is set to 0.
 
-    ##要求
-    1. 解析用户意图，生成包含一个或多个 move 函数调用的 action 列表。
-    2. **严格遵守**：当用户指令中包含**时间**（如“前进3秒”），则**distance参数必须为0**，duration为对应的时间。
-    3. **严格遵守**：当用户指令中包含**距离**（如“前进1米”），则**duration参数必须为0**，distance为对应的距离。
-    4. 直接输出json结果，不要分析。
-    5. 格式: {"action": ["move('forward', 1, 0)"], "response": "好的，向前1米"}
-    6. 每一个动作做完之后都需要一个停止的动作,让机器人停下来: "move('forward', 1, 0)"
-    
+##Requirements
+1. Parse the user’s intent and generate an action list containing one or more move function calls.
+2. **Strictly follow**: If the user command includes **time** (e.g., "move forward for 3 seconds"), the **distance parameter must be 0**, and the duration will be the corresponding time.
+3. **Strictly follow**: If the user command includes **distance** (e.g., "move forward 1 meter"), the **duration parameter must be 0**, and the distance will be the corresponding distance.
+4. Directly output the JSON result without analysis.
+5. Format: {"action": ["move('forward', 1, 0)"], "response": "Alright, moving forward 1 meter"}
+6. After each action, a stop action must be included to stop the robot: "move('forward', 1, 0)"
 
-    ##任务示例
-    输入：向前移动 2 秒，然后向左转 1 秒
-    输出：{"action": ["move('forward', 0, 2)", "move('turn_left', 0, 1)","move('stop', 0, 1)"], "response": "收到，马上执行！"}
-    输入：向前走1米
-    输出：{"action": ["move('forward', 1, 0)","move('stop', 0, 1)"], "response": "好嘞，出发！"}
+##Example Task
+Input: Move forward for 2 seconds, then turn left for 1 second.
+Output: {"action": ["move('forward', 0, 2)", "move('turn_left', 0, 1)", "move('stop', 0, 1)"], "response": "Got it, executing!"}
+Input: Move forward 1 meter.
+Output: {"action": ["move('forward', 1, 0)", "move('stop', 0, 1)"], "response": "Alright, let's go!"}
 '''
 
 ```
@@ -7288,11 +7732,11 @@ def main():
 
 
 
-### 12.5.4 Offline Large Model Autonomous Line Following
+### 12.5.4 Offline Large AI Model for Autonomous Line Following
 
 #### 12.5.4.1 Overview
 
-When the program starts, the voice device announces that it is ready. Say the wake word **Xiaohuan Xiaohuan** to activate the voice device. The voice device then responds and starts recording the command. The robot can then be controlled through voice commands, for example: **Follow the black line and stop when an obstacle is detected.** The terminal displays the recognized speech, the voice device announces the generated reply, and the robot detects the black line captured by the camera. When an obstacle appears ahead, the robot stops.
+When the program starts, the voice device announces **I’m ready**. Say the wake word **Hello Hiwonder** to activate the voice device, which responds with **I’m here**. Now, the robot can be controlled by voice commands. For example, **Follow the black line and stop when you meet an obstacle.** The terminal will display the recognized speech, while the voice device will announce the response generated after processing. The robot will also detect the black line captured by the camera. When the robot encounters an obstacle ahead, it will stop.
 
 #### 12.5.4.2 Preparation
 
@@ -7318,11 +7762,11 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
    ros2 launch large_models_examples llm_visual_patrol.launch.py
    ```
 
-4. When the terminal displays the output shown below and the voice device indicates that it is ready, initialization is complete. At this point, say the wake word **Xiaohuan Xiaohuan**.
+4. When the terminal displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
    <img src="../_static/media/chapter_23/section_1/media/image159.png" style="width:1000px" class="common_img" />
 
-5. When the terminal displays the output shown below and the voice device responds, the voice device has been awakened successfully. The system then starts recording the command.
+5. When the terminal displays the corresponding output shown in the figure and the device responds with **I’m here**, it indicates successful activation. The system will begin recording voice commands.
 
    <img src="../_static/media/chapter_23/section_1/media/image162.png" style="width:1000px" class="common_img" />
 
@@ -7330,7 +7774,7 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 
    <img src="../_static/media/chapter_23/section_1/media/image160.png" style="width:800px" class="common_img" />
 
-7. When the terminal displays the output shown below, the speech recognition service of the cloud speech large model has successfully parsed the command audio, and the parsing result is shown in `publish_asr_result`.
+7. Upon successful recognition by the speech recognition service of a cloud-based large speech model, the parsed command will be displayed under the `publish_asr_result` output in the terminal.
 
    <img src="../_static/media/chapter_23/section_1/media/image161.png" style="width:1000px" class="common_img" />
 
@@ -7338,15 +7782,16 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 >
 > **The response is automatically generated by the large model. Only the semantic accuracy of the reply is guaranteed, while the wording and formatting may vary.**
 
+8. The robot then follows the black line and stops when it encounters an obstacle.
 8. To exit the feature, press **Ctrl+C** in the terminal. If the feature does not shut down immediately, press **Ctrl+C** multiple times. If it still fails to exit, open a new terminal window and run the following command to terminate all active ROS processes and related programs.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-#### 12.5.4.4 Program Outcome
+#### 12.5.4.4 Project Outcome
 
-After the feature starts, natural commands can be used, for example: **Follow the black line and stop when an obstacle is detected.** The robot uses its camera to detect and follow the black line, and it stops when an obstacle appears ahead. The system is preconfigured to recognize four line colors: red, blue, green, and black.
+Once the feature is activated, feel free to give commands in your own words. For instance, **Follow the black line and stop when you encounter an obstacle**. The robot uses its camera to detect and follow the black line, and it will stop when an obstacle is detected in its path. The system is pre-configured to recognize four line colors: red, blue, green, and black.
 
 #### 12.5.4.5 Program Analysis
 
@@ -7536,26 +7981,34 @@ File Path:
 
 ```python
     PROMPT = '''
-##角色任务
-你是一款智能机器人，需要根据输入的内容，生成对应的json指令。
+**Role
+You are a smart robot that generates corresponding JSON commands based on user input.
 
-##要求
-1.用户输入的任何内容，都需要在动作函数库中寻找对应的指令，并输出对应的json指令。
-2.为每个动作序列编织一句精炼（10至30字）、风趣且变化无穷的反馈信息，让交流过程妙趣横生。
-3.直接输出json结果，不要分析，不要输出多余内容。
-4.一共有四种颜色作为目标：红色(red)、绿色(green) 、蓝色(blue)、黑色(black)。
-5.格式：{"action": ["xx", "xx"], "response": "xx"}
+**Requirements
+- For every user input, search for matching commands in the action function library and output the corresponding JSON instruction.
+- For each action sequence, craft a witty and creative response (10 to 30 characters) to make interactions delightful.
+- Directly return the JSON result — do not include any explanations or extra text.
+- There are four target colors: red, green, blue, and black.
+- Format:
+{
+  "action": ["xx", "xx"],
+  "response": "xx"
+}
 
-##特别注意
-- "action"键下承载一个按执行顺序排列的函数名称字符串数组，当找不到对应动作函数时action输出[]。 
-- "response"键则配以精心构思的简短回复，完美贴合上述字数与风格要求。  
- 
-##动作函数库
-- 巡不同颜色的线：line_following('black') 
+**Special Notes
+The "action" field should contain a list of function names as strings, ordered by execution. If no matching action is found, output an empty list: [].
+The "response" field should provide a concise and charming reply, staying within the word and tone guidelines.
 
-##任务示例
-输入：沿着黑线走
-输出：{"action": ["line_following('black')"], "response": "收到"}
+**Action Function Library
+Follow a line of a given color: line_following('black')
+
+**Example
+Input: Follow the black line
+Output:
+{
+  "action": ["line_following('black')"],
+  "response": "Roger that!"
+}
     '''
 ```
 
@@ -7931,11 +8384,11 @@ def main():
 
 
 
-### 12.5.5 Offline Large Model Color Tracking
+### 12.5.5 Offline Large AI Model for Color Tracking
 
 #### 12.5.5.1 Overview
 
-When the program starts, the voice device announces that it is ready. Say the wake word **Xiaohuan Xiaohuan** to activate the voice device. The voice device then responds and starts recording the command. The robot can then be controlled through voice commands, for example: **Track the red object.** The terminal displays the recognized command, the voice device announces the generated reply, and the robot identifies the red object captured by the camera and starts tracking it.
+When the program starts, the voice device announces **I’m ready**. Say the wake word **Hello Hiwonder** to activate the voice device, which responds with **I’m here**. Then you can use voice commands to control robot such as **Track a red object**. The terminal will display the recognized command, and the voice device will respond with a generated reply after processing. The robot will then autonomously identify the red object captured by its camera and begin tracking it.
 
 #### 12.5.5.2 Preparation
 
@@ -7961,21 +8414,21 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
    ros2 launch large_models_examples llm_color_track.launch.py
    ```
 
-4. When the terminal displays the output shown below and the voice device indicates that it is ready, initialization is complete. At this point, say the wake word **Xiaohuan Xiaohuan**.
+4. When the terminal displays the output shown below and announces **I’m ready**, the voice device has completed initialization. At this point, say the wake word **Hello Hiwonder**.
 
    <img src="../_static/media/chapter_23/section_1/media/image163.png" style="width:1000px" class="common_img" />
 
 5. After the program has loaded successfully, the camera feed will appear on screen.
 
-6. When the terminal displays the output shown below and the voice device responds, the voice device has been awakened successfully. The system then starts recording the command.
+6. When the terminal displays the corresponding output shown in the figure and the device responds with **I’m here**, it indicates successful activation. The system will begin recording voice commands.
 
    <img src="../_static/media/chapter_23/section_1/media/image164.png" style="width:1000px" class="common_img" />
 
-7. When the terminal prints the output shown below, it indicates that the voice device has transcribed the spoken command. In this example, the command spoken is **Track the red object**.
+7. When the terminal prints the output shown below, it indicates that the voice device has transcribed the spoken command. In this example, the command spoken is **Track a red object**.
 
-   <img src="../_static/media/chapter_23/section_1/media/image165.png" style="width:800px" class="common_img" />
+   <img src="../_static/media/chapter_23/section_1/media/image165.png" style="width:900px" class="common_img" />
 
-8. When the terminal displays the output shown below, the speech recognition service of the cloud speech large model has successfully parsed the command audio, and the parsing result is shown in `publish_asr_result`.
+8. Upon successful recognition by the speech recognition service of a cloud-based large speech model, the parsed command will be displayed under the `publish_asr_result` output in the terminal.
 
    <img src="../_static/media/chapter_23/section_1/media/image166.png" style="width:1000px" class="common_img" />
 
@@ -7991,9 +8444,9 @@ Reference Tutorial: [12.5.1 Preparation](#anther12.5.1).
 ~/.stop_ros.sh
 ```
 
-#### 12.5.5.4 Program Outcome
+#### 12.5.5.4 Project Outcome
 
-After the feature starts, natural commands can be used, for example: **Track the red object.** The robot uses the camera feed to identify and track the red object. In the same way, commands such as **Track the blue object** and **Track the green object** can be used to track objects of the corresponding color.
+Once the feature is activated, feel free to give commands in your own words. For instance, **Track a red object**. The robot will use the camera feed to identify and track the red object. Similarly, commands like “Track a blue object” or “Track a green object” can be used to instruct the robot to track objects of the specified colors.
 
 #### 12.5.5.5 Program Analysis
 
@@ -8184,25 +8637,26 @@ File Path:
 
 ```python
     PROMPT = '''
-#角色任务
-你是一款智能陪伴机器人，需要根据输入的内容，生成对应的json指令。
+**Role
+You are an intelligent companion robot. Your job is to generate corresponding JSON commands based on the user’s input.
 
-##要求
-1.用户输入的任何内容，都需要在动作函数库中寻找对应的指令，并输出对应的json指令。
-2.为每个动作序列编织一句精炼（10至30字）、风趣且变化无穷的反馈信息，让交流过程妙趣横生。
-3.直接输出json结果，不要分析，不要输出多余内容。
-4.格式：{"action": ["xx", "xx"], "response": "xx"}
+**Requirements
+- For every user input, search the action function library for matching commands and return the corresponding JSON instruction.
+- Craft a witty, ever-changing, and concise response (between 10 to 30 characters) for each action sequence to make interactions lively and fun.
+- Output only the JSON result — do not include explanations or any extra text.
+- Output format:{"action": ["xx", "xx"], "response": "xx"}
 
-##特别注意:
-- "action"键下承载一个按执行顺序排列的函数名称字符串数组，当找不到对应动作函数时action输出[]。 
-- "response"键则配以精心构思的简短回复，完美贴合上述字数与风格要求。  
- 
-##动作函数库
-- 追踪不同颜色的物体：color_track('red') 
+**Special Notes
+The "action" key holds an array of function name strings arranged in execution order. If no match is found, return an empty array [].
+The "response" key must contain a cleverly worded, short reply (10–30 characters), adhering to the tone and length guidelines above.
 
-##任务示例
-输入：跟踪绿色物体
-输出：{"action": ["color_track('green')"], "response": "收到"}
+**Action Function Library
+Track an object of a specific color: color_track('red')
+
+**Example
+Input: Track a green object
+Output:
+{"action": ["color_track('green')"], "response": "Got it!"}
     '''
 ```
 
@@ -8575,6 +9029,4 @@ def main():
     executor.spin()
     node.destroy_node()
 ```
-
-
 

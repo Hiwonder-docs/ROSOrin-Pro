@@ -16,9 +16,8 @@ ROSOrin Pro
    docs/3_LiDAR_Course.md
    docs/4_Camera_Basic_Lesson.md
    docs/5_Mapping_&_Navigation_Course.md
-   docs/6_Obstacle_Avoidance_Course.md
-   docs/5_Mapping_&_Navigation_Course.md
    docs/6_ROS+OpenCV_Course.md
+   docs/7_ROS+Machine_Learning_Course.md
    docs/8_Robotic_Arm_Motion_Control.md
    docs/9_Gazebo_Simulation.md
    docs/10_Voice_Control_Course.md

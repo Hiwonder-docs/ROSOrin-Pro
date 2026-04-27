@@ -1,4 +1,8 @@
-﻿# 9\. Gazebo Simulation
+# 9\. Gazebo Simulation
+
+[TOC]
+
+
 
 <p id ="anther9.1"></p>
 
@@ -10,7 +14,7 @@
 
 A virtual machine is software that allows one operating system to run another operating system inside it. Here, VMware Workstation is used as an example. The installation steps are as follows:
 
-1. Extract the virtual machine software package located in [Resources\\1. Virtual Machine Software]() in the same folder as this document.
+1. Extract the virtual machine software package located in [Resources\\1. Virtual Machine Software](https://drive.google.com/drive/folders/1ODl7h-N3V2CQDkQYIEab9wWVIiFLh5s6) in the same folder as this document.
 
 2. Locate the extracted folder and double-click the virtual machine executable file with the **.exe** extension.
 
@@ -60,7 +64,7 @@ A virtual machine is software that allows one operating system to run another op
 
 <img class="common_img" src="../_static/media/chapter_21/section_1/media/image14.png"  />
 
-2. Navigate to the required virtual machine file in the directory [1. Virtual Machine Software \& Image File \\ Resources  \\ 2. Virtual Machine Image](), and open it.
+2. Navigate to the required virtual machine file in the directory [1. Virtual Machine Software \& Image File \\ Resources  \\ 2. Virtual Machine Image](https://drive.google.com/drive/folders/1Yj9FBDfFfi_EwW_wGAOYGZpTvnxQg_R4), and open it.
 
 <img class="common_img" src="../_static/media/chapter_21/section_1/media/image15.png"  />
 
@@ -104,7 +108,7 @@ The virtual machine interface is as follows:
 
 2. Click the Home folder <img src="../_static/media/chapter_21/section_2/media/image3.png" style="width:80px" /> on the desktop to enter the directory.
 
-3. Locate the compressed **simulations** file and the `.typerc` file in the directory [1. Virtual Machine Software \& Image File \\ Resources \\ 3. Feature Package](). Drag the compressed file into the **Home** directory of the virtual machine.
+3. Locate the compressed **simulations** file and the `.typerc` file in the directory [1. Virtual Machine Software \& Image File \\ Resources \\ 3. Feature Package](https://drive.google.com/drive/folders/1Nzjf8nOu-2i4XADzt-H-fw7evwOaY1Mp). Drag the compressed file into the **Home** directory of the virtual machine.
 
 4. Right-click in the Home directory and select **Open in terminal** to open the terminal.
 
@@ -116,6 +120,8 @@ The virtual machine interface is as follows:
 mkdir -p ~/ros2_ws/src
 ```
 
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image5.png" />
+
 6. Enter the following commands to extract the files and place the feature packages in the workspace directory.
 
 ```bash
@@ -123,17 +129,25 @@ unzip ~/simulations.zip
 mv ~/simulations ~/ros2_ws/src/simulations 
 ```
 
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image6.png" />
+
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image7.png" />
+
 7. Enter the following command to compile the package, then wait for the process to complete.
 
 ```bash
 cd ~/ros2_ws && colcon build --symlink-install
 ```
 
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image8.png" />
+
 8. Enter the command to move the `.typerc` file.
 
 ```bash
 mv /home/ubuntu/.typerc ~/ros2_ws/.typerc
 ```
+
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image9.png" />
 
 9. Enter the command to verify that the file was moved successfully.
 
@@ -150,13 +164,17 @@ echo "source ~/ros2_ws/install/setup.bash">>~/.bashrc
 echo "source ~/ros2_ws/.typerc">>~/.bashrc
 ```
 
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image11.png" />
+
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image12.png" />
+
 11. Reload the configuration file to apply the updated settings.
 
 ```bash
 source ~/.bashrc
 ```
 
-
+<img class="common_img" src="../_static/media/chapter_21/section_2/media/image13.png" />
 
 ## 9.3 Introduction to URDF Models
 
@@ -196,11 +214,15 @@ For instance, when describing the two legs of a humanoid robot, the URDF model w
 sudo apt update
 ```
 
+<img class="common_img" src="../_static/media/chapter_21/section_3/media/image1.png" />
+
 2. Run the following command and press **Enter** to install the URDF dependencies:
 
 ```bash
 sudo apt-get install ros-humble-urdf
 ```
+
+<img class="common_img" src="../_static/media/chapter_21/section_3/media/image2.png" />
 
 When the output matches the image below, the installation is successful:
 
@@ -211,6 +233,8 @@ When the output matches the image below, the installation is successful:
 ```bash
 sudo apt-get install ros-humble-xacro
 ```
+
+<img class="common_img" src="../_static/media/chapter_21/section_3/media/image4.png" />
 
 When the output matches the image below, the installation is successful:
 
@@ -252,13 +276,32 @@ The Link element describes the visual and physical properties of the robot's rig
 
 Each tag contains the corresponding child tag. The functions of the tags are listed below.
 
-| Tag | Function |
-| --- | --- |
-| `origin` | Describes the pose of the link. `xyz` defines the link position in the simulation map, and `rpy` defines its orientation in the simulation map. |
-| `mass` | Describes the mass of the link. |
-| `inertia` | Describes the inertia of the link. Because the inertia matrix is symmetric, six parameters must be provided as attributes: `ixx`, `ixy`, `ixz`, `iyy`, `iyz`, and `izz`. These values need to be calculated. |
-| `geometry` | Describes the shape of the link. The `mesh` parameter loads the mesh file, and the `filename` parameter defines the mesh path. Three child tags are available: `box`, `cylinder`, and `sphere`, which represent rectangular, cylindrical, and spherical shapes. |
-| `material` | Describes the material of the link. The `name` parameter is required. The child tag `color` is used to adjust color and transparency. |
+<table>
+  <tr>
+    <th style>Tag</th>
+    <th style>Function</th>
+  </tr>
+  <tr>
+    <td>origin</td>
+    <td>Describes the pose of the link. xyz defines the link’s position in the simulation map, and rpy defines its orientation in the simulation map.</td>
+  </tr>
+  <tr>
+    <td>mass</td>
+    <td>Describes the mass of the link.</td>
+  </tr>
+  <tr>
+    <td>inertia</td>
+    <td>Describes the inertia of the link. Due to the symmetry of the inertia matrix, six parameters ixx, ixy, ixz, iyy, iyz, izz must be provided as attributes. These values need to be calculated.</td>
+  </tr>
+  <tr>
+    <td>geometry</td>
+    <td>Describes the shape of the link. The mesh parameter loads the texture file, and the filename parameter loads the texture path. It includes three child tags: box, cylinder, sphere, used for rectangular, cylindrical, and spherical shapes.</td>
+  </tr>
+  <tr>
+    <td>material</td>
+    <td>Describes the material of the link. The name parameter is required. The color child tag adjusts color and transparency.</td>
+  </tr>
+</table>
 
 
 3. Joint
@@ -398,11 +441,17 @@ To understand the URDF model, refer to section [9.3.1 Overview and Basics of URD
 cd ~/ros2_ws/src/rosorin_description/urdf/
 ```
 
-3. Enter the command to view the robot simulation model files.
+<img class="common_img" src="../_static/media/chapter_21/section_3/media/image28.png" />
+
+3. Enter the command to view the robot simulation model file.
 
 ```bash
 ls
 ```
+
+<img class="common_img" src="../_static/media/chapter_21/section_3/media/image29.png" />
+
+4. Simulation mode file:
 
 <img class="common_img" src="../_static/media/chapter_21/section_3/media/image30.png" />
 
@@ -418,7 +467,7 @@ ls
 
 To simulate a realistic virtual physical environment where robots can perform tasks more effectively, a simulation software named Gazebo can be used.
 
-Gazebo is a standalone software platform and is one of the most widely used simulation tools in the ROS ecosystem. It provides high-fidelity physical simulation, a comprehensive set of sensor models, and an intuitive interactive interface, enabling robots to operate effectively even in complex environments.
+Gazebo is a standalone software and is the most commonly used simulation tool in the ROS ecosystem. It provides high-fidelity physical simulation conditions, a comprehensive set of sensor models, and a user-friendly interactive interface, enabling robots to function effectively even in complex environments.
 
 Gazebo supports URDF and SDF file formats for describing simulation environments. The robot models use the URDF format. Additionally, Gazebo provides many pre-built model modules that can be used directly.
 
@@ -430,13 +479,12 @@ The Gazebo simulation interface is shown below.
 
 The functions of each area are described in the table below:
 
-| Name               | Function                                                     |
-| ------------------ | ------------------------------------------------------------ |
-| Area 1: Toolbar    | Provides the most commonly used options for interacting with the simulator. |
-| Area 2: Menu Bar   | Configures or modifies simulation software parameters, as well as some interactive functions. |
-| Area 3: Timestamp  | Allows manipulation of time within the virtual space.        |
-| Area 4: Action Bar | Operates on models and allows parameter modifications.       |
-| Area 5: Scene      | The main area of the simulator where simulation models are displayed. |
+|        Name        |                           Function                           |
+| :----------------: | :----------------------------------------------------------: |
+|  Area 1: Toolbar   | Provides the most commonly used options for interacting with the simulator. |
+|  Area 2: Menu Bar  | Configures or modifies simulation software parameters, as well as some interactive functions. |
+| Area 3: Action Bar |    Operates on models and allows parameter modifications.    |
+|   Area 4: Scene    | The main area of the simulator where simulation models are displayed. |
 
 For more information about Gazebo, please visit the official website: http://gazebosim.org/.
 
@@ -452,7 +500,7 @@ Gazebo Answers Forum: http://answers.gazebosim.org/
 
 ### 9.4.2 Gazebo Xacro Model Visualization
 
-Gazebo can be used for model visualization to better understand the robot structure. Follow the steps below.
+To better understand the robot's model and structure, you can use Gazebo for visualization. Follow these steps:
 
 * **Start the Simulation**
 
@@ -562,7 +610,7 @@ This file describes the IMU simulation model, including its name, offset setting
 >
 > **Commands must be entered with correct capitalization. The Tab key can be used to auto-complete keywords.**
 
-For mapping in an ideal environment when the scene cannot be built in the real world, create the target scene in Gazebo and carry out the mapping simulation there.
+If you want to perform mapping in an ideal environment but cannot build it in the real world, you can instead create the desired scene in Gazebo and carry out mapping simulation there.
 
 1) On the virtual machine, click the desktop icon <img class="common_img" src="../_static/media/chapter_21/section_4/media/image2.png"  style="display:inline;vertical-align:middle;" /> to open a terminal.
 
@@ -686,4 +734,3 @@ Publish Point: Used to set multiple target points for the robot.
 <img class="common_img" src="../_static/media/chapter_21/section_4/media/image36.png" style="width:400px" />
 
 6\. To stop the navigation, return to the terminal and press **Ctrl+C** in each terminal to terminate the processes.
-

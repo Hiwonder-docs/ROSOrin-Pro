@@ -1,5 +1,9 @@
 ﻿# 5. Mapping & Navigation Course
 
+[TOC]
+
+
+
 <p id ="anther5.1"></p>
 
 ## 5.1 Mapping Tutorial
@@ -76,7 +80,7 @@ Each tag contains corresponding sub-tags with specific functions, as summarized 
 
 * **Joint**
 
-In a URDF model, joints are defined using the **“joint”** tag. They describe the kinematic and dynamic properties of the robot’s joints, as well as limits on position and velocity. Based on the type of motion, joints are classified into six types as shown in the table below:
+In a URDF model, joints are defined using the **joint** tag. They describe the kinematic and dynamic properties of the robot’s joints, as well as limits on position and velocity. Based on the type of motion, joints are classified into six types as shown in the table below:
 
 | **Type and Description**| **Tag**|
 |----------|----------|
@@ -84,7 +88,7 @@ In a URDF model, joints are defined using the **“joint”** tag. They describe
 | Rotational joint: Similar to continuous but with angular limits| revolute|
 | Prismatic joint: Moves along a single axis with positional limits| prismatic|
 | Planar joint: Allows translation and rotation within a plane| planar|
-| Floating joint: Allows both translational and rotational movement| floating|
+| Floating joint: allows both translational and rotational movement| floating|
 | Fixed joint: A special joint that does not allow any movement| fixed|
 
 The following tags are used when defining joint actions:
@@ -201,7 +205,7 @@ This section provides a brief analysis of the robot model code and component mod
 
 #### 5.1.2.2 Access the Robot Model Code
 
-1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [7.2 Direct Connection Mode Procedure]().
+1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_5\section_1/media/image23.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a new command-line window.
 
@@ -227,7 +231,7 @@ This section provides a brief analysis of the robot model code and component mod
 
 (1) `base_link`: Base coordinate joint, used to connect various hardware URDF joints on the robot.
 
-(2) `lidar_frame`: Lidar joint.
+(2) `lidar_frame`: LiDAR joint.
 
 (3) `left_front_wheel_link`: Left front wheel joint.
 
@@ -243,7 +247,7 @@ This section provides a brief analysis of the robot model code and component mod
 
 #### 5.1.3.1 SLAM Introduction
 
-Take humans as an example: before reaching a destination, one needs to know their current position, whether or not a map is available. Humans rely on their eyes, whereas robots rely on Lidar. SLAM refers to simultaneous localization and mapping.
+Take humans as an example: before reaching a destination, one needs to know their current position, whether or not a map is available. Humans rely on their eyes, whereas robots rely on LiDAR. SLAM refers to simultaneous localization and mapping.
 
 Localization determines the robot’s pose within a coordinate system. The origin and orientation of the coordinate system can be obtained from the first keyframe, an existing global map or landmarks, or GPS.
 
@@ -253,27 +257,25 @@ Mapping refers to creating a map of the environment perceived by the robot, wher
 
 SLAM mapping mainly involves the following three processes:
 
-1. **Preprocessing:** Optimize the raw point cloud data from the Lidar, remove problematic data, or apply filtering.
+1. **Preprocessing:** Optimize the raw point cloud data from the LiDAR, remove problematic data, or apply filtering.
 
-Using laser as the signal source, pulses emitted by the Lidar hit surrounding obstacles, causing scattering.
+Using laser as the signal source, pulses emitted by the LiDAR hit surrounding obstacles, causing scattering.
 
-<img src="../_static/media/chapter_5\section_1/media/image27.png" style="width:600px" class="common_img" />
+Part of the reflected light returns to the LiDAR receiver. Using the laser ranging principle, the distance from the LiDAR to the target point can be calculated.
 
-Part of the reflected light returns to the Lidar receiver. Using the laser ranging principle, the distance from the Lidar to the target point can be calculated.
-
-Regarding point clouds: Simply put, the information captured by the Lidar about the surrounding environment is called the point cloud. It represents the part of the environment that the robot’s “eyes” can see. The captured object information is presented as a series of discrete points with precise angles and distances.
+Regarding point clouds: Simply put, the information captured by the LiDAR about the surrounding environment is called the point cloud. It represents the part of the environment that the robot’s “eyes” can see. The captured object information is presented as a series of discrete points with precise angles and distances.
 
 2. **Matching:** Match the current local point cloud data to the existing map to find the corresponding position.
 
-Typically, a Lidar SLAM system compares point clouds captured at different times to calculate the Lidar’s relative movement and pose change, thereby completing the robot’s localization.
+Typically, a LiDAR SLAM system compares point clouds captured at different times to calculate the LiDAR’s relative movement and pose change, thereby completing the robot’s localization.
 
-3. Map fusion: Merge the new data from the Lidar into the existing map, updating the map continuously.
+3. Map fusion: Merge the new data from the LiDAR into the existing map, updating the map continuously.
 
 #### 5.1.3.3 Note on Map Construction
 
-1. When constructing the map at startup, it is best for the robot to face a straight wall, or use a closed cardboard box instead, so that the Lidar can capture as many points as possible.
+1. When constructing the map at startup, it is best for the robot to face a straight wall, or use a closed cardboard box instead, so that the LiDAR can capture as many points as possible.
 
-2. Try to ensure the completeness of the map. For all 360° areas surrounding the robot along its possible paths, the Lidar needs to scan them to increase map integrity.
+2. Try to ensure the completeness of the map. For all 360° areas surrounding the robot along its possible paths, the LiDAR needs to scan them to increase map integrity.
 
 3. When mapping in a large environment, it is recommended that the robot first completes the map’s loop closure, and then scans the smaller details of the environment.
 
@@ -295,9 +297,9 @@ After the map construction is complete, the results can be evaluated using the f
 
 #### 5.1.4.1 Algorithm Concept
 
-The Slam Toolbox package combines information from a Lidar in the form of LaserScan messages and performs TF transformation from odom to the base link to create a 2D spatial map. This package allows full serialization of reloaded SLAM map data and pose graphs for continuous mapping, localization, merging, or other operations. Slam Toolbox can operate in synchronous mode (processing all valid sensor measurements, regardless of lag) and asynchronous mode (processing valid sensor measurements whenever possible).
+The Slam Toolbox package combines information from a LiDAR in the form of LaserScan messages and performs TF transformation from odom to the base link to create a 2D spatial map. This package allows full serialization of reloaded SLAM map data and pose graphs for continuous mapping, localization, merging, or other operations. Slam Toolbox can operate in synchronous mode, processing all valid sensor measurements, regardless of lag, and asynchronous mode, processing valid sensor measurements whenever possible.
 
-ROS replaces functionalities of gapping, cartographer, karto, hector, etc., providing a fully-featured SLAM capability built on the powerful scan matcher at the core of Karto, widely used and optimized for this package. The package also introduces a new optimization plugin based on Google Ceres. Additionally, it provides a new localization method called “elastic pose-graph localization,” which uses a sliding window of measurements added to the pose graph for optimization and refinement. This approach allows the system to track locally changed features in the environment without treating them as errors and to remove redundant nodes when leaving a region, preserving the integrity of the long-term map.
+ROS replaces functionalities of gapping, cartographer, karto, hector, etc., providing a fully-featured SLAM capability built on the powerful scan matcher at the core of Karto, widely used and optimized for this package. The package also introduces a new optimization plugin based on Google Ceres. Additionally, it provides a new localization method called elastic pose-graph localization, which uses a sliding window of measurements added to the pose graph for optimization and refinement. This approach allows the system to track locally changed features in the environment without treating them as errors and to remove redundant nodes when leaving a region, preserving the integrity of the long-term map.
 
 Slam Toolbox is a set of tools for 2D SLAM. Its main functions are as shown below:
 
@@ -307,7 +309,7 @@ Slam Toolbox is a set of tools for 2D SLAM. Its main functions are as shown belo
 
 - Long-term mapping: continue building on saved maps while removing irrelevant information from new laser point clouds.
 
-- Optimize localization mode on existing maps. Run localization mode without mapping using “Lidar odometry” mode.
+- Optimize localization mode on existing maps. Run localization mode without mapping using LiDAR odometry mode.
 
 - Synchronous and asynchronous mapping.
 
@@ -331,9 +333,7 @@ The algorithmic framework of Karto_SLAM is as shown below:
 
 <img src="../_static/media/chapter_5\section_1/media/image28.png" style="width:600px" class="common_img" />
 
-From the figure above, the process is actually quite simple. Following the traditional soft real-time operation mechanism of SLAM,
-
-each incoming frame of data is processed immediately and then returned.
+From the figure above, the process is actually quite simple. Following the traditional soft real-time operation mechanism of SLAM, each incoming frame of data is processed immediately and then returned.
 
 - **KartoSLAM related source code and WIKI address:**
 
@@ -345,7 +345,7 @@ each incoming frame of data is processed immediately and then returned.
 
 #### 5.1.4.2 Mapping Steps
 
-1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [7.2 Direct Connection Mode Procedure]().
+1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_5\section_1/media/image23.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a new command-line window.
 
@@ -355,6 +355,46 @@ each incoming frame of data is processed immediately and then returned.
 sudo systemctl stop start_app_node.service
 ```
 
+4. Enter the command to start mapping.
+
+```bash
+ros2 launch slam slam.launch.py
+```
+
+5. Right-click the system terminal icon and select **New Window** to open a new terminal window.
+
+<img src="..\_static\media\chapter_5\section_1\media\image31.png"  class="common_img" />
+
+6. Enter the following command to launch RViz and display the mapping result.
+
+```bash
+ros2 launch slam rviz_slam.launch.py
+```
+
+<img src="..\_static\media\chapter_5\section_1\media\image33.png" style="width:600px" class="common_img" />
+
+7. Right-click the system terminal icon and select **New Window** to open a new terminal window.
+
+<img src="..\_static\media\chapter_5\section_1\media\image31.png"  class="common_img" />
+
+8. Next, enter the following command to start the keyboard control node, then press **Enter**:
+
+```bash
+ros2 launch peripherals teleop_key_control.launch.py
+```
+
+If the prompt shown below appears, the keyboard control service has started successfully.
+
+<img src="..\_static\media\chapter_5\section_1\media\image35.png" style="width:600px" class="common_img" />
+
+9. Control the robot to move around the current area to build a more complete map. The table below lists the keyboard keys used to control robot movement and their corresponding functions:
+
+| Keyboard Key | Robot Action                                                 |
+| ------------ | ------------------------------------------------------------ |
+| W            | Press once to switch to forward mode and continue moving forward |
+| S            | Press once to switch to reverse mode and continue moving backward |
+| A            | Press and hold to interrupt forward or reverse movement and turn left |
+| D            | Press and hold to interrupt forward or reverse movement and turn right |
 
 #### 5.1.4.3 Save Map
 
@@ -378,7 +418,7 @@ If the prompt shown above appears, the map has been saved successfully.
    
    <img src="../_static/media/chapter_5\section_1/media/image31.png"  class="common_img" />
    
-2. Then enter the command and press Enter to execute the program for all ROS nodes in the current system environment. If it does not close successfully, repeat the command as needed.
+2. Then enter the command and press **Enter** to execute the program for all ROS nodes in the current system environment. If it does not close successfully, repeat the command as needed.
 
 ```bash
 ~/.stop_ros.sh
@@ -388,7 +428,7 @@ If the prompt shown above appears, the map has been saved successfully.
 
 To achieve more accurate mapping results, optimize the odometer. The odometer is required for robot mapping, and it depends on the IMU.
 
-The robot is preloaded with calibrated IMU data, which allows it to perform mapping and navigation normally. However, the IMU can still be recalibrated to achieve higher precision. For IMU calibration methods and procedures, refer to the section [2.1.1 IMU Calibration]() of **2\. Chassis Motion Control Course**.
+The robot is preloaded with calibrated IMU data, which allows it to perform mapping and navigation normally. However, the IMU can still be recalibrated to achieve higher precision. For IMU calibration methods and procedures, refer to section [2.1.1 IMU Calibration](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/2_Chassis_Motion_Control_Course.html#imu-calibration) of **2\. Chassis Motion Control Course**.
 
 #### 5.1.4.6 Parameter Description
 
@@ -471,11 +511,11 @@ Use `get_package_share_directory` to obtain the path of the slam package.
     return [sim_arg, master_name_arg, robot_name_arg, slam_method_arg, bringup_launch]
 ```
 
-`base_launch` Hardware launch required for the program.
+`base_launch`: Hardware launch required for the program.
 
-`slam_launch`Basic mapping launch.
+`slam_launch`: Basic mapping launch.
 
-`bringup_launch`Initial pose launch.
+`bringup_launch`: Initial pose launch.
 
 <p id ="anther5.1.5"></p>
 
@@ -493,13 +533,11 @@ After extracting image features, features from different time frames are matched
 
 During operation, the RTAB-VSLAM algorithm first uses short-term memory data to update pose estimation and mapping. When future data can be matched with long-term memory data, the corresponding long-term memory data are incorporated into short-term memory to further update pose and mapping.
 
-<img src="../_static/media/chapter_5\section_1/media/image42.png" style="width:600px" class="common_img" />
-
 **RTAB-VSLAM package link: *https://github.com/introlab/rtabmap***
 
 #### 5.1.5.3 3D Mapping Steps
 
-1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [7.2 Direct Connection Mode Procedure]().
+1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_5\section_1/media/image23.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a ROS2 command-line window. Enter the command to disable the app auto-start service.
 
@@ -558,7 +596,7 @@ After completing the mapping, press **Ctrl + C** in each command-line terminal w
    
    <img src="../_static/media/chapter_5\section_1/media/image31.png"  class="common_img" />
    
-2. Then enter the command and press Enter to execute the program for all ROS nodes in the current system environment. If it does not close successfully, repeat the command as needed.
+2. Then enter the command and press **Enter** to execute the program for all ROS nodes in the current system environment. If it does not close successfully, repeat the command as needed.
 
 ```bash
 ~/.stop_ros.sh
@@ -632,13 +670,13 @@ Use `get_package_share_directory` to obtain the path of the slam package.
     )
 ```
 
-`base_launch` Hardware launch required for the program.
+`base_launch`: Hardware launch required for the program.
 
-`slam_launch`Basic mapping launch.
+`slam_launch`: Basic mapping launch.
 
-`rtabmap_launch rtab`Mapping launch.
+`rtabmap_launch rtab`: Mapping launch.
 
-`bringup_launch`Initial pose launch.
+`bringup_launch`: Initial pose launch.
 
 
 
@@ -728,7 +766,7 @@ sudo apt install ros-*-nav2-bringup
 
 > [!NOTE]
 >
-> **The asterisk (*) represents your ROS2 version, which can be checked by entering a command in the terminal.**
+> **The asterisk (*) represents the ROS2 version, which can be checked by entering a command in the terminal.**
 
 ```bash
 echo $ROS_DISTRO
@@ -776,9 +814,9 @@ The Monte Carlo method varies, but generally follows a specific pattern:
 
 There are two important considerations:
 
-(1)If the points are not uniformly distributed, the approximation will be poor.
+(1) If the points are not uniformly distributed, the approximation will be poor.
 
-(2)The process requires many points. If only a few points are randomly placed across the entire square, the approximation will generally be inaccurate. On average, as more points are added, the accuracy of the approximation improves.
+(2) The process requires many points. If only a few points are randomly placed across the entire square, the approximation will generally be inaccurate. On average, as more points are added, the accuracy of the approximation improves.
 
 The Monte Carlo particle filter algorithm has many applications across a wide range of fields, including physical sciences, engineering, climatology, and computational biology.
 
@@ -792,9 +830,9 @@ Therefore, it is recommended to set the initial pose using the 2D Pose Estimate 
 
 #### 5.2.2.4 Costmap
 
-Whether it is a 2D or 3D SLAM map generated by LiDAR or depth cameras, it cannot be used directly for navigation. The map must be converted into a costmap for practical navigation. ROS costmaps typically use a grid format. In a grid map, each cell occupies one byte `8 bits`, with values ranging from 0 to 255. For navigation purposes, only three values are needed for each cell:
-Occupied: The space is occupied (obstacle detected).  
-Free: The space is free (no obstacle).  
+Whether it is a 2D or 3D SLAM map generated by LiDAR or depth cameras, it cannot be used directly for navigation. The map must be converted into a costmap for practical navigation. ROS costmaps typically use a grid format. In a grid map, each cell occupies one byte, `8 bits`, with values ranging from 0 to 255. For navigation purposes, only three values are needed for each cell:
+Occupied: The space is occupied. Obstacle detected.  
+Free: The space is free. No obstacle.  
 Unknown: The space is unknown.
 
 Before introducing `costmap_2d`, the Bresenham algorithm must be explained first. The Bresenham line algorithm is used to draw a straight line between two points. It calculates the closest points along a line segment on an n-dimensional raster. This algorithm only requires fast integer addition, subtraction, and bit-shifting, so it is commonly used for drawing lines in computer graphics. It was one of the first algorithms developed in computer graphics.
@@ -807,17 +845,15 @@ Core Idea of the Algorithm: Assume that k=dy/dx Since the starting point of the 
 
 For each increment of `X`, the value of `d` increases according to the slope `k`, so `d=d+k`. Once `d≥1`, subtract 1 to keep `d` between 0 and 1. When `d≥0.5`, the pixel closest to the current position is `(x+1,y+1)`. When `d<0.5`, the closer pixel is `(x+1,y)`. For easier calculation, let `e=d−0.5`, with an initial value of `e=−0.5` and an increment of `k`. When `e≥0`, select the pixel at `(x+1,y+1)`. When `e<0`, select the pixel at `(x+1,y)`. To avoid division, integers are used instead of floating-point values. Since the algorithm only uses the sign of the error term, it can be replaced with `e1 = 2*e*dx`.
 
-<img src="../_static/media/chapter_6/section_1/media/image10.png" style="width:600px" class="common_img" />
-
 The Costmap2D class maintains the cost value for each grid. The Layer class is a virtual base class that standardizes the interface for the various plugin costmap layers. The key interface functions include:
 
-The initialize function calls the onInitialize function to initialize each costmap layer individually.
+The `initialize` function calls the `onInitialize` function to initialize each costmap layer individually.
 
-The matchSize function, found in the StaticLayer and ObstacleLayer classes, calls the matchSize function of the CostmapLayer class to initialize each costmap layer's size, resolution, origin, and default cost value, ensuring consistency with the layered_costmap. For the InflationLayer class, a cost table is calculated based on the inflation radius, with cost values changing according to distance. This allows for querying the inflated grid's cost based on distance. Additionally, a seen\_ array is defined to track whether a grid cell has been visited. For the VoxelLayer class, the size of the voxel grid is initialized.
+The `matchSize` function, found in the StaticLayer and ObstacleLayer classes, calls the `matchSize` function of the CostmapLayer class to initialize each costmap layer's size, resolution, origin, and default cost value, ensuring consistency with the layered_costmap. For the InflationLayer class, a cost table is calculated based on the inflation radius, with cost values changing according to distance. This allows for querying the inflated grid's cost based on distance. Additionally, a seen\_ array is defined to track whether a grid cell has been visited. For the VoxelLayer class, the size of the voxel grid is initialized.
 
-The updateBounds function adjusts the size range that needs to be updated for the current costmap layer. For the StaticLayer class, the update range of the costmap is determined by the size of the static map. Note: the static layer is typically only used in the global costmap. For the ObstacleLayer class, the function iterates over the sensor data in clearing_observations to determine the boundaries of obstacles.
+The `updateBounds` function adjusts the size range that needs to be updated for the current costmap layer. For the StaticLayer class, the update range of the costmap is determined by the size of the static map. Note that the static layer is typically only used in the global costmap. For the ObstacleLayer class, the function iterates over the sensor data in `clearing_observations` to determine the boundaries of obstacles.
 
-The initialize and matchSize functions are each executed only once. The updateBounds and updateCosts functions are executed periodically, with the frequency of execution determined by the map_update_frequency parameter.
+The `initialize` and `matchSize` functions are each executed only once. The `updateBounds` and `updateCosts` functions are executed periodically, with the frequency of execution determined by the `map_update_frequency` parameter.
 
 The CostmapLayer class inherits from both the Layer and Costmap2D classes, providing several methods to update the cost values. Both the StaticLayer and ObstacleLayer classes need to store the cost values of the instantiated costmap layers, so they inherit from the CostmapLayer class. The StaticLayer class uses static grid map data to update its costmap. The ObstacleLayer class uses sensor data to update its costmap. The VoxelLayer class, compared to ObstacleLayer, also considers data along the z-axis. The main difference in functionality lies in how obstacles are cleared. The ObstacleLayer clears obstacles in 2D, while the VoxelLayer clears obstacles in 3D.
 
@@ -827,15 +863,13 @@ Costmap provides flexible obstacle measurement, allowing specific layers to be c
 
 #### 5.2.2.5 Global Path Planning
 
-Introduction: Path planning can be categorized based on the robot's understanding of the environment, the nature of the environment, and the algorithms used. These categories include environment-based path planning algorithms, map-based path planning algorithms, and completeness-based path planning algorithms.
+Path planning can be categorized based on the robot's understanding of the environment, the nature of the environment, and the algorithms used. These categories include environment-based path planning algorithms, map-based path planning algorithms, and completeness-based path planning algorithms.
 
 <img src="../_static/media/chapter_6/section_1/media/image12.png" style="width:600px" class="common_img" />
 
 Commonly used path planning algorithms in autonomous robot navigation include Dijkstra, A\*, D\*, PRM, RRT, Genetic Algorithms, Ant Colony Optimization, and Fuzzy Logic Algorithms.
 
 Among these, Dijkstra and A* are graph-based path search algorithms. The navigation package integrates global path planning plugins such as navfn, global planner, and carrot planner. Users can select one of these plugins and load it into move_base for use. Alternatively, third-party global path planning plugins, such as SBPL_Lattice_Planner and srl_global_planner, can be loaded into move_base. Additionally, users can develop custom global path planning plugins by adhering to the nav_core interface specifications.
-
-<img src="../_static/media/chapter_6/section_1/media/image13.png" style="width:600px"  class="common_img" />
 
 Autonomous robot navigation relies on path planning to guide the robot to its target point. The navigation planning layer can be divided into several components: global path planning, local path planning, and behavior execution layers.
 
@@ -887,7 +921,7 @@ The formula for the A* algorithm is: F = G + H Where G is the cost of moving fro
 
 <img src="../_static/media/chapter_6/section_1/media/image19.png"  class="common_img" />
 
-For an introduction and usage of the A* algorithm, refer to the video tutorial or visit the wiki at the following link: http://wiki.ros.org/global planner
+For an introduction and usage of the A* algorithm, refer to the video tutorial or visit the wiki at the following link: http://wiki.ros.org/global/planner
 
 Also visit the redblobgames website: https://www.redblobgames.com/pathfinding/a-star/introduction.html#graphs
 
@@ -907,11 +941,11 @@ The core concept of the DWA algorithm is that, at each moment, the robot conside
 
 * **Formulas**
 
-1. The robot state, position `(x, y)` and orientation `θ`.
+1. The robot state: position (x, y) and orientation θ.
 
-2. Motion control parameters, linear velocity `V` and angular velocity `ω`.
+2. Motion control parameters: linear velocity `V` and angular velocity `ω`.
 
-3. Sampling ranges for velocity and angular velocity, `V<sub>min</sub>`, `V<sub>max</sub>`, `ω<sub>min</sub>`, and `ω<sub>max</sub>`.
+3. Sampling ranges for velocity and angular velocity: V<sub>min</sub>, V<sub>max</sub>, ω<sub>min</sub>, and ω<sub>max</sub>.
 
 4. Time step: Δt
 
@@ -958,7 +992,7 @@ The DWA algorithm is a foundational algorithm in the field of mobile robotics, w
 
 2. Enhanced DWA (e-DWA) Algorithm: https://arxiv.org/abs/1612.07470
 
-3. DP-DWA Algorithm (DP-based Dynamic Window Approach): https://arxiv.org/abs/1909.05305
+3. DP-DWA Algorithm: https://arxiv.org/abs/1909.05305
 
 4. For more details, visit the wiki:  :http://wiki.ros.org/dwa_local_planner
 
@@ -968,7 +1002,7 @@ These links provide comprehensive information and further research on the DWA al
 
 * **Description**
 
-The TEB (Timed Elastic Band) algorithm is a path and motion planning algorithm primarily used in applications such as robotics and autonomous vehicles. The core concept of the TEB algorithm is to model the path planning problem as an optimization problem, where the goal is to generate an optimal trajectory within a given time frame while satisfying the robot or vehicle's dynamic constraints and obstacle avoidance requirements. Key features of the TEB algorithm:
+The Timed Elastic Band (TEB) algorithm is a path and motion planning algorithm primarily used in applications such as robotics and autonomous vehicles. The core concept of the TEB algorithm is to model the path planning problem as an optimization problem, where the goal is to generate an optimal trajectory within a given time frame while satisfying the robot or vehicle's dynamic constraints and obstacle avoidance requirements. Key features of the TEB algorithm:
 
 1. **Time Hierarchical Representation:** The TEB algorithm introduces time hierarchy. It divides the trajectory into multiple time steps. Each step corresponds to a position of the robot or vehicle along the path. This helps establish time constraints and avoid collisions.
 
@@ -998,7 +1032,7 @@ Where:
 
 (4) f(x<sub>i</sub>,o<sub>j</sub>) represents the obstacle cost function between trajectory point x<sub>i</sub> and obstacle o<sub>j</sub>.
 
-**1.State Definition:**
+**1. State Definition:**
 
 First, define the robot (or vehicle) state in the path planning problem.
 
@@ -1026,11 +1060,11 @@ Where:
 
 (3) J<sub>dynamic</sub>(x): The dynamics objective function, used to ensure the robot's dynamic constraints are satisfied.
 
-**3. Smoothness Objective Function Jsmooth(x):** The smoothness objective function typically involves the trajectory's curvature to ensure the generated trajectory is smooth.**************** It can be expressed as:
+**3. Smoothness Objective Function Jsmooth(x):** The smoothness objective function typically involves the trajectory's curvature to ensure the generated trajectory is smooth. It can be expressed as:
 
 <img src="../_static/media/chapter_6/section_1/media/image26.png" style="width:600px" class="common_img" />
 
-where k(t) is the curvature at time t.
+where k(t) is the curvature.
 
 **4\. Obstacle Avoidance Objective Function Jobstacle(x):**
 
@@ -1056,10 +1090,10 @@ The TEB algorithm is an important technique in the field of path planning, with 
 
 1. Original TEB Algorithm Paper: One of the best learning resources is to review the original TEB algorithm paper to understand its principles and applications.
 
-- Original TEB Paper: "**Trajectory modification considering dynamic constraints of autonomous robots**" by M. Rösmann et al.
+- Original TEB Paper: **Trajectory modification considering dynamic constraints of autonomous robots** by M. Rösmann et al.
 
 2. TEB Implementation in ROS:  
-   The ROS package for the TEB algorithm (Robot Operating System Package) is a common implementation used for robot path planning.
+   The ROS package (Robot Operating System Package) for the TEB algorithm is a common implementation used for robot path planning.
 
 ROS TEB Local Planner Package: *https://github.com/rst-tu-dortmund/teb_local_planner*
 
@@ -1069,7 +1103,7 @@ These links provide valuable resources for users to explore the TEB algorithm an
 
 ### 5.2.4 Single/Multi-Point Navigation and Obstacle Avoidance
 
-1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [7.2 Direct Connection Mode Procedure]().
+1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_6/section_1/media/image29.png"  class="common_img" style="display:inline;vertical-align:middle;" /> in the system desktop to open a command-line window. Enter the command to disable the app auto-start service.
 
@@ -1077,7 +1111,7 @@ These links provide valuable resources for users to explore the TEB algorithm an
 sudo systemctl stop start_app_node.service
 ```
 
-3. Entering the following command and press Enter to start the navigation service.
+3. Entering the following command and press **Enter** to start the navigation service.
 
 ```bash
 ros2 launch navigation navigation.launch.py map:=map_01
@@ -1101,7 +1135,7 @@ In the software menu bar, **2D Pose Estimate** is used to set the robot's initia
 
    <img src="../_static/media/chapter_6/section_1/media/image35.png" style="width:600px" class="common_img" />
 
-2. After setting the robot's initial position, the result is as shown below where the robot's Lidar point cloud data overlaps with the obstacles in the map.
+2. After setting the robot's initial position, the result is as shown below where the robot's LiDAR point cloud data overlaps with the obstacles in the map.
 
    <img src="../_static/media/chapter_6/section_1/media/image36.png" style="width:600px" class="common_img" />
 
@@ -1134,8 +1168,8 @@ The setting method involves left-clicking to set a target point, then dragging t
 
 <img src="../_static/media/chapter_6/section_1/media/image43.png" style="width:600px"  class="common_img" />
 
-4. Finally click **Start Nav Through Poses** or **Start Waypoint Following** to enable navigation. Start Nav Through Poses will control the robot's posture at each navigation point.  
-   Start Waypoint Following will not focus on the robot's posture at each navigation point. It is recommended to use Start Waypoint Following for navigation.
+4. Finally, click **Start Nav Through Poses** or **Start Waypoint Following** to enable navigation. **Start Nav Through Poses** will control the robot's posture at each navigation point.
+   **Start Waypoint Following** will not focus on the robot's posture at each navigation point. It is recommended to use **Start Waypoint Following** for navigation.
 
 <img src="../_static/media/chapter_6/section_1/media/image44.png"  class="common_img" />
 
@@ -1155,7 +1189,7 @@ The setting method involves left-clicking to set a target point, then dragging t
 
    <img src="../_static/media/chapter_6/section_1/media/image48.png"  class="common_img" />
 
-2. Next, enter the following command and press Enter to execute the program for all ROS nodes in the current system environment. If it does not close successfully, try a few more times.
+2. Next, enter the following command and press **Enter** to execute the program for all ROS nodes in the current system environment. If it does not close successfully, try a few more times.
 
    ```bash
    ~/.stop_ros.sh
@@ -1193,11 +1227,11 @@ Get the paths of the `peripherals`,`controller`,`servo_controller` packages.
 
 - **Launch Other Files**
 
-  **base_launch is used for various hardware.**
+  `base_launch` is used for various hardware.
 
-  **navigation_launch launches the navigation algorithm.**
+  `navigation_launch` launches the navigation algorithm.
 
-  **bringup_launch initializes actions.**
+  `bringup_launch` initializes actions.
 
 ```python
     base_launch = IncludeLaunchDescription(
@@ -1262,7 +1296,7 @@ For an introduction to the RTAB-VSLAM algorithm and its principles, refer to the
 
 #### 5.2.5.2 Operating Steps
 
-1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [7.2 Direct Connection Mode Procedure]().
+1. Start the robot and connect it to the remote control software NoMachine. For connection instructions, refer to [1.7.2 AP Mode Connection Steps](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/1_ROSOrin_Pro_User_Manual.html#ap-mode-connection-steps).
 
 2. Click the terminal icon <img src="../_static/media/chapter_6/section_1/media/image29.png"  class="common_img"  style="display:inline;vertical-align:middle;"  /> in the system desktop to open a command-line window. Enter the command to disable the app auto-start service.
 
@@ -1342,7 +1376,7 @@ def launch_setup(context):
 
 - **Set Path**
 
-Get the paths of the `peripherals`,`controller`,`servo_controller` packages.
+Get the paths of the **peripherals**, **controller**, **servo_controller** packages.
 
 ```python
     compiled = os.environ['need_compile']
@@ -1356,11 +1390,11 @@ Get the paths of the `peripherals`,`controller`,`servo_controller` packages.
 
 - **Launch Other Files**
 
-  `rtabmap_launch`Start 3D navigation algorithm
+  `rtabmap_launch`: Start 3D navigation algorithm
 
-  `navigation_launch`Start 2D navigation algorithm
+  `navigation_launch`: Start 2D navigation algorithm
 
-  `bringup_launch`Initialize actions
+  `bringup_launch`: Initialize actions
 
 ```python
     base_launch = IncludeLaunchDescription(
@@ -1398,29 +1432,29 @@ Get the paths of the `peripherals`,`controller`,`servo_controller` packages.
 
 ```
 
-### 5.2.6 Route-Network Planning
+### 5.2.6 Route Planning
 
 #### 5.2.6.1 Algorithm Introduction and Principles
 
-* **Introduction to Route-Network Planning**
+* **Introduction to Route Planning**
 
-Route-network planning is a real-time path planning and navigation system built on graph theory. It is an open-source navigation framework that performs efficient path search through predefined waypoint nodes and adjacency relationships. By constraining the search space to a predefined route-network graph, the system completes path planning within a fixed time limit and meets the requirements of online navigation in long-term and large-scale environments. The system integrates a visual perception module that can recognize traffic lights and perform intelligent stop control. It also includes a breakpoint recovery mechanism that can pause and resume path tracking when obstacles or traffic signals are encountered.
+Route planning is a real-time path planning and navigation system built on graph theory. It is an open-source navigation framework that performs efficient path search through predefined waypoint nodes and adjacency relationships. By constraining the search space to a predefined route-network graph, the system completes path planning within a fixed time limit and meets the requirements of online navigation in long-term and large-scale environments. The system integrates a visual perception module that can recognize traffic lights and perform intelligent stop control. It also includes a breakpoint recovery mechanism that can pause and resume path tracking when obstacles or traffic signals are encountered.
 
 * **Algorithm Principles**
 
-Route-network planning uses a graph-based path planning method. Its advantage is that most practical scenes can provide clear path nodes, which gives the method good scene adaptability and enables rapid path search with the predefined route-network structure.
+Route planning uses a graph-based path planning method. Its advantage is that most practical scenes can provide clear path nodes, which gives the method good scene adaptability and enables rapid path search with the predefined route-network structure.
 
 After the predefined route-network nodes and adjacency relationships are obtained, the connections between nodes need to be matched to form a searchable graph structure. Once the matching is complete, the data is divided into two categories: long-term memory data and short-term memory data. Long-term memory data stores the complete route-network graph structure, including all nodes and adjacency relationships. Short-term memory data stores the current planned path sequence and the path points that are currently being executed.
 
-During operation, the route-network planning algorithm first uses the Breadth-First Search algorithm in the long-term memory data, which is the complete route-network graph, to find the shortest path from the start point to the end point and obtain the node sequence. The node sequence is then converted into a dense sequence of path points through linear interpolation to form the short-term memory data, which is the currently executed path. When the robot encounters a traffic light or an obstacle during path execution, the system pauses path tracking and saves the current state. When the obstacle is cleared or the traffic light changes to an allowed state, the system searches the short-term memory data, which is the historical path, for the nearest path point to the current position. It then takes the remaining path segment and continues execution to achieve breakpoint recovery. This mechanism enables robust autonomous navigation in complex environments.
+During operation, the route planning algorithm first uses the Breadth-First Search algorithm in the long-term memory data, which is the complete route-network graph, to find the shortest path from the start point to the end point and obtain the node sequence. The node sequence is then converted into a dense sequence of path points through linear interpolation to form the short-term memory data, which is the currently executed path. When the robot encounters a traffic light or an obstacle during path execution, the system pauses path tracking and saves the current state. When the obstacle is cleared or the traffic light changes to an allowed state, the system searches the short-term memory data, which is the historical path, for the nearest path point to the current position. It then takes the remaining path segment and continues execution to achieve breakpoint recovery. This mechanism enables robust autonomous navigation in complex environments.
 
 #### 5.2.6.2 Preparation
 
-Map construction: Before starting this feature, build a map first by referring to [Mapping Tutorial](#anther5.1).
+Map construction: Before starting this feature, build a map first by referring to [5.1 Mapping Tutorial](#anther5.1).
 
 * **Editing the Waypoint Network**
 
-1. Click the terminal icon <img class="inline-icon" src="../_static/media/chapter_7/section_3/image32.png" style="width:70px"  /> on the system desktop to open a terminal. Run the following command to stop the APP auto-start service:
+1. Click the terminal icon <img class="inline-icon" src="../_static/media/chapter_7/section_3/image32.png" style="width:70px"  /> on the system desktop to open a terminal. Run the following command to stop the app auto-start service:
 
    ```bash
    sudo systemctl stop start_app_node.service
@@ -1464,9 +1498,9 @@ Map construction: Before starting this feature, build a map first by referring t
 
    <img class="common_img" src="../_static/media/chapter_7/section_3/image72.png" style="width:800px"  />
 
-#### 5.2.6.3 Procedure
+#### 5.2.6.3 Operational Steps
 
-1. Click the terminal icon <img class="inline-icon" src="../_static/media/chapter_7/section_3/image32.png" style="width:70px"  /> on the system desktop to open a terminal. Run the following command to stop the APP auto-start service:
+1. Click the terminal icon <img class="inline-icon" src="../_static/media/chapter_7/section_3/image32.png" style="width:70px"  /> on the system desktop to open a terminal. Run the following command to stop the app auto-start service:
 
    ```bash
    sudo systemctl stop start_app_node.service
@@ -1474,7 +1508,7 @@ Map construction: Before starting this feature, build a map first by referring t
 
 <img class="common_img" src="../_static/media/chapter_7/section_3/image65.png" style="width:800px"  />
 
-2. Run the following command to start route-network planning:
+2. Run the following command to start route planning:
 
    ```bash
    ros2 launch large_models_examples road_network.launch.py
@@ -1498,7 +1532,7 @@ Map construction: Before starting this feature, build a map first by referring t
 
    <img class="common_img" src="../_static/media/chapter_7/section_3/image76.png" style="width:800px"  />
 
-5. To stop this feature, press **Ctrl+C** in the terminal. If the feature does not stop successfully, press it several more times. If the process still cannot exit, open a new terminal and run the following command to stop the ROS nodes:
+5. To stop this feature, press **Ctrl + C** in the terminal. If the feature does not stop successfully, press it several more times. If the process still cannot exit, open a new terminal and run the following command to stop the ROS nodes:
 
    ```bash
    ~/.stop_ros.sh
@@ -1506,7 +1540,7 @@ Map construction: Before starting this feature, build a map first by referring t
 
 #### 5.2.6.4 Program Analysis
 
-**1. Launch File**
+**(1) Launch File**
 
 Program path:
 
@@ -1587,9 +1621,9 @@ Program path:
     )
 ```
 
-`yolov_node`: Starts `yolov11_node`, which is the YOLO object detection node. Parameters include `camera`, the camera type, `task`, the detection task, `engine`, the traffic sign detection model, `conf`, the confidence threshold, and `display_only`.
+`yolov_node`: Starts `yolov11_node`, which is the YOLO object detection node. Parameters include `camera`, the camera type, `task`, the detection task, `engine`, `best_traffic.engine`--the traffic sign detection model, `conf`, 0.6--the confidence threshold, and `display_only` set to False.
 
-**2. Python File**
+**(2) Python File**
 
 Program path:
 
@@ -1636,7 +1670,7 @@ Parameters and configuration:
         self.last_sign_time = 0.0
         self.sign_validity_period = 3.0
         self.waiting_for_light = False     
-        self.traffic_light_waypoint_id = 16    # Set the traffic light recognition waypoint
+        self.traffic_light_waypoint_id = 16    # Set traffic light recognition position
         self.stop_signal_triggered = False
 ```
 
@@ -1653,6 +1687,24 @@ State variables:
 `self.active_goal_index`: Currently active target index.
 
 `self.is_moving`: Motion state flag. `False` means stationary.
+
+```py
+        # Store current dense path for breakpoint recovery
+        self.current_execution_path = [] 
+        
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+
+        self.debug_last_reach_time = 0.0
+        self.min_reach_interval = 0.5 
+        
+        self.traffic_signs_status = None 
+        self.last_sign_time = 0.0
+        self.sign_validity_period = 3.0
+        self.waiting_for_light = False     
+        self.traffic_light_waypoint_id = 16    # Set traffic light recognition position
+        self.stop_signal_triggered = False
+```
 
 `self.current_execution_path`: Dense path list for the current execution. It is used for breakpoint recovery.
 
@@ -1737,43 +1789,686 @@ Subscribers:
 
 `/yolo/object_detect`: Subscribes to YOLO object detection results when enabled and calls `get_object_callback`.
 
-4. Entering the following command to start mapping.
+```py
+        # --- 3. Communication Interfaces ---
+        self.path_cmd_pub = self.create_publisher(Path, '/final_path_commands', 1)
+        self.nav_pub = self.create_publisher(PoseStamped, '/nav_goal', 1) 
+        self.marker_pub = self.create_publisher(MarkerArray, '/waypoint_markers', 1)
+        self.mecanum_pub = self.create_publisher(Twist, '%s' % self.cmd_vel_topic, 1)
+        self.final_reach_pub = self.create_publisher(Bool, '/road_network_navigator/reach_final', 1)
+        self.joints_pub = self.create_publisher(ServosPosition, 'servo_controller', 1)
+        # Robotic arm initialization
+        time.sleep(0.5) 
+        set_servo_position(self.joints_pub, 1.5, ((1, 500), (2, 766), (3, 12), (4, 150), (5, 500),(10, 500)))
+        time.sleep(1.5)
+        self.get_logger().info("arm initialization complete")
+        
+        self.create_subscription(Bool, '/navigation_controller/reach_goal', self.reach_callback, 1)
+        self.create_subscription(Int32, '/request_waypoint', self.command_callback, 1)
 
-```bash
-ros2 launch slam slam.launch.py
+        self.declare_parameter('use_yolo_detect', True)
+        self.use_yolo_detect = self.get_parameter('use_yolo_detect').get_parameter_value().bool_value
+        self.get_logger().info(f'use_yolo_detect: {self.use_yolo_detect}')
+        if self.use_yolo_detect:
+            self.create_subscription(ObjectsInfo, '/yolo/object_detect', self.get_object_callback, 1)
+            # Start visual recognition service
+            self.yolo_client = self.create_client(Trigger, '/yolo/start')
+            if self.yolo_client.wait_for_service(timeout_sec=10.0):
+                self.yolo_client.call_async(Trigger.Request())
+                self.get_logger().info("\033[1;32m yolo start\033[0m")
+            else:
+                self.get_logger().warn("\033[1;32m yolo no start\033[0m")
 ```
 
-5. Right-click the system command-line terminal icon and select **New Window** to open a new command-line terminal.
+Service Client:
 
-<img src="../_static/media/chapter_5\section_1/media/image31.png"  class="common_img" />
+`self.yolo_client`: YOLO startup service client `/yolo/start`, used to start visual recognition.
 
-6. Enter the command to start the RVIZ tool to display mapping results:
-
-```bash
-ros2 launch slam rviz_slam.launch.py
+```py
+        # Robotic arm initialization
+        time.sleep(0.5) 
+        set_servo_position(self.joints_pub, 1.5, ((1, 500), (2, 766), (3, 12), (4, 150), (5, 500),(10, 500)))
+        time.sleep(1.5)
+        self.get_logger().info("arm initialization complete")
 ```
 
-<img src="../_static/media/chapter_5\section_1/media/image33.png" style="width:600px" class="common_img" />
+Robotic arm initialization sets the servos to their initial positions and waits for the process to complete.
 
-7. Right-click the system command-line terminal icon and select **New Window** to open another command-line terminal.
-
-<img src="../_static/media/chapter_5\section_1/media/image31.png"  class="common_img" />
-
-8. Then enter the command to start the keyboard control node and press **Enter**:
-
-```bash
-ros2 launch peripherals teleop_key_control.launch.py
+```py
+        self.load_waypoints_from_file()
+        self.create_timer(1.0, self.publish_visualization) # Static road network visualization
+        self.create_timer(0.2, self.check_traffic_light_loop) # Traffic light logic
+        self.create_timer(0.1, self.timer_dynamic_viz_callback) # Dynamic path clipping
 ```
 
-If the prompt shown below appears, the keyboard control service has started successfully.
+Load the waypoint file. `load_waypoints_from_file` is called to load the road network from the YAML file.
 
-<img src="../_static/media/chapter_5\section_1/media/image35.png" style="width:600px" class="common_img" />
+```py
+        self.create_timer(1.0, self.publish_visualization) # Static road network visualization
+        self.create_timer(0.2, self.check_traffic_light_loop) # Traffic light logic
+        self.create_timer(0.1, self.timer_dynamic_viz_callback) # Dynamic path clipping
+```
 
-9. Control the robot to move within the current space to build a more complete map. Table of keyboard keys and the robot action functions.
+Create timers:
 
-| **Keyboard Key**| **Robot Action**|
-|----------|----------|
-| W| Short press to switch to forward mode, keep moving forward.|
-| S| Short press to switch to backward mode, keep moving backward.|
-| A| Long press to interrupt forward or backward movement and turn left.|
-| D| Long press to interrupt forward or backward movement and turn right.|
+The 1.0-second timer calls `publish_visualization()` to visualize the static road network.
+
+The 0.2-second timer calls `check_traffic_light_loop()` to check traffic light logic.
+
+The 0.1-second timer calls `timer_dynamic_viz_callback()` to visualize dynamic path trimming.
+
+**Get Robot Pose**
+
+```py
+    def get_robot_pose(self):
+        try:
+            trans = self.tf_buffer.lookup_transform(self.frame_id, self.base_frame_id,rclpy.time.Time())
+            return [trans.transform.translation.x, trans.transform.translation.y]
+        except (LookupException, ConnectivityException, ExtrapolationException):
+            return None
+```
+
+Use TF2 to query the robot position in the map coordinate frame. A list in the form `[x, y]` is returned. If the query fails, `None` is returned.
+
+**Object Detection Callback**
+
+```py
+    def get_object_callback(self, msg):
+        """Handle target information detected by vision"""
+        self.objects_info = msg.objects
+        if self.objects_info:
+            for i in self.objects_info:
+                class_name = i.class_name
+                if class_name == 'red' or class_name == 'green':
+                    self.traffic_signs_status = i
+                    self.last_sign_time = self.get_clock().now().nanoseconds / 1e9
+                    # Calculate target area to judge distance
+                    # box[0]=xmin, box[1]=ymin, box[2]=xmax, box[3]=ymax
+                    width = abs(i.box[2] - i.box[0])
+                    height = abs(i.box[3] - i.box[1])
+                    area = width * height
+
+                    if class_name == 'red' and area > 2300:
+                        self.stop_signal_triggered = True 
+                    break
+```
+
+Process the target information detected by YOLO. The detection results are traversed to find a red or green traffic light, then the traffic light state and timestamp are recorded. The target area is calculated to estimate distance. If a red light is detected and the area is greater than `2300`, a stop signal is triggered.
+
+**Traffic Light Check Loop**
+
+```py
+    def check_traffic_light_loop(self):
+        """Core traffic light logic: stopping and resuming"""
+        current_time = self.get_clock().now().nanoseconds / 1e9
+
+        # Get latest memory status and area
+        time_since_sign = current_time - self.last_sign_time
+        
+        memory_status = None
+        current_area = 0  
+
+        # Signals are only valid if identified within 3 seconds
+        if self.traffic_signs_status and time_since_sign < 3.0:
+            memory_status = self.traffic_signs_status.class_name           
+            # Calculate area
+            # box: [xmin, ymin, xmax, ymax]
+            box = self.traffic_signs_status.box
+            width = abs(box[2] - box[0])
+            height = abs(box[3] - box[1])
+            current_area = width * height
+        else:
+            memory_status = None 
+
+        # Case A: Waiting at a stop
+        if self.waiting_for_light:
+            self.mecanum_pub.publish(Twist()) # Continuous braking
+            
+            self.get_logger().info(f"Waiting for green light... Status: {memory_status}, Area: {int(current_area)}", throttle_duration_sec=1.0)
+            if memory_status == 'green':
+                self.get_logger().info(">>> Green light detected! Resuming movement.")
+                self.waiting_for_light = False
+                self.stop_signal_triggered = False
+                self.resume_path_from_current_pose()
+            return
+        
+        # Case B: Determining if stopping is needed while moving
+        if self.is_moving:
+            robot_pos = self.get_robot_pose()
+            if robot_pos is None: return
+
+            if self.traffic_light_waypoint_id not in self.waypoints: return
+            
+            light_pose = self.waypoints[self.traffic_light_waypoint_id]
+            dx = robot_pos[0] - float(light_pose[0])
+            dy = robot_pos[1] - float(light_pose[1])
+            dist = math.sqrt(dx**2 + dy**2)
+
+            # Set a large detection range combined with visual area to judge stopping timing, unit: meters
+            check_dist_range = 1.5 
+            
+            if dist < check_dist_range and memory_status == 'red' and self.stop_signal_triggered:
+                    self.get_logger().warn(f"!!! RED LIGHT STOP: Area {int(current_area)} (Dist: {dist:.2f}m) !!!")
+                    
+                    self.waiting_for_light = True
+                    self.is_moving = False
+                    self.stop_signal_triggered = False
+                    
+                    self.mecanum_pub.publish(Twist()) # Emergency stop
+                    
+                    # Send empty path to cancel controller task
+                    empty_path = Path()
+                    empty_path.header.frame_id = self.frame_id
+                    self.path_cmd_pub.publish(empty_path)
+```
+
+Get the current time and calculate the time since the last detection. Then check the traffic light state and area recorded within the last 3 seconds. Case A: waiting at a stop. Continuous braking is applied. Once a green light is detected, movement resumes. Case B: stop decision while moving. If a red light is detected near the traffic light waypoint within 1.5 meters and the stop signal has been triggered, the robot performs an emergency stop and sends an empty path to cancel the current task.
+
+**Load Waypoint File**
+
+```py
+    def load_waypoints_from_file(self):
+        file_name = self.get_parameter('file_name').get_parameter_value().string_value
+        file_path = '/home/ubuntu/ros2_ws/src/large_models_examples/large_models_examples/road_network/config/' + file_name + '.yaml'
+        self.get_logger().info(f"Loading waypoint file: {file_path}")
+        if not os.path.exists(file_path):
+            self.get_logger().error(f"File not found: {file_path}")
+            return
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f)
+                if 'waypoints' in data:
+                    raw_list = data['waypoints']
+                    self.waypoints = {} 
+                    self.adjacency_list = {}
+                    for item in raw_list:
+                        nid = item['id']
+                        self.waypoints[nid] = item['pose'] 
+                        neighbors = item.get('to', [])
+                        self.adjacency_list[nid] = neighbors
+                    self.get_logger().info(f"Network loaded successfully with {len(self.waypoints)} nodes")
+        except Exception as e:
+            self.get_logger().error(f"Failed to load waypoints: {e}")
+```
+
+Load the road network from the YAML file. Read the `file_name` parameter, build the file path, parse the YAML file, and extract waypoint information. Build the `waypoints` dictionary from ID to pose and the `adjacency_list` dictionary from ID to neighbor list, then log the number of loaded nodes.
+
+**Shortest Path Search**
+
+```py
+    def find_shortest_path(self, start_idx, goal_idx):
+        """Breadth-First Search for shortest path"""
+        if start_idx == goal_idx: return [start_idx]
+        if start_idx not in self.adjacency_list or goal_idx not in self.adjacency_list:
+            self.get_logger().error(f"Start {start_idx} or Goal {goal_idx} not in network")
+            return None
+        queue = collections.deque([(start_idx, [start_idx])])
+        visited = set([start_idx])
+        while queue:
+            current, path = queue.popleft()
+            if current not in self.adjacency_list: continue
+            for neighbor in self.adjacency_list[current]:
+                if neighbor == goal_idx: return path + [neighbor]
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append((neighbor, path + [neighbor]))
+        return None 
+```
+
+Use Breadth-First Search (BFS) to find the shortest path between two waypoints. If the start point is the same as the goal point, a single-point path is returned. BFS is performed with a queue and a visited set. A list of path node indices is returned. If no path is found, `None` is returned.
+
+**Command Callback**
+
+```py
+    def command_callback(self, msg):
+        target = msg.data
+        if target not in self.waypoints:
+            self.get_logger().warn(f"Target node ID {target} does not exist!")
+            return
+        
+        self.target_index = target
+        self.get_logger().info(f"Received command: Planning from Node {self.current_index} to Node {target}")
+        
+        if target == self.current_index:
+            self.get_logger().info("Already at the target node.")
+            msg_finish = Bool(); msg_finish.data = True
+            self.final_reach_pub.publish(msg_finish)
+            return
+
+        # New task: Normal planning and generation of a brand new path
+        self.generate_new_path_sequence()
+```
+
+Process the waypoint request command. First, check whether the target waypoint exists. If the robot is already at the target waypoint, publish the completion flag directly. Otherwise, set the target index and call `generate_new_path_sequence` to generate a new path.
+
+**Generate New Path Sequence**
+
+```py
+    def generate_new_path_sequence(self):
+        """Plan and generate interpolated path"""
+        if self.target_index is None: return
+
+        # 1. Plan node list
+        node_path_list = self.find_shortest_path(self.current_index, self.target_index)
+        if not node_path_list or len(node_path_list) < 2:
+            self.get_logger().error("No valid path found.")
+            self.is_moving = False
+            return
+        
+        # Traffic light truncation logic
+        segment_end_index = self.target_index 
+
+        # Visualization of planned logical path
+        self.publish_planned_path(node_path_list)
+
+        # 2. Generate full dense Path message
+        full_path_msg = Path()
+        full_path_msg.header.frame_id = self.frame_id
+        
+        # Traverse nodes to generate interpolation
+        for i in range(len(node_path_list) - 1):
+            start_id = node_path_list[i]
+            end_id = node_path_list[i+1]
+            
+            start_pt = self.waypoints[start_id]
+            end_pt = self.waypoints[end_id]     
+            
+            segment_points = self.create_dense_points(start_pt, end_pt)
+            full_path_msg.poses.extend(segment_points)
+
+        self.send_path_to_controller(full_path_msg, segment_end_index)
+```
+
+Plan and generate the interpolated path. Use `find_shortest_path` to generate the list of path nodes, call `publish_planned_path` to visualize the logical path, use `create_dense_points` to generate dense interpolation points, then call `send_path_to_controller` to send the complete path.
+
+**Send Path to Controller**
+
+```py
+    def send_path_to_controller(self, path_msg, segment_end_index):
+        """Send path to controller and record"""
+        path_msg.header.stamp = self.get_clock().now().to_msg()
+        
+        total_points = len(path_msg.poses)
+        if total_points > 0:
+            # Save current sent path for recovery use
+            self.current_execution_path = path_msg.poses 
+            self.path_cmd_pub.publish(path_msg) 
+            self.get_logger().info(f"Path command sent with {total_points} points") 
+            self.is_moving = True
+            self.active_goal_index = segment_end_index
+```
+
+Send the path to the controller and record it. Set the timestamp of the path message, save the current path to `current_execution_path` for later recovery, publish the path command, then update the moving state and the active goal index.
+
+**Dynamic Visualization Timer Callback**
+
+```py
+    def timer_dynamic_viz_callback(self):
+        """Real-time cropping and publishing of remaining path visualization lines"""
+        # If no path is currently running or path is empty, clear the line
+        if not self.is_moving or not self.current_execution_path:  
+            self.publish_dense_path_marker([]) 
+            return
+
+        # 1. (et robot's current position
+        robot_pos = self.get_robot_pose()
+        if robot_pos is None: return
+
+        # 2. Find the index of the closest path point to the robot
+        rx, ry = robot_pos[0], robot_pos[1]
+        min_dist = float('inf')
+        closest_idx = 0
+        
+        # Traverse path to find the closest point index to the robot
+        for i, pose_stamped in enumerate(self.current_execution_path):
+            px = pose_stamped.pose.position.x
+            py = pose_stamped.pose.position.y
+            dist = (px - rx)**2 + (py - ry)**2
+            if dist < min_dist:
+                min_dist = dist
+                closest_idx = i
+        
+        # 3. Crop remaining path - draw from the closest point onwards
+        # Keep one or two points before the closest point
+        start_viz_idx = max(0, closest_idx - 1)
+        remaining_poses = self.current_execution_path[start_viz_idx:]
+
+        # 4. Publish visualization Marker
+        self.publish_dense_path_marker(remaining_poses)
+```
+
+Trim and publish the remaining path visualization in real time. If the robot is not moving or the path is empty, clear the visualization. Then get the current robot position, find the index of the path point closest to the robot, keep the remaining path from that point onward while preserving one or two points before it, and call `publish_dense_path_marker` to publish the visualization.
+
+**Publish Dense Path Marker**
+
+```py
+    def publish_dense_path_marker(self, pose_list):
+        """
+        Function specifically for drawing dense paths
+        """
+        marker = Marker()
+        marker.header.frame_id = self.frame_id
+        marker.ns = "active_path"
+        marker.id = 8888
+        marker.type = Marker.LINE_STRIP
+        
+        # If list is empty or too short, delete the Marker
+        if len(pose_list) < 2:
+            marker.action = Marker.DELETE
+        else:
+            marker.action = Marker.ADD
+
+        marker.scale.x = 0.08  # Line width
+        marker.color.r = 1.0; marker.color.g = 0.0; marker.color.b = 0.0; marker.color.a = 1.0 
+
+        # Convert PoseStamped list to Point list
+        for pose_stamped in pose_list:
+            p = Point()
+            p.x = pose_stamped.pose.position.x
+            p.y = pose_stamped.pose.position.y
+            p.z = 0.05 
+            marker.points.append(p)
+        
+        ma = MarkerArray()
+        ma.markers.append(marker)
+        self.marker_pub.publish(ma)
+```
+
+Create a `LINE_STRIP` marker, convert the `PoseStamped` list to a `Point` list, set the red line style, and publish the `MarkerArray`.
+
+**Resume Path from Current Pose**
+
+```py
+    def resume_path_from_current_pose(self):
+        """Find breakpoint in historical path and resume following"""
+        robot_pos = self.get_robot_pose()
+        if robot_pos is None:
+            self.get_logger().error("Cannot get robot pose, breakpoint recovery failed")
+            return
+
+        if not self.current_execution_path:
+            self.get_logger().warn("No historical path in memory, attempting to replan...")
+            self.generate_new_path_sequence()
+            return
+
+        # 1. Find the index of the closest point
+        min_dist = float('inf')
+        closest_idx = 0
+        
+        # For performance, all points may not be traversed, but for safety traverse all first
+        rx, ry = robot_pos[0], robot_pos[1]
+        
+        # Simple traversal to find the closest point - for hundreds of points, loops are fast
+        for i, pose_stamped in enumerate(self.current_execution_path):
+            px = pose_stamped.pose.position.x
+            py = pose_stamped.pose.position.y
+            dist = (px - rx)**2 + (py - ry)**2
+            if dist < min_dist:
+                min_dist = dist
+                closest_idx = i
+        
+        # 2. Crop path
+        # Strategy: To prevent robot from staying in place, take points after the closest point
+        # If the closest point is already the last, it means arrived
+        if closest_idx >= len(self.current_execution_path) - 1:
+            self.get_logger().warn("Robot is already near the path end; forcing arrival.")
+            self.is_moving = False
+            return
+
+        # Slightly offset the index forward, e.g., count 2-5 points ahead, to give the robot forward momentum
+        start_slice_idx = min(closest_idx + 2, len(self.current_execution_path) - 1)
+        
+        remaining_poses = self.current_execution_path[start_slice_idx:]
+        
+        self.get_logger().info(f"Breakpoint recovery: resuming from point {closest_idx}/{len(self.current_execution_path)}")
+
+
+        recovered_path = Path()
+        recovered_path.header.frame_id = self.frame_id
+        recovered_path.poses = remaining_poses
+        self.send_path_to_controller(recovered_path, self.active_goal_index)
+```
+
+Find the breakpoint in the historical path and resume the path following. First, get the current robot position. If there is no historical path, replan the route. Then find the index of the closest point in the historical path. If the robot is already close to the end point, mark the path as reached. Otherwise, crop the remaining path and shift the starting point forward by two points to avoid standing in place, then send the recovered path to the controller.
+
+**Create Dense Path Points**
+
+```py
+    def create_dense_points(self, p1, p2):
+        """Linear interpolation to generate path points"""
+        points = []
+        step = 0.05 
+        dx = float(p2[0]) - float(p1[0])
+        dy = float(p2[1]) - float(p1[1])
+        dist = math.sqrt(dx**2 + dy**2)
+        
+        if dist < 0.01: return [] 
+
+        num = int(dist / step)
+        if num < 1: num = 1
+        
+        # Calculate orientation of path travel direction
+        travel_yaw = math.atan2(dy, dx)
+        travel_q = self.euler_to_quaternion(travel_yaw)
+
+        # Check if the end point has a custom angle - check if list has a 3rd number
+        final_q = travel_q # Default end orientation equals travel orientation
+        if len(p2) >= 3:
+            custom_yaw = float(p2[2]) # Read the 3rd number from YAML
+            final_q = self.euler_to_quaternion(custom_yaw)
+
+        # Generate intermediate interpolation points - all using travel_q
+        for j in range(num):
+            t = j / float(num)
+            pose = PoseStamped()
+            pose.header.frame_id = self.frame_id
+            pose.pose.position.x = float(p1[0]) + dx * t
+            pose.pose.position.y = float(p1[1]) + dy * t
+            pose.pose.position.z = 0.0
+            pose.pose.orientation.x = travel_q[0]
+            pose.pose.orientation.y = travel_q[1]
+            pose.pose.orientation.z = travel_q[2]
+            pose.pose.orientation.w = travel_q[3]
+            points.append(pose)
+            
+        end_pose = PoseStamped()
+        end_pose.header.frame_id = self.frame_id
+        end_pose.pose.position.x = float(p2[0])
+        end_pose.pose.position.y = float(p2[1])
+        end_pose.pose.position.z = 0.0
+
+        # Apply final orientation
+        end_pose.pose.orientation.x = final_q[0]
+        end_pose.pose.orientation.y = final_q[1]
+        end_pose.pose.orientation.z = final_q[2]
+        end_pose.pose.orientation.w = final_q[3]
+        points.append(end_pose)
+        return points
+```
+
+Generate path points by linear interpolation. Calculate the distance and direction between two points, then generate intermediate interpolation points with a step size of 0.05 m. The intermediate points use the travel direction as the orientation. The end point uses a custom orientation if a yaw value is defined in the YAML file. A `PoseStamped` list is returned.
+
+**Reach Goal Callback**
+
+```py
+    def reach_callback(self, msg):
+        """Received /navigation_controller/reach_goal signal"""
+        if not msg.data:
+            # 1. First check if it was actively stopped due to red light
+            if self.waiting_for_light:
+                self.get_logger().info(">> Goal cancelled during red light wait; pausing recovery.")
+                self.is_moving = False  # Ensure status is marked as stopped
+                return  # Hand control over to check_traffic_light_loop
+
+            # Obstacle failure handling: call new breakpoint recovery function
+            self.get_logger().warn(">>> Goal failed/aborted; attempting [Breakpoint Recovery] ...")
+            self.is_moving = False 
+            self.resume_path_from_current_pose() # <--- Using new logic
+            return
+
+        current_time = self.get_clock().now().nanoseconds / 1e9
+        time_diff = current_time - self.debug_last_reach_time
+        
+        if time_diff < self.min_reach_interval:
+            return
+        
+        self.debug_last_reach_time = current_time
+        
+        if self.is_moving and self.active_goal_index is not None:
+            self.current_index = self.active_goal_index
+            self.get_logger().info(f">>> Reached segment end: Node {self.current_index}")
+            
+            # Final point check
+            if self.current_index == self.target_index:
+                self.get_logger().info("\033[1;32m=== Task Completed: Reached final target ===\033[0m")
+                self.is_moving = False
+                self.target_index = None
+                self.active_goal_index = None
+                self.publish_planned_path([]) 
+                finish_msg = Bool()
+                finish_msg.data = True
+                self.final_reach_pub.publish(finish_msg)
+            else:
+                self.get_logger().info("Segment finished, planning remaining path...")
+                # Arrived normally at intermediate point, continue to next segment
+                self.generate_new_path_sequence()
+```
+
+Process the reach-goal signal from the navigation controller. If `msg.data` is `False`, first check whether the stop was caused by a red light. If so, pause recovery. Otherwise, call the breakpoint recovery function `resume_path_from_current_pose`. If `msg.data` is `True`, check the time interval to prevent duplicate triggering, update the current index to the active goal index, and determine whether the final goal has been reached. If the final goal has been reached, publish the completion flag and clear the state. Otherwise, continue planning the next segment.
+
+**Publish Planned Path**
+
+```py
+    def publish_planned_path(self, path_indices):
+        """Publish logically planned path"""
+        marker = Marker()
+        marker.header.frame_id = self.frame_id
+        marker.ns = "active_path"
+        marker.id = 8888
+        marker.type = Marker.LINE_STRIP
+        marker.action = Marker.ADD if len(path_indices) > 1 else Marker.DELETE
+        marker.scale.x = 0.08 
+        marker.color.r = 1.0; marker.color.g = 0.0; marker.color.b = 0.0; marker.color.a = 1.0 
+
+        for idx in path_indices:
+            if idx in self.waypoints:
+                pt_data = self.waypoints[idx]
+                p = Point(x=float(pt_data[0]), y=float(pt_data[1]), z=0.05) 
+                marker.points.append(p)
+        
+        ma = MarkerArray()
+        ma.markers.append(marker)
+        self.marker_pub.publish(ma)
+```
+
+Publish the logical planned path visualization. Create a `LINE_STRIP` marker, draw the red line according to the list of path node indices, and publish the `MarkerArray`.
+
+**Publish Visualization**
+
+```py
+    def publish_visualization(self):
+        """
+        Draw global road network nodes and connections
+        1. Draw connections - LINE_LIST
+        2. Draw red solid circles - SPHERE_LIST
+        3. Draw node numbers - TEXT_VIEW_FACING
+        """
+        if not self.waypoints: return
+        marker_array = MarkerArray()
+
+        # Draw road network connections - Green Lines
+        edge_marker = Marker()
+        edge_marker.header.frame_id = self.frame_id
+        edge_marker.ns = "graph_edges"
+        edge_marker.id = 9999
+        edge_marker.type = Marker.LINE_LIST
+        edge_marker.action = Marker.ADD
+        edge_marker.scale.x = 0.05
+        edge_marker.color.r = 0.0 
+        edge_marker.color.g = 1.0 
+        edge_marker.color.b = 0.0 
+        edge_marker.color.a = 0.6
+        
+        for start_id, neighbors in self.adjacency_list.items():
+            start_pose = self.waypoints[start_id]
+            for end_id in neighbors:
+                if end_id in self.waypoints:
+                    end_pose = self.waypoints[end_id]
+                    p1 = Point(x=float(start_pose[0]), y=float(start_pose[1]), z=0.0)
+                    p2 = Point(x=float(end_pose[0]), y=float(end_pose[1]), z=0.0)
+                    edge_marker.points.append(p1)
+                    edge_marker.points.append(p2)
+        marker_array.markers.append(edge_marker)
+
+        # Draw numbers - Text & Fill sphere points 
+        for nid, pose_data in self.waypoints.items():
+
+            # === A. Create red flat disk - simulated with cylinder ===
+            disk_marker = Marker()
+            disk_marker.header.frame_id = self.frame_id
+            disk_marker.ns = "node_disks"  # Namespace
+            disk_marker.id = nid           
+            disk_marker.type = Marker.CYLINDER # Use cylinder
+            disk_marker.action = Marker.ADD
+            
+            # Set position
+            disk_marker.pose.position.x = float(pose_data[0])
+            disk_marker.pose.position.y = float(pose_data[1])
+            disk_marker.pose.position.z = 0.01 # Slightly off the ground to prevent overlap flickering
+            
+            # Set orientation - default vertical up is fine
+            disk_marker.pose.orientation.w = 1.0
+            
+            # Set size - squash the cylinder
+            disk_marker.scale.x = 0.10  # Diameter
+            disk_marker.scale.y = 0.10  # Diameter
+            disk_marker.scale.z = 0.01  
+            
+            # Set color - red
+            disk_marker.color.r = 1.0
+            disk_marker.color.g = 0.0
+            disk_marker.color.b = 0.0
+            disk_marker.color.a = 1.0
+
+            marker_array.markers.append(disk_marker)
+           
+           
+            # === B. Create text numbering ===
+            text_marker = Marker()
+            text_marker.header.frame_id = self.frame_id
+            text_marker.ns = "node_ids"
+            text_marker.id = nid
+            text_marker.type = Marker.TEXT_VIEW_FACING
+            text_marker.action = Marker.ADD
+            text_marker.text = str(nid)
+            text_marker.scale.z = 0.10 
+            text_marker.color.r = 1.0 
+            text_marker.color.g = 0.0 
+            text_marker.color.b = 0.0
+            text_marker.color.a = 1.0
+            text_marker.pose.position.x = float(pose_data[0])
+            text_marker.pose.position.y = float(pose_data[1])+0.1
+            text_marker.pose.position.z = 0.05
+            marker_array.markers.append(text_marker)
+
+        self.marker_pub.publish(marker_array)
+```
+
+Draw the road network connections with a green `LINE_LIST`.
+
+Draw the waypoint disks with red `CYLINDER` markers at each waypoint position.
+
+Draw the waypoint IDs with `TEXT_VIEW_FACING` above each waypoint.
+
+Finally, publish the complete `MarkerArray`.
+
+**Convert Euler Angle to Quaternion**
+
+```py
+    def euler_to_quaternion(self, yaw):
+        cy = math.cos(yaw * 0.5)
+        sy = math.sin(yaw * 0.5)
+        return [0.0, 0.0, sy, cy]
+```
+
+Convert the yaw angle to quaternion form and return a list in the form `[x, y, z, w]`.

@@ -1,4 +1,8 @@
-# 13 OpenClaw Practical Tutorial
+# 13. OpenClaw Applications
+
+[TOC]
+
+
 
 <p id ="anther13.1"></p>
 
@@ -11,11 +15,11 @@
 Before running the examples, move the OpenClaw resource files to the corresponding folder first.
 
 1. Use NoMachine to connect to the robot remotely and enter the system desktop.
-2. Drag `openclaw_resource.zip` from the OpenClaw resource folder to the desktop.
+2. Drag **openclaw_resource.zip** from the OpenClaw resource folder to the desktop.
 
 <img src="../_static/media/chapter_26/section_1/image31.png" class="common_img" style="width:900px;"/>
 
-3. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
+3. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 4. Enter the following command to extract the file to the corresponding path.
 
 ```bash
@@ -38,8 +42,8 @@ zsh deploy.sh
 
 <img src="../_static/media/chapter_26/section_1/image32.png" class="common_img" style="width:800px;"/>
 
-8. After the script finishes, the previous backups of `IDENTITY.md`, `MEMORY.md`, and `skills` are stored in the `backup.20260408_111805` folder. Enter `ls` to view them.
-9. Then enter the following command in the terminal to go to the workspace and compile the `openclaw_controller` package.
+8. After the script finishes, the previous backups of **IDENTITY.md**, **MEMORY.md**, and **skills** are stored in the **backup.20260408_111805** folder. Enter `ls` to view them.
+9. Then enter the following command in the terminal to go to the workspace and compile the **openclaw_controller** package.
 
 ```bash
 cd ~/ros2_ws/ && colcon build --event-handlers  console_direct+  --cmake-args  -DCMAKE_BUILD_TYPE=Release --symlink-install --packages-select openclaw_controller
@@ -55,123 +59,95 @@ source ~/.zshrc
 
 ## 13.2 Large Model API Key Setup
 
-When OpenClaw is used on the robot, the `agent model` in the agent must be configured first. This requires obtaining an API key for the large model and filling it in the corresponding configuration file.
+Before using OpenClaw on the robot, configure the model used by the agent first. This requires obtaining an API key for the large model and filling it in the corresponding configuration file. 
 
-OpenClaw supports multiple large models, including DeepSeek, MiniMax, OpenAI, Qwen, and Google. MiniMax is used below as the setup example. If a different large model is selected, obtain the corresponding API key online and configure it in the same way.
+OpenClaw supports multiple large AI models. If a different model is selected, obtain the corresponding API key online and add it to the configuration file.
 
-### 13.2.1 Obtaining and Configuring a MiniMax API Key
+### 13.2.1 Large Model API Key Setup
 
-* **Register an Account**
+> [!NOTE]
+>
+> **This section requires registering on the official OpenAI website and obtaining an API key for accessing large language models.**
 
-1. Open [MiniMax](https://www.minimaxi.com/), click **Log In** in the upper-right corner, and select the API open platform.
+#### 13.2.1.1 OpenAI Account Registration and Deployment
 
-<img src="../_static/media/chapter_26/section_1/image1.png" class="common_img" style="width:2000px;"/>
+1) Copy and open the following URL: https://platform.openai.com/docs/overview, then click the **Sign Up** button in the upper-right corner.
 
-2. Follow the prompts to enter **Phone Number** and **Verification Code**. Select the checkbox for **I have carefully read and agree to the User Agreement and Privacy Policy**, then click **Log In/Register**.
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image1.png"  />
 
-<img src="../_static/media/chapter_26/section_1/image2.png" class="common_img" style="width:2000px;"/>
+2) Register and log in using a Google, Microsoft, or Apple account, as prompted.
 
-3. After registration and login, click **Start Real-Name Verification** in the account information area.
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image2.png" style="width:600px" />
 
-<img src="../_static/media/chapter_26/section_1/image3.png" class="common_img" style="width:1000px;"/>
+3) After logging in, click the Settings button, then go to **Billing**, and click **Payment Methods** to add a payment method. The payment is used to purchase **tokens**.
 
-4. The verification options include **Personal Real-Name Verification** and **Enterprise Real-Name Verification**. Select the appropriate option according to actual needs.
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image3.png"  />
 
-<img src="../_static/media/chapter_26/section_1/image4.png" class="common_img" style="width:500px;"/>
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image4.png" style="width:700px" />
 
-5. This tutorial uses **Device Face Verification** under **Personal Real-Name Verification** as the example.
+4) After completing the preparation steps, click **API Keys** and create a new key. Follow the prompts to fill in the required information, then save the key for later use.
 
-<img src="../_static/media/chapter_26/section_1/image5.png" class="common_img" style="width:500px;"/>
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image5.png"  />
 
-6. After clicking **Device Face Verification**, enter **Name** and **ID Number** on the new page, then click **Next**.
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image6.png" style="width:700px" />
 
-<img src="../_static/media/chapter_26/section_1/image6.png" class="common_img" style="width:1200px;"/>
+<img class="common_img" src="../_static/media/chapter_22/section_2/media/image7.png" style="width:500px" />
 
-7. Scan the QR code with Alipay to complete verification.
+5) The creation and deployment of the large model have been completed, and this API will be used in the following sections.
 
-<img src="../_static/media/chapter_26/section_1/image7.png" class="common_img" style="width:600px;"/>
+### 13.2.2 API Configuration
 
-8. Complete the real-name verification as prompted.
-
-<img src="../_static/media/chapter_26/section_1/image8.png" class="common_img" style="width:1200px;"/>
-
-9. The latest MiniMax V2.7 version supports text, speech, video, and other modalities at the same time. MiniMax V2.7 or later is recommended. Click **Subscribe Token Plan** here.
-
-<img src="../_static/media/chapter_26/section_1/image9.png" class="common_img" style="width:1200px;"/>
-
-10. After the subscription page opens, select an appropriate subscription plan according to actual needs.
-
-<img src="../_static/media/chapter_26/section_1/image10.png" class="common_img" style="width:2000px;"/>
-
-### 13.2.2 API Key Retrieval and Setup
-
-1. After the subscription is completed, return to the page opened after login.
-
-<img src="../_static/media/chapter_26/section_1/image11.png" class="common_img" style="width:2000px;"/>
-
-2. Click **Token Plan** on the right side.
-
-<img src="../_static/media/chapter_26/section_1/image12.png" class="common_img" style="width:200px;"/>
-
-3. On this page, the generated **Token Plan Key** can be viewed. Click **Copy** to copy the key. If key exposure is a concern, reset the key regularly. The current model usage is shown below.
-
-<img src="../_static/media/chapter_26/section_1/image13.png" class="common_img" style="width:900px;"/>
-
-<img src="../_static/media/chapter_26/section_1/image14.png" class="common_img" style="width:900px;"/>
-
-4. Use NoMachine to connect to the robot, then click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the interface to open a terminal.
+1. Use NoMachine to connect to the robot, then click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the interface to open a terminal.
 
 <img src="../_static/media/chapter_26/section_1/image16.png" class="common_img" style="width:600px;"/>
 
-5. Enter the following command to configure OpenClaw.
+2. Enter the following command to configure OpenClaw.
 
 ```bash
 openclaw config
 ```
 
-6. Select **Local Run** and press **Enter**.
+3. Select **Local (this machine)** and press **Enter**.
 
 <img src="../_static/media/chapter_26/section_1/image17.png" class="common_img" style="width:800px;"/>
 
-7. The `model` item needs to be configured here. Select **model** and press **Enter**.
+4. The model item needs to be configured here. Select **Model** and press **Enter**.
 
 <img src="../_static/media/chapter_26/section_1/image18.png" class="common_img" style="width:800px;"/>
 
-8. Select **MiniMax** and press **Enter**.
+5. Select **OpenAI**, press **Enter**.
 
 <img src="../_static/media/chapter_26/section_1/image19.png" class="common_img" style="width:800px;"/>
 
-9. Select **MiniMax API key (CN)** and press **Enter**.
+6. Select **OpenAI API key** and press **Enter**.
 
-<img src="../_static/media/chapter_26/section_1/image20.png" class="common_img" style="width:800px;"/>
+   <img src="../_static/media/chapter_26/section_1/image20.png" class="common_img" style="width:800px;"/>
 
-10. Paste the copied key here.
+7. Paste the previously generated API key here.
 
 <img src="../_static/media/chapter_26/section_1/image21.png" class="common_img" style="width:800px;"/>
 
-11. Select **minimax/MiniMax-M2.7** and press **Enter**.
+8. Select **openai/gpt-5.4** or another suitable model, then press **Enter**.
 
-<img src="../_static/media/chapter_26/section_1/image22.png" class="common_img" style="width:800px;"/>
+   <img src="../_static/media/chapter_26/section_1/image22.png" class="common_img" style="width:800px;"/>
 
-12. The model configuration is now complete.
+9. This completes the model configuration.
 
 <img src="../_static/media/chapter_26/section_1/image23.png" class="common_img" style="width:800px;"/>
 
-<p id ="anther13.3"></p>
-
 <p id ="anther10.4.3"></p>
 
-## 13.4 OpenClaw Basic Applications
+## 13.3 OpenClaw Basic Applications
 
-### 13.4.1 OpenClaw Controls Robot Movement
+### 13.3.1 OpenClaw Controls Robot Movement
 
 After the program starts, robot movement can be controlled by entering text commands such as **Move forward for 1 second, move backward for 2 seconds, and finally turn right for 1 second.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control robot movement. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.4.1.1 Preparation
+#### 13.3.1.1 Preparation
 
 * **Preparation**
 
-Reference **[1 Tutorial Materials/11 AI Large Language Model Course/11.2 Multimodal Large Model Applications]()** to configure the Alibaba Cloud API key.
+Configure the large AI model API key.
 
 Reference Tutorial: [13.1 Preparation](#anther13.1)
 
@@ -179,7 +155,7 @@ Reference Tutorial: [13.1 Preparation](#anther13.1)
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-#### 13.4.1.2 Operation Steps
+#### 13.3.1.2 Operation Steps
 
 > [!NOTE]
 >
@@ -187,8 +163,8 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -214,7 +190,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to control robot movement: **Move forward for 1 second, then move backward for 2 seconds.**
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to control robot movement: **Move forward for 1 second, then move backward for 2 seconds.**
 
 <img src="../_static/media/chapter_26/section_1/image24.png" class="common_img" style="width:900px;"/>
 
@@ -224,32 +200,32 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.4.1.3 Program Outcome
+#### 13.3.1.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control forward movement, backward movement, left turns, right turns, and stop.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control forward movement, backward movement, left turns, right turns, and stop.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-#### 13.4.1.4 Program Analysis
+#### 13.3.1.4 Program Analysis
 
 Program path:
 
-`/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/robot_base_control/claw_move_control.py`
+**/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/robot_base_control/claw_move_control.py**
 
-1. This section initializes three parameters for linear velocity, angular velocity, and stop duration. It creates a chassis control node that receives string-based movement commands, places the commands into a queue, processes them in a background thread, publishes velocity control messages, and provides a service for querying the current movement state.
+1. Initializes three parameters for linear velocity, angular velocity, and stop duration. It creates a chassis control node that receives string-based movement commands, places the commands into a queue, and processes them in a background thread. Finally, publishes velocity control messages and provides a service for querying the current movement state.
 
 ```python
         self.default_linear = 0.15
@@ -360,11 +336,11 @@ Program path:
 
 ```
 
-### 13.4.2 OpenClaw Controls Robotic Arm Movement
+### 13.3.2 OpenClaw Controls Robotic Arm Movement
 
 After the program starts, the robotic arm can be controlled by entering text commands such as **Pull up a carrot** and **Hand it over**. OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control the robotic arm. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.4.2.1 Preparation
+#### 13.3.2.1 Preparation
 
 * **Preparation**
 
@@ -374,7 +350,7 @@ Reference Tutorial: [13.1 Preparation](#anther13.1)
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-#### 13.4.2.2 Operation Steps
+#### 13.3.2.2 Operation Steps
 
 > [!NOTE]
 >
@@ -382,8 +358,8 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -409,7 +385,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to control the robotic arm: **Pull up a carrot**.
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to control the robotic arm: **Pull up a carrot**.
 
 7. After a short wait, the robotic arm performs the carrot-pulling action, and a text reply is then generated in the TUI window.
 
@@ -417,32 +393,32 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.4.2.3 Program Outcome
+#### 13.3.2.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control the robotic arm for pulling up a carrot, handing over an object, raising the arm, and initializing the arm.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control the robotic arm for pulling up a carrot, handing over an object, raising the arm, and initializing the arm.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-#### 13.4.2.4 Program Analysis
+#### 13.3.2.4 Program Analysis
 
 Program path:
 
-`/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/robot_base_control/claw_arm_group_control.py`
+**/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/robot_base_control/claw_arm_group_control.py**
 
-1. This section initializes a robotic arm action group control node for receiving action group commands, controlling the servos to execute preset actions, providing a robotic arm state query service, and waiting for the initial pose service to become ready before startup.
+1. Initializes a robotic arm action group control node for receiving action group commands, controlling the servos to execute preset actions, providing a robotic arm state query service, and waiting for the initial pose service to become ready before startup.
 
 ```python
         self.controller = ActionGroupController(
@@ -478,7 +454,7 @@ Program path:
         return response
 ```
 
-3. This function receives the robotic arm action command, checks whether the arm is busy and whether the command is valid, and if execution is allowed, sets the arm state to running and starts a new thread to execute the action.
+3. This function receives the robotic arm action command, checks whether the arm is currently executing an action, and whether the command is valid. If execution is allowed, it sets the arm state to running and starts a new thread to execute the action.
 
 ```python
     def command_callback(self, msg):
@@ -503,7 +479,7 @@ Program path:
         threading.Thread(target=self.execute_action, args=(cmd,), daemon=True).start()
 ```
 
-4. This function executes the specified robotic arm action group command. After successful execution, it updates the state and prints a completion log. If execution fails, it records the error. The running flag is released at the end whether execution succeeds or fails.
+4. This function executes the specified robotic arm action group command. After successful execution, it updates the state and prints a completion log. If execution fails, it records the error. The running flag is released at the end, whether execution succeeds or fails.
 
 ```python
     def execute_action(self, cmd):
@@ -518,11 +494,11 @@ Program path:
                 self._is_executing = False
 ```
 
-### 13.4.3 OpenClaw Analyzes the Camera Feed
+### 13.3.3 OpenClaw Analyzes the Camera Feed
 
-After the program starts, text can be entered to let OpenClaw analyze the current camera feed and save the captured image locally. Examples include **Take a photo**, **Take a look**, and **What do you see**. OpenClaw matches the task to the skill description, then subscribes to the ROS2 camera image topic according to the command. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
+After the program starts, OpenClaw can recognize the current camera feed from text commands and save the captured image locally. For example, commands such as **Take a photo**, **Take a look**, and **What do you see?** can be entered. OpenClaw matches the input with the corresponding skills and skill descriptions, then subscribes to the ROS 2 camera image topic based on the command. After the task is executed, OpenClaw calls the configured large AI model through the agent to generate a text response.
 
-#### 13.4.3.1 Preparation
+#### 13.3.3.1 Preparation
 
 * **Preparation**
 
@@ -532,7 +508,7 @@ Reference Tutorial: [13.1 Preparation](#anther13.1)
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-#### 13.4.3.2 Operation Steps
+#### 13.3.3.2 Operation Steps
 
 > [!NOTE]
 >
@@ -540,8 +516,8 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -567,7 +543,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to start image analysis: **Take a photo, tell me what is in the scene, summarize it, and tell me where it was saved.**
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to start image analysis: **Take a photo, tell me what is in the scene, summarize it, and tell me where it was saved.**
 
 <img src="../_static/media/chapter_26/section_1/image29.png" class="common_img" style="width:900px;"/>
 
@@ -577,32 +553,32 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.4.3.3 Program Outcome
+#### 13.3.3.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page, and OpenClaw describes the current scene in text.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page, and OpenClaw describes the current scene in text.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-## 13.5 OpenClaw Comprehensive Applications
+## 13.4 OpenClaw Comprehensive Applications
 
-### 13.5.1 OpenClaw + 3D Object Color Grasping
+### 13.4.1 OpenClaw + 3D Object Color Grasping
 
 After the program starts, text can be entered to control the robot, such as **Pick up a red block and then put it down.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control the robotic arm for 3D object color grasping. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.5.1.1 Preparation
+#### 13.4.1.1 Preparation
 
 * **Preparation**
 
@@ -612,7 +588,7 @@ Reference Tutorial: [13.1 Preparation](#anther13.1)
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-#### 13.5.1.2 Operation Steps
+#### 13.4.1.2 Operation Steps
 
 > [!NOTE]
 >
@@ -620,10 +596,10 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 >
-> * **Adjust the color threshold in advance according to **[1 Tutorial Materials/6 ROS+OpenCV Course]()**.**
+> * Adjust the color threshold in advance according to **[1. Tutorials/6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html)**.
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -633,7 +609,7 @@ sudo systemctl stop start_app_node.service
 
 > [!NOTE]
 >
-> * **Because controller performance differs, `Raspberry Pi 5` or `Jetson Nano` uses 3D object color grasping. `Jetson Orin Nano` or `Jetson Orin NX` can use 3D object tracking and grasping. Select the appropriate command according to the controller type.**
+> * **Because the controller performance differs across hardware platforms, Raspberry Pi 5 and Jetson Nano use 3D color-based object grasping, while Jetson Orin Nano and Orin NX support 3D object tracking and grasping. Select the appropriate command based on the controller used by the robot.**
 > * **3D grasping is supported only on versions equipped with a depth camera.**
 
 ```bash
@@ -654,7 +630,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to control the robotic arm: **Pick up a red block and then put it down.**
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to control the robotic arm: **Pick up a red block and then put it down.**
 
 7. After a short wait, the robotic arm grasps and places the block, and a text reply is then generated in the TUI window.
 
@@ -662,28 +638,28 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.5.1.3 Program Outcome
+#### 13.4.1.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control the robotic arm for color-based grasping or depth-based grasping.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control the robotic arm for color-based grasping or depth-based grasping.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-<p id ="anther13.5.1.4"></p>
+<p id ="anther13.4.1.4"></p>
 
-#### 13.5.1.4 Step-by-Step Debugging
+#### 13.4.1.4 Step-by-Step Debugging
 
 > [!NOTE]
 >
@@ -731,11 +707,11 @@ ros2 service call /claw_track_and_grab/init_pose std_srvs/srv/Trigger "{}"
 ros2 service call /claw_track_and_grab/pick_status std_srvs/srv/Trigger "{}"
 ```
 
-#### 13.5.1.5 Program Analysis
+#### 13.4.1.5 Program Analysis
 
 Program path:
 
-`/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/claw_track_and_grab/claw_track_and_grab.py`
+**/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/claw_track_and_grab/claw_track_and_grab.py**
 
 1. This function is used for target tracking control. After the target center point is detected, it calculates the horizontal and vertical offsets between the target and the image center, then adjusts the pan-tilt `yaw` and `pitch` through PID control so the target gradually moves to the center of the image. A maximum step limit is also added to prevent the servos from moving too quickly or shaking.
 
@@ -930,11 +906,11 @@ Program path:
         self.moving = False
 ```
 
-### 13.5.2 OpenClaw + 3D Object Tracking and Grasping
+### 13.4.2 OpenClaw + 3D Object Tracking and Grasping
 
 After the program starts, text can be entered to control the robot, such as **Pick up a cube and then put it down.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control the robotic arm for 3D object tracking and grasping. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.5.2.1 Preparation
+#### 13.4.2.1 Preparation
 
 * **Preparation**
 
@@ -944,7 +920,7 @@ Reference Tutorial: [13.1 Preparation](#anther13.1)
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-#### 13.5.2.2 Operation Steps
+#### 13.4.2.2 Operation Steps
 
 > [!NOTE]
 >
@@ -952,10 +928,10 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 >
-> * **Adjust the color threshold in advance according to **[1 Tutorial Materials/6 ROS+OpenCV Course]()**.**
+> * Adjust the color threshold in advance according to **[1. Tutorials/6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html)**.
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -965,7 +941,7 @@ sudo systemctl stop start_app_node.service
 
 > [!NOTE]
 >
-> * **Because controller performance differs, `Raspberry Pi 5` or `Jetson Nano` uses 3D object color grasping. `Jetson Orin Nano` or `Jetson Orin NX` can use 3D object tracking and grasping. Select the appropriate command according to the controller type.**
+> * **Because the controller performance differs across hardware platforms, Raspberry Pi 5 and Jetson Nano use 3D color-based object grasping, while Jetson Orin Nano and Orin NX support 3D object tracking and grasping. Select the appropriate command based on the controller used by the robot.**
 > * **3D grasping is supported only on versions equipped with a depth camera.**
 
 ```bash
@@ -992,7 +968,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to control the robotic arm: **Pick up a cube and then put it down.**
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to control the robotic arm: **Pick up a cube and then put it down.**
 
 7. After a short wait, the robotic arm grasps and places the object, and a text reply is then generated in the TUI window.
 
@@ -1000,28 +976,28 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.5.2.3 Program Outcome
+#### 13.4.2.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control the robotic arm for color-based grasping or depth-based grasping.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control the robotic arm for color-based grasping or depth-based grasping.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-<p id ="anther13.5.2.4"></p>
+<p id ="anther13.4.2.4"></p>
 
-#### 13.5.2.4 Step-by-Step Debugging
+#### 13.4.2.4 Step-by-Step Debugging
 
 > [!NOTE]
 >
@@ -1064,11 +1040,11 @@ ros2 service call /claw_track_and_grab/init_pose std_srvs/srv/Trigger "{}"
 ros2 service call /claw_track_and_grab/pick_status std_srvs/srv/Trigger "{}"
 ```
 
-#### 13.5.2.5 Program Analysis
+#### 13.4.2.5 Program Analysis
 
 Program path:
 
-`/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/claw_object_track/claw_object_track.py`
+**/home/ubuntu/ros2_ws/src/openclaw_controller/openclaw_controller/claw_object_track/claw_object_track.py**
 
 1. This function is a mouse event callback used for interactively selecting and resetting the target tracking region. When the left mouse button is pressed, the drag start point is recorded. The rectangular selection is updated in real time during dragging. When the left mouse button is released, the selection is saved as the tracking window and converted to the target box format `x, y, w, h`. When the right mouse button is pressed, the current selection and tracking window are cleared, the existing tracker is stopped, and the system state is reset so a new target can be selected.
 
@@ -1167,7 +1143,7 @@ Program path:
             self.get_logger().error(f'Failed to parse box message: {e}')
 ```
 
-4. This function is the main runtime entry of the node. It first checks whether target tracking is enabled through `enable_tracking`. If tracking is enabled, CUDA and tracker-related modules are imported dynamically and the tracker classes are stored in the member variables for later initialization in the display thread. If tracking is disabled, the node runs only in display mode. The function then creates and starts the display thread. In the main thread, it continuously processes ROS callback events through `rclpy.spin_once()`. After the running flag is cleared or ROS exits, the function stops execution, waits for the display thread to finish, destroys the node, and closes the ROS environment.
+4. This function is the main entry point of the node. It first checks whether target tracking is enabled through `enable_tracking`. If tracking is enabled, CUDA and tracker-related modules are imported dynamically, and the tracker classes are stored in the member variables for later initialization in the display thread. If tracking is disabled, the node runs only in display mode. The function then creates and starts the display thread. In the main thread, it continuously processes ROS callback events through `rclpy.spin_once()`. After the running flag is cleared or ROS exits, the function stops execution, waits for the display thread to finish, destroys the node, and closes the ROS environment.
 
 ```python
     def spin(self):
@@ -1199,25 +1175,25 @@ Program path:
         rclpy.shutdown()
 ```
 
-### 13.5.3 OpenClaw + Smart Home Assistant
+### 13.4.3 OpenClaw + Smart Home Assistant
 
 After the program starts, text can be entered to control robot navigation, such as **Take me to the zoo, inspect what is there, and give me a summary.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control chassis navigation. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.5.3.1 Preparation
+#### 13.4.3.1 Preparation
 
 * **Preparation**
 
 Reference Tutorial: [13.1 Preparation](#anther13.1)
 
-Reference **[1 Tutorial Materials/5 Mapping and Navigation Course/5.1 Mapping Tutorial and 5.2 Navigation Tutorial]()** to build the map.
+Refer to tutorial **[1. Tutorials/5. Mapping & Navigation Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/5_Mapping_%26_Navigation_Course.html#mapping-navigation-course)** to build the map.
 
 * **Configure the Large Model API Key**
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-<p id ="anther13.5.3.2"></p>
+<p id ="anther13.4.3.2"></p>
 
-#### 13.5.3.2 Operation Steps
+#### 13.4.3.2 Operation Steps
 
 > [!NOTE]
 >
@@ -1225,14 +1201,14 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
 ```
 
-3. Enter the following command and press **Enter** to start the robot navigation function. RViz will also open.
+3. Enter the following command and press Enter to start the robot's hardware navigation. RViz will also launch.
 
 ```bash
 ros2 launch openclaw_controller navigation_manager.launch.py
@@ -1252,7 +1228,7 @@ openclaw gateway run
 openclaw tui
 ```
 
-6. In the TUI window or on the APP chat page, enter the following command and press **Enter** to start robot navigation: **Take me to the zoo, inspect what is there, and give me a summary.**
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to start robot navigation: **Take me to the zoo, see what animals are there, and put together a table introducing them for me.**
 
 7. After a short wait, the robot navigates to the target point and observes the scene ahead. A text reply is then generated in the TUI window.
 
@@ -1260,28 +1236,28 @@ openclaw tui
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-8. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-9. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue with other basic applications, follow the basic application tutorial and enter other control commands. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-10. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.5.3.3 Program Outcome
+#### 13.4.3.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control robot navigation.
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control robot navigation.
 
 > [!NOTE]
 >
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-#### 13.5.3.4 Navigation Point Modification
+#### 13.4.3.4 Navigation Point Modification
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to go to the corresponding path.
 
 ```bash
@@ -1298,27 +1274,27 @@ gedit navigation_position.yaml
 
 <img src="../_static/media/chapter_26/section_1/image58.png" class="common_img" style="width:800px;"/>
 
-5. After the modification is completed, click **Ctrl+S** to save and exit. Then follow [13.5.3.2 Operation Steps](#anther13.5.3.2) to run the feature again.
+5. After the modification is completed, click **Ctrl + S** to save and exit. Then follow [13.4.3.2 Operation Steps](#anther13.4.3.2) to run the feature again.
 
-### 13.5.4 OpenClaw + Smart Community
+### 13.4.4 OpenClaw + Smart Community
 
-After the program starts, text can be entered to control robot navigation, such as **Take the package from home to the delivery station, then go to the supermarket and bring the fruit basket back home.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control robot navigation. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
+After the program starts, text can be entered to control robot navigation, such as **Take the package from home to the parcel drop-off station, then go to the grocery store and bring the fruit basket back home.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control robot navigation. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
 
-#### 13.5.4.1 Preparation
+#### 13.4.4.1 Preparation
 
 * **Preparation**
 
 Reference Tutorial: [13.1 Preparation](#anther13.1)
 
-Reference **[1 Tutorial Materials/5 Mapping and Navigation Course/5.1 Mapping Tutorial and 5.2 Navigation Tutorial]()** to build the map and use road-network planning to prepare the navigation path points.
+Refer to tutorial **[1. Tutorials/5. Mapping & Navigation Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/5_Mapping_%26_Navigation_Course.html#mapping-navigation-course)** to build the map and use route planning to prepare the navigation path points.
 
 * **Configure the Large Model API Key**
 
 Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 
-<p id ="anther13.5.4.2"></p>
+<p id ="anther13.4.4.2"></p>
 
-#### 13.5.4.2 Operation Steps
+#### 13.4.4.2 Operation Steps
 
 > [!NOTE]
 >
@@ -1326,8 +1302,8 @@ Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
 >
 > * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
-2. Enter the following command to disable the mobile APP auto-start service.
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
 
 ```bash
 sudo systemctl stop start_app_node.service
@@ -1343,7 +1319,7 @@ ros2 launch openclaw_controller apriltag_control_node.launch.py
 
 > **Package Box Grasping Debugging**
 
-* First grasp the package box. Debugging mode -> calibrate and grasp the package box -> place the package box -> reset the robotic arm.
+* First, grasp the package box. Debugging mode -> calibrate and grasp the package box -> place the package box -> reset the robotic arm.
 
 1. Set the debug mode to package box.
 
@@ -1407,7 +1383,7 @@ ros2 service call /apriltag_control_node/debug_place_basket std_srvs/srv/Trigger
 ros2 service call /apriltag_control_node/init_pose std_srvs/srv/Trigger "{}"
 ```
 
-5. After debugging is completed, press **Ctrl+C** in the terminal that was just opened to stop debugging. Then enter the following command to start the integrated test. RViz and the camera feed will also open.
+5. After debugging is completed, press **Ctrl + C** in the terminal used for debugging to stop the debugging process. Then enter the following command to start the integrated test. RViz and the camera feed will also open.
 
 ```bash
 ros2 launch openclaw_controller smart_scene_navigation.launch.py  navigation_mode:="smart_community"
@@ -1427,44 +1403,44 @@ openclaw gateway run
 openclaw tui
 ```
 
-8. In the TUI window or on the APP chat page, enter the following command and press **Enter** to start robot navigation: **Take the package from home to the delivery station, then go to the supermarket and bring the fruit basket back home.**
+8. In the TUI window or on the app chat page, enter the following command and press **Enter** to start robot navigation: **Take the package from home to the parcel drop-off station, then go to the grocery store and bring the fruit basket back home.**
 
 > [!NOTE]
 >
-> **Before running the feature, enter **Which places can be reached now?** in the TUI window to confirm the IDs of the available navigation points. OpenClaw retains session memory. If a navigation point does not match its ID, enter **The program has been restarted. Which places can be reached now?** so OpenClaw reloads the YAML file.**
+> **Before running the feature, enter and send “Which places can you go to now?” in the TUI window to confirm the ID assigned to each currently reachable navigation point. Because OpenClaw retains memory, if a navigation point does not match its ID, enter and send “I have restarted the program. Which places can you go to now?” to make OpenClaw reload the YAML file.**
 
-9. After a short wait, the robotic arm completes the navigation and transport task, and a text reply is then generated in the TUI window.
+9. After a short wait, the robot carries out the navigation and transport task, and a text reply is then generated in the TUI window.
 
 <img src="../_static/media/chapter_26/section_1/image60.png" class="common_img" style="width:800px;"/>
 
 > [!NOTE]
 >
-> **Responses are generated automatically by the large model. Only semantic accuracy is guaranteed. The exact wording may vary.**
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
 
-10. When the output shown above appears in the TUI window, one round of interaction has finished. A new control command can then be entered to begin the next round.
-11. To continue experiencing other basic applications, keep entering other control commands according to the tutorial. To switch to comprehensive applications, press **Ctrl+C** in the last terminal opened in step 7 to stop robot hardware control. If the process does not exit, press **Ctrl+C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+10. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+11. To continue with other basic applications, follow the basic application tutorial and enter other control commands. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 7 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
 
 ```bash
 ~/.stop_ros.sh
 ```
 
-12. To close OpenClaw completely, press **Ctrl+C** in each terminal window.
+12. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
 
-#### 13.5.4.3 Program Outcome
+#### 13.4.4.3 Program Outcome
 
-After the feature starts, text commands can be entered freely in the TUI window or on the mobile APP chat page to control robot navigation.
-
-> [!NOTE]
->
-> **Actual performance varies across large models. Differences may appear in command execution, response latency, and the final result.**
-
-#### 13.5.4.4 Navigation Point Modification
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control robot navigation.
 
 > [!NOTE]
 >
-> **The modified navigation point IDs must be consistent with the ID numbers of the path points in road-network planning.**
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
 
-1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line.
+#### 13.4.4.4 Navigation Point Modification
+
+> [!NOTE]
+>
+> **The modified navigation point IDs must be consistent with the ID numbers of the path points in route planning.**
+
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
 2. Enter the following command to go to the corresponding path.
 
 ```bash
@@ -1481,13 +1457,13 @@ gedit smart_community.yaml
 
 <img src="../_static/media/chapter_26/section_1/image61.png" class="common_img" style="width:500px;"/>
 
-5. After the modification is completed, click **Ctrl+S** to save and exit. Then follow [13.5.4.2 Operation Steps](#anther13.5.4.2) to run the feature again.
+5. After the modification is completed, click **Ctrl + S** to save and exit. Then follow [13.4.4.2 Operation Steps](#anther13.4.4.2) to run the feature again.
 
-#### 13.5.4.5 Step-by-Step Debugging
+#### 13.4.4.5 Step-by-Step Debugging
 
 > [!NOTE]
 >
-> **If OpenClaw does not start successfully after a text command is entered in the TUI window, run the commands step by step to check where an error message appears.**
+> **If OpenClaw does not run successfully after a text command is entered in the TUI window, the commands can be tested step by step to check at which step an error message appears.**
 
 1. Start the feature:
 
@@ -1530,3 +1506,116 @@ ros2 service call /apriltag_control_node/clear_target std_srvs/srv/Trigger "{}"
 ```bash
 ros2 topic pub /request_waypoint std_msgs/msg/Int32 "data: 1" --once
 ```
+
+### 13.4.5 OpenClaw + Smart Factory
+
+After the program starts, text can be entered to control robot navigation, such as **Go to the raw material warehouse, pick up the red material, place it on the production line, and then return home.** OpenClaw matches the task to the skill description, then sends messages or service calls according to the command to control robot navigation. After the task is executed, OpenClaw invokes the configured large model through the agent to generate a text reply.
+
+#### 13.4.5.1 Preparation
+
+* **Preparation**
+
+Reference Tutorial: [13.1 Preparation](#anther13.1)
+
+Reference **[1. Tutorials/5. Mapping & Navigation Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/5_Mapping_%26_Navigation_Course.html#mapping-navigation-course)** to build the map and use route planning to prepare the navigation path points.
+
+* **Configure the Large Model API Key**
+
+Reference Tutorial: [13.2 Large Model API Key Setup](#anther13.2)
+
+<p id ="anther13.4.5.2"></p>
+
+#### 13.4.5.2 Operation Steps
+
+> [!NOTE]
+>
+> * **Command input is case-sensitive and space-sensitive.**
+>
+> * **The robot must be connected to the network. Use STA mode on a local network or AP mode for a direct connection through Ethernet.**
+>
+> * **Adjust the color threshold in advance according to [1. Tutorials/6. ROS+OpenCV Course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/6_ROS%2BOpenCV_Course.html).**
+>
+> * **Complete the debugging steps in [13.4.1.4 Step-by-Step Debugging](#anther13.4.1.4) successfully in advance.**
+
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to disable the app auto-start service.
+
+```bash
+sudo systemctl stop start_app_node.service
+```
+
+3. Enter the following command to start the integrated test. RViz and the camera feed will also open.
+
+```bash
+ros2 launch openclaw_controller smart_scene_navigation.launch.py  navigation_mode:="smart_factory"
+```
+
+<img src="../_static/media/chapter_26/section_1/image59.png" class="common_img" style="width:1000px;"/>
+
+4. Enter the following command and press **Enter** to start the OpenClaw service. If the service is already running, this step can be skipped.
+
+```bash
+openclaw gateway run
+```
+
+5. Open a new terminal, enter the following command, and press **Enter** to open the TUI window for command input.
+
+```bash
+openclaw tui
+```
+
+6. In the TUI window or on the app chat page, enter the following command and press **Enter** to start robot navigation: **Go to the raw material warehouse, pick up the red material, place it on the production line, and then return home.**
+
+> [!NOTE]
+>
+> **Before running the feature, enter and send “Which places can you go to now?” in the TUI window to confirm the ID assigned to each currently reachable navigation point. Because OpenClaw retains memory, if a navigation point does not match its ID, enter and send “I have restarted the program. Which places can you go to now?” to make OpenClaw reload the YAML file.**
+
+7. After a short wait, the robot carries out the navigation and transport task, and a text reply is then generated in the TUI window.
+
+<img src="../_static/media/chapter_26/section_1/image62.png" class="common_img" style="width:800px;"/>
+
+> [!NOTE]
+>
+> **Responses are generated automatically by the large model. Only the intended meaning is guaranteed. The exact wording may vary.**
+
+8. When the output shown above appears in the TUI window, one round of dialogue has been completed, and a new control command can be entered to start the next interaction.
+9. To continue with other basic applications, follow the basic application tutorial and enter other control commands. To switch to comprehensive applications, press **Ctrl + C** in the last terminal opened in step 5 to stop robot hardware control. If the process does not exit, press **Ctrl + C** several times. If it still cannot be closed, open a new terminal and enter the following command to clear the ROS nodes.
+
+```bash
+~/.stop_ros.sh
+```
+
+10. To close OpenClaw completely, press **Ctrl + C** in each terminal window.
+
+#### 13.4.5.3 Program Outcome
+
+After the feature starts, text commands can be entered freely in the TUI window or on the app chat page to control robot navigation.
+
+> [!NOTE]
+>
+> **Actual performance may vary depending on the large AI model used. Differences may appear in command execution time, response time, and the final execution result.**
+
+#### 13.4.5.4 Navigation Point Modification
+
+> [!NOTE]
+>
+> **The modified navigation point IDs must be consistent with the ID numbers of the path points in route planning.**
+
+1. Click the terminal icon <img src="../_static/media/chapter_26/section_1/image15.png" class="common_img" style="width:60px;"/> on the left side of the system interface to open the command line terminal.
+2. Enter the following command to go to the corresponding path.
+
+```bash
+cd ros2_ws/src/openclaw_controller/config
+```
+
+3. Enter the following command to edit the YAML file.
+
+```bash
+gedit smart_factory.yaml 
+```
+
+4. Only the ID of each coordinate point needs to be modified here.
+
+<img src="../_static/media/chapter_26/section_1/image63.png" class="common_img" style="width:600px;"/>
+
+5. After the modification is completed, click **Ctrl + S** to save and exit. Then follow [13.4.5.2 Operation Steps](#anther13.4.5.2) to run the feature again.
